@@ -1,0 +1,23 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": ["react-app", "prettier", "plugin:react-hooks/recommended"],
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-prettier",
+    "jsx-a11y",
+    "flowtype"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
