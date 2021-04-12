@@ -1,6 +1,14 @@
+/* tailwind base => basicamente es un reseteo de css asi todos los navegadores tienen los mismos styles para todas las etiquetas de html */
 @tailwind base;
+/* luego se añade los componente de tailwind, tailwind no lleva muchos componentes */
 @tailwind components;
+/* luego se agrega las clases de utilidad  */
 @tailwind utilities;
+
+/* 
+Tienen que ir en ese orden para que las clases de utilidad predominen sobre el reset y los componentes, de lo contrario
+los styles de tailwind base predominarán por encima de las clases de tailwind
+*/
 
 html,
 body,
@@ -119,7 +127,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
