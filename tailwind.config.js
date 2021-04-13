@@ -13,6 +13,9 @@ module.exports = {
       colors: {
         primary: '#181B32',
       },
+      borderRadius: {
+        circle: '50%',
+      },
     },
   },
   variants: { extend: {} },

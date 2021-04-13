@@ -1,0 +1,19 @@
+.divPrueba {
+  @apply bg-blue-500 w-full h-20;
+}
+
+.formRow {
+  @apply flex flex-col h-22 mb-3;
+}
+
+.formLabel {
+  @apply text-white font-semibold mb-1;
+}
+
+.formInput {
+  @apply border border-gray-800 bg-gray-700 box-border p-3 text-white rounded h-14  outline-none focus:border-purple-400;
+}
+
+.formBtn {
+  @apply bg-gray-400 font-bold rounded h-14 w-full px-5 mb-4 text-white;
+}

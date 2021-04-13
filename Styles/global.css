@@ -14,3 +14,7 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.container-login-register {
+  @apply bg-primary w-full h-full box-border px-4 flex flex-col justify-center items-center;
+}
