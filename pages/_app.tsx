@@ -1,12 +1,17 @@
 import type { AppProps } from 'next/app';
 
-import '../Styles/global.css';
+import Header from 'components/Header';
+
+import '../styles/global.css';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <div className=" w-screen h-screen flex flex-col">
+      <Header />
+      <div className="flex-1">
+        <Component {...pageProps} />
+      </div>
+    </div>
   );
 };
 

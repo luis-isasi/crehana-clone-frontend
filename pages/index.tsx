@@ -1,8 +1,8 @@
-const Index = () => {
+const Index: React.FC = () => {
   return (
-    <div>
-      <h1 className="text-gray-700 ">DESDE INDEX</h1>
-    </div>
+    <>
+      <div className="bg-green-400 w-full h-20 flex justify-around items-center"></div>
+    </>
   );
 };
 
