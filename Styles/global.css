@@ -11,6 +11,12 @@ Tienen que ir en ese orden para que las clases de utilidad predominen sobre el r
 los styles de tailwind base predominarán por encima de las clases de tailwind
 */
 
+@layer utilities {
+  .caret-color {
+    caret-color: red;
+  }
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }

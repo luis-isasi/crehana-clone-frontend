@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import BtnFacebook from 'components/BtnFacebook';
-import BtnGoogle from 'components/BtnGoogle';
+import BtnFacebook from 'components/buttons/BtnFacebook';
+import BtnGoogle from 'components/buttons/BtnGoogle';
 import FormUser from 'components/FormUser';
 
 const Register: React.FC = () => {
