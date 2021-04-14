@@ -18,6 +18,11 @@ module.exports = {
       },
     },
   },
-  variants: { extend: {} },
+  variants: {
+    extend: {
+      opacity: ['disabled'],
+      cursor: ['disabled'],
+    },
+  },
   plugins: [],
 };
