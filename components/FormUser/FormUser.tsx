@@ -62,11 +62,15 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
       value,
     });
 
-    //Validate input email
-    validateEmail(name, value);
+    if (name === 'email') {
+      //Validate input email
+      validateEmail(name, value);
+    }
 
-    //Validate input password
-    validatePassword(name, value);
+    if (name === 'password') {
+      //Validate input password
+      validatePassword(name, value);
+    }
   };
 
   const validateEmail = (name: string, value: string) => {
