@@ -1,8 +1,11 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useMutation } from 'react-query';
 
+import { PropsFormUser, InitialState, FormAction } from './types';
 import FormField from './components/FormField';
 import Btn from './components/Btn';
-import { PropsFormUser, InitialState, FormAction } from './types';
+import { useUser } from 'context/contextUser';
 
 const initialState: InitialState = {
   email: '',
@@ -42,15 +45,53 @@ const formReducer = (state: InitialState, action: FormAction) => {
   }
 };
 
-const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
+const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const { setDataUserLocalStorage } = useUser();
+  const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const loginMutation = useMutation(fetcher(state.email, state.password), {
+    onError: () => {
+      dispatch({
+        type: 'SET_STATE_FORM',
+        newState: 'ERROR',
+      });
+    },
+    onSuccess: () => {
+      dispatch({
+        type: 'SET_STATE_FORM',
+        newState: 'COMPLETED',
+      });
+    },
+  });
+
+  const { data, isLoading, isError } = loginMutation;
+  console.log({ data });
+  console.log({ isLoading });
+  console.log({ isError });
+
+  useEffect(() => {
+    if (data && !isError) {
+      const userData = {
+        token: data.token,
+        email: data.user.email,
+        firstname: data.user.firstname,
+        lastname: data.user.lastaname,
+        username: data.user.username,
+      };
+      setDataUserLocalStorage(userData);
+      router.push('/home');
+    }
+  }, [data]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({
       type: 'SET_STATE_FORM',
       newState: 'LOADING',
     });
+
+    loginMutation.mutate();
   };
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -132,9 +173,9 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
       state.password
     ) {
       return false;
-    } else {
-      return true;
-    }
+    } else if (isLoading) {
+      return false;
+    } else return true;
   };
 
   return (
@@ -146,7 +187,6 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
         onChange={handleChangeInput}
         errorMessage={state.errors.email}
       />
-
       <FormField
         name="password"
         textLabel="Contraseña"

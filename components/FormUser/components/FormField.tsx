@@ -48,7 +48,6 @@ const FormField: React.FC<PropsFormField> = ({
       <label className="text-white font-semibold mb-1">{textLabel}</label>
       <input
         ref={inputRef}
-        autoComplete="off"
         name={name}
         type={name}
         value={value}

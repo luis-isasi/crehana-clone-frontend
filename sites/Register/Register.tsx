@@ -2,8 +2,10 @@ import Link from 'next/link';
 import BtnFacebook from 'components/buttons/BtnFacebook';
 import BtnGoogle from 'components/buttons/BtnGoogle';
 import FormUser from 'components/FormUser';
+import { useUser } from 'context/contextUser';
 
 const Register: React.FC = () => {
+  const { registerUser } = useUser();
   return (
     <div className="container-login-register">
       <p className="text-white font-extrabold text-4xl mb-1">Únete hoy</p>
@@ -13,7 +15,7 @@ const Register: React.FC = () => {
       <div className="min-w-0 w-full max-w-xs">
         <BtnFacebook typeBtn="register" />
         <BtnGoogle typeBtn="register" />
-        <FormUser typeForm="register" />
+        <FormUser typeForm="register" fetcher={registerUser} />
       </div>
       <div className="flex items-center text-white mt-5">
         <input type="checkbox" className="mx-2" />
