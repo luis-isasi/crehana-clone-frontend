@@ -3,11 +3,10 @@ import { useRouter } from 'next/router';
 
 import Categories from './components/Categories';
 import Search from './components/Search';
-import LinkToBussines from './components/buttons/LinkToBussines';
+import LinkToBusiness from './components/buttons/LinkToBusiness';
 import LinkToLogin from './components/buttons/LinkToLogin';
 import LinkToPremium from './components/buttons/LinkToPremium';
 import LinkToRegister from './components/buttons/LinkToRegister';
-import { route } from 'next/dist/next-server/server/router';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -16,7 +15,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-primary text-white font-semibold shadow-lg h-18 ">
-      <div className="bg-primary box-border sm:bg-red-500 md:bg-yellow-500 lg:bg-primary lg:px-16 xl:bg-primary xl:px-0 container h-full mx-auto lg:max-w-screen-xl flex items-center ">
+      <div className="bg-primary box-border sm:bg-red-500 md:bg-yellow-500 lg:bg-primary lg:px-16 xl:bg-primary xl:px-6 container h-full mx-auto lg:max-w-screen-xl flex items-center ">
         <div className="flex items-center">
           <Link href="/">
             <a>
@@ -36,9 +35,9 @@ const Header: React.FC = () => {
           <>
             <Search />
             <div className="flex items-center text-sm ">
-              <LinkToBussines />
+              <LinkToBusiness />
               <LinkToPremium />
-              <div className="border-l border-gray-600 h-9 mx-4"></div>
+              <div className="border-l border-gray-600 h-9 mx-3"></div>
               <LinkToLogin />
               <LinkToRegister />
             </div>
