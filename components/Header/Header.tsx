@@ -7,11 +7,19 @@ import LinkToBusiness from './components/buttons/LinkToBusiness';
 import LinkToLogin from './components/buttons/LinkToLogin';
 import LinkToPremium from './components/buttons/LinkToPremium';
 import LinkToRegister from './components/buttons/LinkToRegister';
+import MyCourses from './components/MyCourses';
+import Avatar from './components/Avatar';
+import DesiredCourses from './components/DesiredCourses';
+import ShoppingCar from './components/ShoppingCar';
+import Community from './components/Community';
+
+import { useUser } from 'context/contextUser';
 
 const Header: React.FC = () => {
   const router = useRouter();
+  const { user } = useUser();
 
-  console.log(router.pathname);
+  console.log({ user });
 
   return (
     <header className="bg-primary text-white font-semibold shadow-lg h-18 ">
@@ -34,6 +42,7 @@ const Header: React.FC = () => {
         {router.pathname === ('/login' || '/register') ? null : (
           <>
             <Search />
+            <Community />
             <div className="flex items-center text-sm ">
               <LinkToBusiness />
               <LinkToPremium />

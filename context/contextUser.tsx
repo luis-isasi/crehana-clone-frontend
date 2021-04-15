@@ -21,9 +21,7 @@ interface TypeContextUser {
 const ContextUser = createContext<TypeContextUser | undefined>(undefined);
 
 export const ContextUserProvider = ({ children }) => {
-  const [user, setUser] = useState<User | undefined>(undefined);
-
-  console.log({ user });
+  const [user, setUser] = useState<undefined | null | User>(undefined);
 
   useEffect(() => {
     const dataUser = JSON.parse(localStorage.getItem(USER_SESSION_KEY));
@@ -35,6 +33,8 @@ export const ContextUserProvider = ({ children }) => {
         lastname: dataUser.lastaname,
         username: dataUser.username,
       });
+    } else {
+      setUser(null);
     }
   }, []);
 
@@ -47,20 +47,20 @@ export const ContextUserProvider = ({ children }) => {
     return Axios.post('/auth/login-user/', {
       email: email,
       password: password,
-    });
-    // .then((data) => {
-    //   console.log('ENTRANDO AL THEN Y DEVOLVIENDO LA DATA');
+    })
+      .then((data) => {
+        console.log('ENTRANDO AL THEN Y DEVOLVIENDO LA DATA');
 
-    //   console.log({ data });
+        console.log({ data });
 
-    //   return data.data.data;
-    // })
-    // .catch((error) => {
-    //   console.log('ENTRANDO AL CATCH Y DEVOLVIENDO EL ERROR');
-    //   console.log({ error });
+        return data.data.data;
+      })
+      .catch((error) => {
+        console.log('ENTRANDO AL CATCH Y DEVOLVIENDO EL ERROR');
+        console.log({ error });
 
-    //   return error.response;
-    // });
+        return error.response;
+      });
   };
 
   const registerUser = (email: string, password: string) => {
