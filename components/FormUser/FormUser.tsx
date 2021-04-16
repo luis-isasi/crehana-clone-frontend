@@ -65,10 +65,10 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
     },
   });
 
-  const { data, isLoading, isError } = loginMutation;
-  // console.log({ data });
-  // console.log({ isLoading });
-  // console.log({ isError });
+  const { data, isLoading, isError, error } = loginMutation;
+  console.log({ data });
+  console.log({ isLoading });
+  console.log({ error });
 
   useEffect(() => {
     if (data && !isError) {
@@ -85,6 +85,8 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
   }, [data]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('EJECUTANDO EL HANDLESUBMIT');
+
     e.preventDefault();
     dispatch({
       type: 'SET_STATE_FORM',

@@ -6,6 +6,7 @@ import { useUser } from 'context/contextUser';
 
 const Register: React.FC = () => {
   const { registerUser } = useUser();
+
   return (
     <div className="container-login-register">
       <p className="text-white font-extrabold text-4xl mb-1">Únete hoy</p>

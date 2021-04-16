@@ -47,27 +47,16 @@ export const ContextUserProvider = ({ children }) => {
     return Axios.post('/auth/login-user/', {
       email: email,
       password: password,
-    })
-      .then((data) => {
-        console.log('ENTRANDO AL THEN Y DEVOLVIENDO LA DATA');
-
-        console.log({ data });
-
-        return data.data.data;
-      })
-      .catch((error) => {
-        console.log('ENTRANDO AL CATCH Y DEVOLVIENDO EL ERROR');
-        console.log({ error });
-
-        return error.response;
-      });
+    }).then((data) => {
+      return data.data.data;
+    });
   };
 
-  const registerUser = (email: string, password: string) => {
+  const registerUser = (email: string, password: string) => () => {
     return Axios.post('/auth/create-account/', {
       email: email,
       password: password,
-    });
+    }).then((data) => data);
   };
 
   return (
