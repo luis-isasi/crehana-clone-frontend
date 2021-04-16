@@ -66,9 +66,6 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
   });
 
   const { data, isLoading, isError, error } = loginMutation;
-  console.log({ data });
-  console.log({ isLoading });
-  console.log({ error });
 
   useEffect(() => {
     if (data && !isError) {

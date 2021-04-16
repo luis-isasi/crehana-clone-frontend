@@ -32,14 +32,16 @@ const Header: React.FC = () => {
               </h1>
             </a>
           </Link>
-          {router.pathname === ('/login' || '/register') ? null : (
+          {router.pathname === '/login' ||
+          router.pathname === '/register' ? null : (
             <>
               <Categories />
               <div className="border-l border-gray-600 h-9"></div>
             </>
           )}
         </div>
-        {router.pathname === ('/login' || '/register') ? null : (
+        {router.pathname === '/login' ||
+        router.pathname === '/register' ? null : (
           <>
             <Search />
             {user && <Community />}
