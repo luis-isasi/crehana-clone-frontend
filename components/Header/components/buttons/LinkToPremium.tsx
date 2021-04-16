@@ -3,7 +3,9 @@ import Link from 'next/link';
 const LinkToPremium = () => {
   return (
     <Link href="/premium">
-      <a className=" px-5 min-w-max hover:opacity-80">Vuélvete Premium</a>
+      <a className="mx-3 lg:mx-1 xl:mx-3 p-2 min-w-max hover:opacity-80">
+        Vuélvete Premium
+      </a>
     </Link>
   );
 };

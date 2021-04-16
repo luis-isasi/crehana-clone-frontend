@@ -2,7 +2,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const BtnDesiredCourses = () => {
   return (
-    <button>
+    <button className="mx-5 lg:mx-3  xl:mx-5">
       <FavoriteBorderIcon />
     </button>
   );

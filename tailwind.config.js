@@ -16,6 +16,10 @@ module.exports = {
       borderRadius: {
         circle: '50%',
       },
+      maxWidth: {
+        '8xl': '85rem',
+        '9xl': '90rem',
+      },
     },
   },
   variants: {

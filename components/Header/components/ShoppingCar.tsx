@@ -2,7 +2,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const ShoppingCar = () => {
   return (
-    <button>
+    <button className="mx-5 lg:mx-3  xl:mx-5">
       <ShoppingCartOutlinedIcon />
     </button>
   );
