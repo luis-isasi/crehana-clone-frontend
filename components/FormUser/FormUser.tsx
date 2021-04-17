@@ -45,7 +45,11 @@ const formReducer = (state: InitialState, action: FormAction) => {
   }
 };
 
-const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
+const FormUser: React.FC<PropsFormUser> = ({
+  typeForm,
+  fetcher,
+  isChecked,
+}) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { setDataUserLocalStorage } = useUser();
   const router = useRouter();
@@ -164,16 +168,22 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm, fetcher }) => {
   };
 
   const isDisabled = () => {
+    //el prop isChecked a veces puede ser undefined, en ese momento no nos interesa evaluarlo
+    //cuando lleva un valor booleano debemos verificar que sea true para poder habilitar el button
+    //entonces si es undefined  o si es true habilitamos el button submit
     if (
       !state.errors.email &&
       !state.errors.password &&
       !state.errors.error &&
       state.email &&
-      state.password
+      state.password &&
+      !isLoading
     ) {
-      return false;
-    } else if (isLoading) {
-      return false;
+      if (isChecked === undefined || isChecked === true) {
+        return false;
+      }
+
+      return true;
     } else return true;
   };
 

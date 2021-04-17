@@ -26,6 +26,9 @@ module.exports = {
     extend: {
       opacity: ['disabled'],
       cursor: ['disabled'],
+      backgroundColor: ['disabled', 'active', 'checked'],
+      borderRadius: ['disabled', 'active', 'checked'],
+      borderColor: ['checked'],
     },
   },
   plugins: [],
