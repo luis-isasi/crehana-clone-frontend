@@ -47,16 +47,14 @@ export const ContextUserProvider = ({ children }) => {
     return Axios.post('/auth/login-user/', {
       email: email,
       password: password,
-    }).then((data) => {
-      return data.data.data;
-    });
+    }).then((data) => data.data.data);
   };
 
   const registerUser = (email: string, password: string) => () => {
     return Axios.post('/auth/create-account/', {
       email: email,
       password: password,
-    }).then((data) => data);
+    }).then((data) => data.data.data);
   };
 
   return (
