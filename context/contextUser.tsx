@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-import Axios from 'axiosConfig';
 import { USER_SESSION_KEY } from 'Contants';
+import useFetch from 'hooks/useFetch';
 
 interface User {
   token: string;
@@ -43,18 +43,14 @@ export const ContextUserProvider = ({ children }) => {
     setUser(dataUser);
   };
 
+  const fetch = useFetch();
+
   const loginUser = (email: string, password: string) => () => {
-    return Axios.post('/auth/login-user/', {
-      email: email,
-      password: password,
-    }).then((data) => data.data.data);
+    return fetch('/auth/login-user/', 'POST', { email, password });
   };
 
   const registerUser = (email: string, password: string) => () => {
-    return Axios.post('/auth/create-account/', {
-      email: email,
-      password: password,
-    }).then((data) => data.data.data);
+    return fetch('/auth/create-account/', 'POST', { email, password });
   };
 
   return (

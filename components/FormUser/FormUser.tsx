@@ -69,16 +69,18 @@ const FormUser: React.FC<PropsFormUser> = ({
     },
   });
 
-  const { data, isLoading, isError, error } = loginMutation;
+  const { data, isLoading, isError } = loginMutation;
 
   useEffect(() => {
     if (data && !isError) {
+      const { data: _data } = data;
+
       const userData = {
-        token: data.token,
-        email: data.user.email,
-        firstname: data.user.firstname,
-        lastname: data.user.lastaname,
-        username: data.user.username,
+        token: _data.token,
+        email: _data.user.email,
+        firstname: _data.user.firstname,
+        lastname: _data.user.lastaname,
+        username: _data.user.username,
       };
       setDataUserLocalStorage(userData);
       router.push('/home');
@@ -86,8 +88,6 @@ const FormUser: React.FC<PropsFormUser> = ({
   }, [data]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('EJECUTANDO EL HANDLESUBMIT');
-
     e.preventDefault();
     dispatch({
       type: 'SET_STATE_FORM',
