@@ -54,7 +54,7 @@ const FormUser: React.FC<PropsFormUser> = ({
   const { setDataUserLocalStorage } = useUser();
   const router = useRouter();
 
-  const { data, isLoading, isError, error, status, mutate } = useMutation(
+  const { data, isLoading, isError, error, mutate } = useMutation(
     typeForm,
     fetcher(state.email, state.password),
     {
