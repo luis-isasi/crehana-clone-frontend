@@ -45,12 +45,34 @@ export const ContextUserProvider = ({ children }) => {
 
   const fetch = useFetch();
 
-  const loginUser = (email: string, password: string) => () => {
-    return fetch('/auth/login-user/', 'POST', { email, password });
+  const loginUser = (email: string, password: string) => async () => {
+    let response: Response = await fetch('/auth/login-user/', 'POST', {
+      email,
+      password,
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.data.error);
+    }
+
+    return data;
   };
 
-  const registerUser = (email: string, password: string) => () => {
-    return fetch('/auth/create-account/', 'POST', { email, password });
+  const registerUser = (email: string, password: string) => async () => {
+    let response: Response = await fetch('/auth/create-account/', 'POST', {
+      email,
+      password,
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.data.error);
+    }
+
+    return data;
   };
 
   return (

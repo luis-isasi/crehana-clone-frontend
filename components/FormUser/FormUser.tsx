@@ -54,26 +54,28 @@ const FormUser: React.FC<PropsFormUser> = ({
   const { setDataUserLocalStorage } = useUser();
   const router = useRouter();
 
-  const loginMutation = useMutation(fetcher(state.email, state.password), {
-    onError: () => {
-      dispatch({
-        type: 'SET_STATE_FORM',
-        newState: 'ERROR',
-      });
-    },
-    onSuccess: () => {
-      dispatch({
-        type: 'SET_STATE_FORM',
-        newState: 'COMPLETED',
-      });
-    },
-  });
-
-  const { data, isLoading, isError } = loginMutation;
+  const { data, isLoading, isError, error, status, mutate } = useMutation(
+    typeForm,
+    fetcher(state.email, state.password),
+    {
+      onError: () => {
+        dispatch({
+          type: 'SET_STATE_FORM',
+          newState: 'ERROR',
+        });
+      },
+      onSuccess: () => {
+        dispatch({
+          type: 'SET_STATE_FORM',
+          newState: 'COMPLETED',
+        });
+      },
+    }
+  );
 
   useEffect(() => {
     if (data && !isError) {
-      const { data: _data } = data;
+      let { data: _data } = data;
 
       const userData = {
         token: _data.token,
@@ -87,6 +89,16 @@ const FormUser: React.FC<PropsFormUser> = ({
     }
   }, [data]);
 
+  useEffect(() => {
+    if (error) {
+      dispatch({
+        type: 'SET_ERROR',
+        nameError: 'error',
+        message: error.message as string,
+      });
+    }
+  }, [error]);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({
@@ -94,7 +106,7 @@ const FormUser: React.FC<PropsFormUser> = ({
       newState: 'LOADING',
     });
 
-    loginMutation.mutate();
+    mutate();
   };
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,6 +117,13 @@ const FormUser: React.FC<PropsFormUser> = ({
       name,
       value,
     });
+
+    if (state.errors.error) {
+      dispatch({
+        type: 'CLEAN_ERROR',
+        nameError: 'error',
+      });
+    }
 
     if (name === 'email') {
       //Validate input email
@@ -203,6 +222,11 @@ const FormUser: React.FC<PropsFormUser> = ({
         onChange={handleChangeInput}
         errorMessage={state.errors.password}
       />
+      {state.errors.error ? (
+        <span className="text-red-500 text-center font-semibold text-xs my-3">
+          {state.errors.error}
+        </span>
+      ) : null}
       <Btn stateForm={state.stateForm} isDisabled={isDisabled} />
     </form>
   );

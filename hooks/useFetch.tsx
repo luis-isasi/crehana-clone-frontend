@@ -3,7 +3,10 @@ const useFetch = () => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`, {
       method: method,
       body: JSON.stringify(data),
-    }).then((data) => data.json());
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 };
 
 export default useFetch;
