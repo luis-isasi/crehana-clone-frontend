@@ -21,53 +21,51 @@ const Header: React.FC = () => {
   const { user } = useUser();
 
   return (
-    <header className="bg-primary text-white font-semibold shadow-lg h-18 ">
-      <div className="bg-primary box-border sm:bg-red-500 md:bg-yellow-500 lg:bg-primary lg:px-16 xl:bg-primary xl:px-6 container h-full mx-auto lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
-        <div className="flex items-center">
-          <Link href="/">
-            <a>
-              <h1 className="font-bold text-3xl hover:cursor-pointer ">
-                crehana
-              </h1>
-            </a>
-          </Link>
-          {router.pathname === '/login' ||
-          router.pathname === '/register' ? null : (
-            <>
-              <Categories />
-              <div className="border-l border-gray-600 h-9"></div>
-            </>
-          )}
-        </div>
+    <div className="container h-full mx-auto bg-primary box-border lg:bg-primary lg:px-16 xl:bg-primary xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
+      <div className="flex items-center">
+        <Link href="/">
+          <a>
+            <h1 className="font-bold text-3xl hover:cursor-pointer ">
+              crehana
+            </h1>
+          </a>
+        </Link>
         {router.pathname === '/login' ||
         router.pathname === '/register' ? null : (
           <>
-            <Search />
-            {user && <Community />}
-            <div className="flex items-center text-sm ">
-              <LinkToBusiness />
-              <LinkToPremium />
-              <div className="border-l border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3"></div>
-              {user !== undefined &&
-                (user === null ? (
-                  <>
-                    <LinkToLogin />
-                    <LinkToRegister />
-                  </>
-                ) : (
-                  <>
-                    <MyCourses />
-                    <DesiredCourses />
-                    <ShoppingCar />
-                    <Notification />
-                    <Avatar />
-                  </>
-                ))}
-            </div>
+            <Categories />
+            <div className="border-l border-gray-600 h-9"></div>
           </>
         )}
       </div>
-    </header>
+      {router.pathname === '/login' ||
+      router.pathname === '/register' ? null : (
+        <>
+          <Search />
+          {user && <Community />}
+          <div className="flex items-center text-sm ">
+            <LinkToBusiness />
+            <LinkToPremium />
+            <div className="border-l border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3"></div>
+            {user !== undefined &&
+              (user === null ? (
+                <>
+                  <LinkToLogin />
+                  <LinkToRegister />
+                </>
+              ) : (
+                <div>
+                  <MyCourses />
+                  <DesiredCourses />
+                  <ShoppingCar />
+                  <Notification />
+                  <Avatar />
+                </div>
+              ))}
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

@@ -1,15 +1,41 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import { useUser } from 'context/contextUser';
+import Search from './components/Search';
+import MainIcon from './components/MainIcon';
 
 const HeaderMovil = () => {
   const router = useRouter();
   const { user } = useUser();
 
+  //sm:bg-red-500 md:bg-yellow-500
   return (
-    <header className="bg-primary text-white font-semibold shadow-lg h-18 ">
-      <div className="bg-primary box-border sm:bg-red-500 md:bg-yellow-500 lg:bg-primary lg:px-16 xl:bg-primary xl:px-6 container h-full mx-auto lg:max-w-screen-xl 2xl:max-w-9xl flex items-center "></div>
-    </header>
+    <div className="w-full h-full mx-auto bg-primary box-border px-5 flex items-center justify-between md:px-10">
+      <div className="bg-transparent flex items-center w-18 min-h-0">
+        {router.pathname === '/login' ||
+        router.pathname === '/register' ? null : (
+          <>
+            <MainIcon />
+            <Search />
+          </>
+        )}
+      </div>
+      <Link href="/">
+        <a>
+          <h1
+            className={`font-bold ${
+              router.pathname === '/login' || router.pathname === '/register'
+                ? 'text-4xl'
+                : 'text-3xl'
+            } hover:cursor-pointer`}
+          >
+            crehana
+          </h1>
+        </a>
+      </Link>
+      <div className="bg-transparent w-18"></div>
+    </div>
   );
 };
 
