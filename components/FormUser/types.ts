@@ -1,8 +1,15 @@
 export interface PropsFormUser {
   typeForm: 'login' | 'register';
+  fetcher: (email: string, password: string) => void;
+  isChecked?: boolean;
 }
 
-export type StateForm = 'INITIAL' | 'READYFORSUBMIT' | 'LOADING' | 'COMPLETED';
+export type StateForm =
+  | 'INITIAL'
+  | 'READYFORSUBMIT'
+  | 'LOADING'
+  | 'ERROR'
+  | 'COMPLETED';
 
 export interface InitialState {
   email: string;

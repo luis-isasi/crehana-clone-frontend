@@ -1,8 +1,11 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useMutation } from 'react-query';
 
+import { PropsFormUser, InitialState, FormAction } from './types';
 import FormField from './components/FormField';
 import Btn from './components/Btn';
-import { PropsFormUser, InitialState, FormAction } from './types';
+import { useUser } from 'context/contextUser';
 
 const initialState: InitialState = {
   email: '',
@@ -42,15 +45,68 @@ const formReducer = (state: InitialState, action: FormAction) => {
   }
 };
 
-const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
+const FormUser: React.FC<PropsFormUser> = ({
+  typeForm,
+  fetcher,
+  isChecked,
+}) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const { setDataUserLocalStorage } = useUser();
+  const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const { data, isLoading, isError, error, mutate } = useMutation(
+    typeForm,
+    fetcher(state.email, state.password),
+    {
+      onError: () => {
+        dispatch({
+          type: 'SET_STATE_FORM',
+          newState: 'ERROR',
+        });
+      },
+      onSuccess: () => {
+        dispatch({
+          type: 'SET_STATE_FORM',
+          newState: 'COMPLETED',
+        });
+      },
+    }
+  );
+
+  useEffect(() => {
+    if (data && !isError) {
+      let { data: _data } = data;
+
+      const userData = {
+        token: _data.token,
+        email: _data.user.email,
+        firstname: _data.user.firstname,
+        lastname: _data.user.lastaname,
+        username: _data.user.username,
+      };
+      setDataUserLocalStorage(userData);
+      router.push('/home');
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      dispatch({
+        type: 'SET_ERROR',
+        nameError: 'error',
+        message: error.message as string,
+      });
+    }
+  }, [error]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({
       type: 'SET_STATE_FORM',
       newState: 'LOADING',
     });
+
+    mutate();
   };
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,11 +118,22 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
       value,
     });
 
-    //Validate input email
-    validateEmail(name, value);
+    if (state.errors.error) {
+      dispatch({
+        type: 'CLEAN_ERROR',
+        nameError: 'error',
+      });
+    }
 
-    //Validate input password
-    validatePassword(name, value);
+    if (name === 'email') {
+      //Validate input email
+      validateEmail(name, value);
+    }
+
+    if (name === 'password') {
+      //Validate input password
+      validatePassword(name, value);
+    }
   };
 
   const validateEmail = (name: string, value: string) => {
@@ -120,17 +187,23 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
   };
 
   const isDisabled = () => {
+    //el prop isChecked a veces puede ser undefined, en ese momento no nos interesa evaluarlo
+    //cuando lleva un valor booleano debemos verificar que sea true para poder habilitar el button
+    //entonces si es undefined  o si es true habilitamos el button submit
     if (
       !state.errors.email &&
       !state.errors.password &&
       !state.errors.error &&
       state.email &&
-      state.password
+      state.password &&
+      !isLoading
     ) {
-      return false;
-    } else {
+      if (isChecked === undefined || isChecked === true) {
+        return false;
+      }
+
       return true;
-    }
+    } else return true;
   };
 
   return (
@@ -142,7 +215,6 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
         onChange={handleChangeInput}
         errorMessage={state.errors.email}
       />
-
       <FormField
         name="password"
         textLabel="Contraseña"
@@ -150,6 +222,11 @@ const FormUser: React.FC<PropsFormUser> = ({ typeForm }) => {
         onChange={handleChangeInput}
         errorMessage={state.errors.password}
       />
+      {state.errors.error ? (
+        <span className="text-red-500 text-center font-semibold text-xs my-3">
+          {state.errors.error}
+        </span>
+      ) : null}
       <Btn stateForm={state.stateForm} isDisabled={isDisabled} />
     </form>
   );

@@ -1,9 +1,13 @@
 import Link from 'next/link';
+
 import BtnFacebook from 'components/buttons/BtnFacebook';
 import BtnGoogle from 'components/buttons/BtnGoogle';
 import FormUser from 'components/FormUser';
+import { useUser } from 'context/contextUser';
 
 const Login: React.FC = () => {
+  const { loginUser } = useUser();
+
   return (
     <div className="container-login-register">
       <p className="text-white font-extrabold w-full text-center text-2xl sm:text-4xl mb-1">
@@ -13,7 +17,7 @@ const Login: React.FC = () => {
       <div className="min-w-0 w-full max-w-xs">
         <BtnFacebook typeBtn="login" />
         <BtnGoogle typeBtn="login" />
-        <FormUser typeForm="login" />
+        <FormUser typeForm="login" fetcher={loginUser} />
       </div>
       <div className="mt-5">
         <span className="text-white text-xs">

@@ -16,12 +16,19 @@ module.exports = {
       borderRadius: {
         circle: '50%',
       },
+      maxWidth: {
+        '8xl': '85rem',
+        '9xl': '90rem',
+      },
     },
   },
   variants: {
     extend: {
       opacity: ['disabled'],
       cursor: ['disabled'],
+      backgroundColor: ['disabled', 'active', 'checked'],
+      borderRadius: ['disabled', 'active', 'checked'],
+      borderColor: ['checked'],
     },
   },
   plugins: [],
