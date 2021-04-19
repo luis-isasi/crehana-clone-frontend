@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const { user } = useUser();
 
   return (
-    <div className="container h-full mx-auto bg-primary box-border lg:bg-primary lg:px-16 xl:bg-primary xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
+    <div className="container h-full mx-auto bg-primary box-border lg:bg-primary lg:px-14 xl:bg-primary xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
       <div className="flex items-center">
         <Link href="/">
           <a>
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
         <>
           <Search />
           {user && <Community />}
-          <div className="flex items-center text-sm ">
+          <div className="flex items-center text-sm">
             <LinkToBusiness />
             <LinkToPremium />
             <div className="border-l border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3"></div>
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
                   <LinkToRegister />
                 </>
               ) : (
-                <div>
+                <div className="flex items-center">
                   <MyCourses />
                   <DesiredCourses />
                   <ShoppingCar />
