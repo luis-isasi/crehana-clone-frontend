@@ -12,7 +12,7 @@ const Index: React.FC = () => {
 
   return (
     <header
-      className={`bg-primary text-white font-semibold shadow-lg ${
+      className={`bg-primary-primary text-white font-semibold shadow-lg ${
         router.pathname === '/login' || router.pathname === '/register'
           ? 'h-25'
           : isDesktop

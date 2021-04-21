@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Categories from './components/Categories';
-import Search from './components/Search';
+import Search from './components/SearchIcon';
 import LinkToBusiness from './components/buttons/LinkToBusiness';
 import LinkToLogin from './components/buttons/LinkToLogin';
 import LinkToPremium from './components/buttons/LinkToPremium';
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const { user } = useUser();
 
   return (
-    <div className="container h-full mx-auto bg-primary box-border lg:bg-primary lg:px-14 xl:bg-primary xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
+    <div className="container h-full mx-auto bg-primary-primary box-border  lg:px-14  xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
       <div className="flex items-center">
         <Link href="/">
           <a>

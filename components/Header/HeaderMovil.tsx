@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { useUser } from 'context/contextUser';
-import Search from './components/Search';
+import Search from './components/SearchIcon';
 import MainIcon from './components/MainIcon';
 
 const HeaderMovil = () => {
@@ -11,7 +11,7 @@ const HeaderMovil = () => {
 
   //sm:bg-red-500 md:bg-yellow-500
   return (
-    <div className="w-full h-full mx-auto bg-primary box-border px-5 flex items-center justify-between md:px-10">
+    <div className="w-full h-full mx-auto bg-primary-primary box-border px-5 flex items-center justify-between md:px-10">
       <div className="bg-transparent flex items-center w-18 min-h-0">
         {router.pathname === '/login' ||
         router.pathname === '/register' ? null : (
