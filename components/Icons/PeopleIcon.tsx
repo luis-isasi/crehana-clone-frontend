@@ -1,6 +1,7 @@
 interface Props {
   className?: string;
 }
+
 const People: React.FC<Props> = ({ className }) => {
   return (
     <svg

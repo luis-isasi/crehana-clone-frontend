@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from 'components/Icons/CloseIcon';
 
-const Search: React.FC = () => {
+interface Props {
+  placeHolder?: string;
+}
+
+const Search: React.FC<Props> = ({ placeHolder }) => {
   const [value, setValue] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,14 +16,16 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div className="bg-white text-gray-500 w-full h-10 flex items-center mb-5 mt-3 ">
+    <div className="bg-white text-gray-400 w-full h-10 flex items-center px-0 lg:px-5">
       <SearchIcon style={{ margin: '8px' }} />
       <input
         type="text"
         value={value}
         onChange={handleChange}
-        placeholder="Encuentra cursos, certificaciones y profesores"
-        className="outline-none text-gray-700 font-semibold text-xl w-full h-full caret-primary"
+        placeholder={
+          placeHolder || 'Encuentra cursos, certificaciones y profesores'
+        }
+        className="outline-none text-gray-700 font-semibold text-base lg:text-2xl w-full h-full caret-primary"
       />
       {value && (
         <button
