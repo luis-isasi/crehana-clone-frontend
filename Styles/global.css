@@ -18,6 +18,15 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
   .caret-red {
     caret-color: red;
   }
+  .scrool-none::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 12px;
+  }
+  .scroolbar::-webkit-scrollbar-thumb {
+    background-color: #aeaeb1;
+    border-radius: 12px;
+    border: 3px solid white;
+  }
 }
 
 body {
@@ -25,5 +34,5 @@ body {
 }
 
 .container-login-register {
-  @apply bg-primary w-full h-full box-border px-4 flex flex-col justify-center items-center;
+  @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center;
 }

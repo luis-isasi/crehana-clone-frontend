@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import { USER_SESSION_KEY } from 'Contants';
 import useFetch from 'hooks/useFetch';
@@ -15,6 +16,7 @@ interface TypeContextUser {
   user: User;
   loginUser: (email: string, password: string) => void;
   registerUser: (email: string, password: string) => void;
+  signoutUser: () => void;
   setDataUserLocalStorage: (dataUser: User) => void;
 }
 
@@ -22,6 +24,8 @@ const ContextUser = createContext<TypeContextUser | undefined>(undefined);
 
 export const ContextUserProvider = ({ children }) => {
   const [user, setUser] = useState<undefined | null | User>(undefined);
+
+  const router = useRouter();
 
   useEffect(() => {
     const dataUser = JSON.parse(localStorage.getItem(USER_SESSION_KEY));
@@ -75,9 +79,21 @@ export const ContextUserProvider = ({ children }) => {
     return data;
   };
 
+  const signoutUser = () => {
+    localStorage.removeItem(USER_SESSION_KEY);
+    setUser(null);
+    router.push('/');
+  };
+
   return (
     <ContextUser.Provider
-      value={{ user, loginUser, registerUser, setDataUserLocalStorage }}
+      value={{
+        user,
+        loginUser,
+        registerUser,
+        signoutUser,
+        setDataUserLocalStorage,
+      }}
     >
       {children}
     </ContextUser.Provider>
