@@ -11,8 +11,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
-        <body>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <body className="scrool-none scroolbar">
           <Main />
           <div id="modal"></div>
           <NextScript />
