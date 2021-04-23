@@ -26,6 +26,7 @@ module.exports = {
         62: '15.5rem',
         98: '27rem',
         100: '30rem',
+        102: '32rem',
         '8xl': '85rem',
         '9xl': '90rem',
         '1/4': '25%',
@@ -71,6 +72,12 @@ module.exports = {
         ...theme('spacing'),
       }),
       colors: {
+        base: {
+          dark: '#070E27',
+          lighter: {
+            16: 'background-color: rgba(135, 143, 184, 0.16)',
+          },
+        },
         primary: {
           primary: '#181B32',
           lighter: '#9c86f9',
