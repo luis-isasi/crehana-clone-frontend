@@ -5,7 +5,6 @@
 @tailwind components;
 /* luego se agrega las clases de utilidad  */
 @tailwind utilities;
-
 /* 
 Tienen que ir en ese orden para que las clases de utilidad predominen sobre el reset y los componentes, de lo contrario
 los styles de tailwind base predominarán por encima de las clases de tailwind
