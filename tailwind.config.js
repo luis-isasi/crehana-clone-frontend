@@ -1,7 +1,7 @@
 // const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -75,7 +75,7 @@ module.exports = {
         base: {
           dark: '#070E27',
           lighter: {
-            16: 'background-color: rgba(135, 143, 184, 0.16)',
+            16: 'rgba(135, 143, 184, 0.16)',
           },
         },
         primary: {
