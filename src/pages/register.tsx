@@ -1,1 +1,1 @@
-export { default } from 'src/sites/Register';
+export { default } from '@Views/Register';

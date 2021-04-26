@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useUser } from 'src/context/contextUser';
+import { useUser } from '@Context/contextUser';
 import Search from './components/SearchIcon';
 import MainIcon from './components/MainIcon';
 

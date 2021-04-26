@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
-import { ContextUserProvider } from 'src/context/contextUser';
-import Header from 'src/components/Header';
+import { ContextUserProvider } from '@Context/contextUser';
+import Header from '@Components/Header';
 
 import '../../styles/tailwind.css';
 import '../../styles/tailwind-build.css';

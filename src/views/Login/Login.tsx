@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import BtnFacebook from 'src/components/buttons/BtnFacebook';
-import BtnGoogle from 'src/components/buttons/BtnGoogle';
-import FormUser from 'src/components/FormUser';
-import { useUser } from 'src/context/contextUser';
+import BtnFacebook from '@Components/buttons/BtnFacebook';
+import BtnGoogle from '@Components/buttons/BtnGoogle';
+import FormUser from '@Components/FormUser';
+import { useUser } from '@Context/contextUser';
 
 const Login: React.FC = () => {
   const { loginUser } = useUser();

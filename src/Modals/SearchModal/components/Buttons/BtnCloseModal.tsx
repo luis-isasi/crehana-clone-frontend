@@ -1,4 +1,4 @@
-import CloseIcon from 'src/components/Icons/CloseIcon';
+import CloseIcon from '@Components/Icons/CloseIcon';
 
 interface Props {
   handleBtn: (e: React.MouseEvent<HTMLButtonElement>) => void;

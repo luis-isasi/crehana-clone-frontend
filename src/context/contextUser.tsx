@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { USER_SESSION_KEY } from 'Contants';
-import useFetch from 'src/hooks/useFetch';
+import useFetch from '@Hooks/useFetch';
 
 interface User {
   token: string;

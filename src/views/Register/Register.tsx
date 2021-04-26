@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import CheckIcon from '@material-ui/icons/Check';
 
-import BtnFacebook from 'sr/components/buttons/BtnFacebook';
-import BtnGoogle from 'src/components/buttons/BtnGoogle';
-import FormUser from 'src/components/FormUser';
-import { useUser } from 'src/context/contextUser';
+import BtnFacebook from '@Components/buttons/BtnFacebook';
+import BtnGoogle from '@Components/buttons/BtnGoogle';
+import FormUser from '@Components/FormUser';
+import { useUser } from '@Context/contextUser';
 
 const Register: React.FC = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);

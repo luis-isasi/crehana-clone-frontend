@@ -1,15 +1,13 @@
 import Image from 'next/image';
 import Head from 'next/head';
 
-import { useUser } from 'src/context/contextUser';
-import LoadingScreen from 'src/components/LoadingScreen';
+import { useUser } from '@Context/contextUser';
+import LoadingScreen from '@Components/LoadingScreen';
+import Switch from './components/Switch';
+import HelloUser from './components/HelloUser';
 
 const Home: React.FC = () => {
   const { user } = useUser();
-
-  console.log({ user });
-
-  // if (user === undefined) return <LoadingScreen />;
 
   return (
     <>
@@ -19,14 +17,8 @@ const Home: React.FC = () => {
       <div className="bg-primary-primary  h-auto w-full text-white">
         <section className="bg-base-lighter-16 h-auto w-full">
           <div className="text-xl font-light box-border p-5 flex justify-between">
-            <p>
-              Hola,{' '}
-              <strong className="font-semibold">{`${
-                user?.firstname + '.'
-              }`}</strong>{' '}
-              ¡Te damos la bienvenida!
-            </p>
-            <input type="radio" />
+            <HelloUser firstName={user?.firstname} />
+            <Switch />
           </div>
           <div className="bg-base-dark box-border p-2 mx-5  flex flex-col items-center md:flex-row-reverse">
             <Image
