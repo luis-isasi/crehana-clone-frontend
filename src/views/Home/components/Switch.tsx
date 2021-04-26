@@ -12,7 +12,9 @@ const Switch = () => {
   return (
     <button
       type="button"
-      className="rounded-3xl h-6 w-12 box-border  bg-secondary-light  outline-none focus:outline-none"
+      className={`rounded-3xl h-6 w-12 box-border  ${
+        isActive ? 'bg-secondary-light' : 'bg-gray-400'
+      } outline-none focus:outline-none transition-all duration-200`}
       onClick={handleClick}
     >
       <div
