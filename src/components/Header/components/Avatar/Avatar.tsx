@@ -15,8 +15,7 @@ const Avatar: React.FC = () => {
         className="bg-gray-700 mx-5 lg:mx-3 xl:mx-5 rounded-circle w-8 h-8 outline-none focus:outline-none"
       ></button>
       {isClick && (
-        // -bottom-13 -left-44
-        <div className=" bg-white h-58 w-56 absolute rounded-md  -bottom-62 -left-40">
+        <div className=" bg-white h-58 w-56 absolute rounded-md z-50  lg:-bottom-62 lg:-left-42 xl:-bottom-62 xl:-left-40 ">
           <div
             style={{
               borderLeft: '12px solid transparent',
@@ -26,17 +25,17 @@ const Avatar: React.FC = () => {
           ></div>
           <div>
             <div className="flex flex-col items-start w-full box-border p-6">
-              <Link href="">
+              <Link href="/">
                 <a className="text-sm font-medium text-gray-700 hover:text-secondary-main mb-3">
                   Ver perfil
                 </a>
               </Link>
-              <Link href="">
+              <Link href="/">
                 <a className="text-sm font-medium text-gray-700 hover:text-secondary-main mb-3">
                   Configuracion
                 </a>
               </Link>
-              <Link href="">
+              <Link href="/">
                 <a className="text-sm font-medium text-gray-700 hover:text-secondary-main mb-3">
                   Mentores
                 </a>
