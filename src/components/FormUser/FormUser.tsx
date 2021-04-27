@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { PropsFormUser, InitialState, FormAction } from './types';
 import FormField from './components/FormField';
 import Btn from './components/Btn';
-import { useUser } from 'src/context/contextUser';
+import { useUser } from '@Context/contextUser';
 
 const initialState: InitialState = {
   email: '',

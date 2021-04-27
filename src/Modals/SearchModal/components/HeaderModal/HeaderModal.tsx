@@ -1,8 +1,8 @@
-import LogoCrehana from 'src/components/Icons/LogoCrehana';
-import Arrow from 'src/components/Icons/Arrow';
+import LogoCrehana from '@Components/Icons/LogoCrehana';
+import Arrow from '@Components/Icons/Arrow';
 import BtnCloseModal from '../Buttons/BtnCloseModal';
 import Search from '../Search';
-import useResponsive from 'src/hooks/useResponsive';
+import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from 'Contants';
 
 interface Props {

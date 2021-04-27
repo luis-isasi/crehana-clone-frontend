@@ -1,1 +1,1 @@
-export { default } from 'src/sites/Login';
+export { default } from '@Views/Login';

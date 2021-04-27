@@ -14,7 +14,7 @@ import ShoppingCar from './components/ShoppingCar';
 import Community from './components/Community';
 import Notification from './components/Notification';
 
-import { useUser } from 'src/context/contextUser';
+import { useUser } from '@Context/contextUser';
 
 const Header: React.FC = () => {
   const router = useRouter();

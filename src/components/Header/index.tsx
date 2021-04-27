@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMovil from './HeaderMovil';
 
-import useResponsive from 'src/hooks/useResponsive';
+import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from 'Contants';
 
 const Index: React.FC = () => {

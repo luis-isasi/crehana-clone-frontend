@@ -7,7 +7,7 @@ import HeaderModal from './components/HeaderModal';
 import BtnToPremium from './components/Buttons/BtnToPremium';
 import FooterText from './components/FooterModal/FooterText';
 
-import useResponsive from 'src/hooks/useResponsive';
+import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from 'Contants';
 
 interface Props {

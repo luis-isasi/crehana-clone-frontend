@@ -1,4 +1,4 @@
-import LogoCrehana from 'src/components/Icons/LogoCrehana';
+import LogoCrehana from '@Components/Icons/LogoCrehana';
 
 const LoadingScreen = () => {
   return (

@@ -1,4 +1,4 @@
-import { useUser } from 'src/context/contextUser';
+import { useUser } from '@Context/contextUser';
 
 const BtnSignout = () => {
   const { signoutUser } = useUser();

@@ -1,1 +1,1 @@
-export { default } from 'src/sites/Home';
+export { default } from '@Views/Home';

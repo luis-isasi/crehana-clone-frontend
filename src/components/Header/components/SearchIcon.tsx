@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import SearchIconUI from '@material-ui/icons/Search';
-import SearchModal from 'src/Modals/SearchModal';
+import SearchModal from '@Modals/SearchModal';
 
 const SearchIcon: React.FC = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

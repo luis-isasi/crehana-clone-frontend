@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import SearchIcon from '@material-ui/icons/Search';
-import CloseIcon from 'src/components/Icons/CloseIcon';
+import CloseIcon from '@Components/Icons/CloseIcon';
 
 interface Props {
   placeHolder?: string;

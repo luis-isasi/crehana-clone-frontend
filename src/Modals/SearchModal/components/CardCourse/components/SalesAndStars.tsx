@@ -1,6 +1,6 @@
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 
-import PeopleIcon from 'src/components/Icons/PeopleIcon';
+import PeopleIcon from '@Components/Icons/PeopleIcon';
 
 const SalesAndStars: React.FC = () => {
   return (

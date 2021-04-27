@@ -75,6 +75,7 @@ module.exports = {
         base: {
           dark: '#070E27',
           lighter: {
+            DEFAULT: '#878FB8',
             16: 'rgba(135, 143, 184, 0.16)',
           },
         },
