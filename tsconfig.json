@@ -18,7 +18,7 @@
       "@Components/*": ["src/components/*"],
       "@Context/*": ["src/context/*"],
       "@Modals/*": ["src/modals/*"],
-      "@Hooks/*": ["src/hooks//*"],
+      "@Hooks/*": ["src/hooks/*"],
       "@Views/*": ["src/views/*"]
     }
   },
