@@ -4,9 +4,6 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { ContextUserProvider } from '@Context/contextUser';
 import Header from '@Components/Header';
 
-import '../../styles/tailwind.css';
-import '../../styles/tailwind-build.css';
-
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const client = new QueryClient();
 

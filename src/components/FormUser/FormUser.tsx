@@ -2,10 +2,10 @@ import React, { useReducer, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 
-import { PropsFormUser, InitialState, FormAction } from './types';
 import FormField from './components/FormField';
 import Btn from './components/Btn';
 import { useUser } from '@Context/contextUser';
+import { PropsFormUser, InitialState, FormAction } from './types';
 
 const initialState: InitialState = {
   email: '',
@@ -54,7 +54,7 @@ const FormUser: React.FC<PropsFormUser> = ({
   const { setDataUserLocalStorage } = useUser();
   const router = useRouter();
 
-  const { data, isLoading, isError, error, mutate } = useMutation(
+  const { data, isLoading, isError, error, mutate }: any = useMutation(
     typeForm,
     fetcher(state.email, state.password),
     {

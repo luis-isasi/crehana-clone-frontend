@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-import CardCourse from './components/CardCourse/';
+import CardCourse from './components/CardCourse';
 import FooterModal from './components/FooterModal';
 import Container from './components/Container';
 import HeaderModal from './components/HeaderModal';

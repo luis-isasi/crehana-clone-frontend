@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMovil from './HeaderMovil';
-
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from 'Contants';
 
@@ -12,7 +11,7 @@ const Index: React.FC = () => {
 
   return (
     <header
-      className={`bg-primary-primary text-white font-semibold shadow-lg ${
+      className={`bg-primary-primary text-white font-semibold ${
         router.pathname === '/login' || router.pathname === '/register'
           ? 'h-25'
           : isDesktop
@@ -20,7 +19,8 @@ const Index: React.FC = () => {
           : 'h-13'
       }`}
     >
-      {isDesktop ? <HeaderDesktop /> : <HeaderMovil />}
+      {isDesktop === true && <HeaderDesktop />}
+      {isDesktop === false && <HeaderMovil />}
     </header>
   );
 };
