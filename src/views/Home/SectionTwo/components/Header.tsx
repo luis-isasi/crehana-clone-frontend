@@ -5,7 +5,7 @@ import {
   MENTORS,
   EXCLUSIVE_PREMIUM,
   YOUR_ACTIVITY,
-} from '../contants';
+} from '../../contants';
 import { SelectedName } from '../types';
 
 interface Props {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { SelectedName } from './types';
-import { RECOMENDATIONS } from './contants';
+import { RECOMENDATIONS } from '../contants';
 import Header from './components/Header';
 
 const SectionTwo = () => {

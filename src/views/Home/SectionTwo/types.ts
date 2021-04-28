@@ -3,7 +3,7 @@ import {
   MENTORS,
   EXCLUSIVE_PREMIUM,
   YOUR_ACTIVITY,
-} from './contants';
+} from '../contants';
 
 export type SelectedName =
   | typeof RECOMENDATIONS
