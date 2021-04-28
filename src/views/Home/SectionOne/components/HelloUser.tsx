@@ -4,7 +4,7 @@ interface Props {
 
 const HelloUser: React.FC<Props> = ({ firstName }) => {
   return (
-    <div className="flex flex-col md:flex-row  items-start ">
+    <div className="flex flex-col md:flex-row items-start text-lg md:text-xl lg:text-4xl lg:my-3 ">
       <p>
         Hola,{' '}
         <strong className="font-semibold">{`${

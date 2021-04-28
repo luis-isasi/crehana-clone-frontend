@@ -1,6 +1,8 @@
-import Link from 'next/link';
+import { memo } from 'react';
+import Link from '@Components/Link';
 import { useRouter } from 'next/router';
 
+import { useUser } from '@Context/contextUser';
 import Categories from './components/Categories';
 import Search from './components/SearchIcon';
 import LinkToBusiness from './components/buttons/LinkToBusiness';
@@ -14,32 +16,29 @@ import ShoppingCar from './components/ShoppingCar';
 import Community from './components/Community';
 import Notification from './components/Notification';
 
-import { useUser } from '@Context/contextUser';
-
-const Header: React.FC = () => {
+const HeaderDesktop: React.FC = () => {
   const router = useRouter();
   const { user } = useUser();
+
+  const isLoginOrRegister =
+    router.pathname === '/login' || router.pathname === '/register';
 
   return (
     <div className="container h-full mx-auto bg-primary-primary box-border  lg:px-14  xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
       <div className="flex items-center">
-        <Link href="/">
-          <a>
-            <h1 className="font-bold text-3xl hover:cursor-pointer ">
-              crehana
-            </h1>
-          </a>
-        </Link>
-        {router.pathname === '/login' ||
-        router.pathname === '/register' ? null : (
+        <Link
+          text="crehana"
+          href="/"
+          className="font-bold text-3xl hover:cursor-pointer"
+        />
+        {isLoginOrRegister ? null : (
           <>
             <Categories />
             <div className="border-l border-gray-600 h-9"></div>
           </>
         )}
       </div>
-      {router.pathname === '/login' ||
-      router.pathname === '/register' ? null : (
+      {isLoginOrRegister ? null : (
         <>
           <Search />
           {user && <Community />}
@@ -47,21 +46,21 @@ const Header: React.FC = () => {
             <LinkToBusiness />
             <LinkToPremium />
             <div className="border-l border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3"></div>
-            {user !== undefined &&
-              (user === null ? (
-                <>
-                  <LinkToLogin />
-                  <LinkToRegister />
-                </>
-              ) : (
-                <div className="flex items-center">
-                  <MyCourses />
-                  <DesiredCourses />
-                  <ShoppingCar />
-                  <Notification />
-                  <Avatar />
-                </div>
-              ))}
+            {user === null && (
+              <>
+                <LinkToLogin />
+                <LinkToRegister />
+              </>
+            )}
+            {user && (
+              <div className="flex items-center">
+                <MyCourses />
+                <DesiredCourses />
+                <ShoppingCar />
+                <Notification />
+                <Avatar />
+              </div>
+            )}
           </div>
         </>
       )}
@@ -69,4 +68,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default memo(HeaderDesktop);

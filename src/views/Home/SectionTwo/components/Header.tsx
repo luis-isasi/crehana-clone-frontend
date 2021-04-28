@@ -5,7 +5,7 @@ import {
   MENTORS,
   EXCLUSIVE_PREMIUM,
   YOUR_ACTIVITY,
-} from '../contants';
+} from '../../contants';
 import { SelectedName } from '../types';
 
 interface Props {
@@ -21,7 +21,7 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
   };
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { name } = e.target;
+    const { name } = e.target as any;
     setIsSelectedBtn(name);
   };
 

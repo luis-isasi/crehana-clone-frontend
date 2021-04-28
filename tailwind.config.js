@@ -17,6 +17,7 @@ module.exports = {
         18: '4.5rem',
         22: '5.5rem',
         26: '6.5rem',
+        42: '10.5rem',
         45: '11.25rem',
         46: '11.5rem',
         47: '11.75rem',
@@ -95,6 +96,22 @@ module.exports = {
       },
       borderRadius: {
         circle: '50%',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out forwards',
+        'fade-out': 'fadeOut 0.3s ease-in-out forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '50%': { opacity: 0.5 },
+          '100%': { opacity: 1 },
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
+          '100%': { opacity: 0 },
+        },
       },
     },
   },

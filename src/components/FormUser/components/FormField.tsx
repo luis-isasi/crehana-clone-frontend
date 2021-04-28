@@ -15,7 +15,7 @@ const FormField: React.FC<PropsFormField> = ({
   onChange,
   errorMessage,
 }) => {
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>();
 
   useEffect(() => {
     if (errorMessage) {

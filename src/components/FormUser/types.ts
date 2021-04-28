@@ -1,6 +1,6 @@
 export interface PropsFormUser {
   typeForm: 'login' | 'register';
-  fetcher: (email: string, password: string) => void;
+  fetcher: (email: string, password: string) => any;
   isChecked?: boolean;
 }
 
