@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import Switch from './components/Switch';
 import HelloUser from './components/HelloUser';
+import { CONTAINER_HOME } from '../contants';
 
 interface Props {
   firstName?: string;
@@ -10,7 +11,9 @@ interface Props {
 const SectionOne: React.FC<Props> = ({ firstName }) => {
   return (
     <section className="bg-base-lighter-16 h-auto w-full">
-      <div className="box-border p-4 md:p-6 pb-0 md:pb-6 lg:px-20 xl:px-32 2xl:px-0 2xl:max-w-8xl mx-auto">
+      <div
+        className={`${CONTAINER_HOME} box-border py-4 md:py-6 pb-0 md:pb-6 `}
+      >
         <div className="text-xl font-light box-border px-1 md:px-2  mb-5 flex justify-between">
           <HelloUser firstName={firstName} />
           <div className="flex items-center lg:justify-between w-auto  lg:w-42">
