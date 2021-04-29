@@ -15,8 +15,8 @@ const Index: React.FC = () => {
         router.pathname === '/login' || router.pathname === '/register'
           ? 'h-25'
           : isDesktop
-          ? 'h-18'
-          : 'h-13'
+          ? 'h-18 min-h-18'
+          : 'h-13 min-h-13'
       }`}
     >
       {isDesktop === true && <HeaderDesktop />}
