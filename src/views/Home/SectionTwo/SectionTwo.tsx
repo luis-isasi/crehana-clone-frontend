@@ -34,12 +34,12 @@ const SectionTwo = () => {
   };
 
   return (
-    <section className="bg-base-dark h-auto w-full box-border p-4 overflow-hidden ">
+    <section className="bg-base-dark h-auto w-full overflow-hidden">
       <Header
         isSelectedBtn={isSelectedBtn}
         setIsSelectedBtn={setIsSelectedBtn}
       />
-      <div>{renderIsSelect()}</div>
+      {renderIsSelect()}
     </section>
   );
 };
