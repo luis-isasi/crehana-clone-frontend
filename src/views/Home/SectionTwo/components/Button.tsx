@@ -11,7 +11,7 @@ const Button: React.FC<Props> = ({ text, name, onClick, isSelect }) => {
       <button
         name={name}
         onClick={onClick}
-        className={`box-border py-2 px-4 font-bold outline-none focus:outline-none  ${
+        className={`box-border py-3 px-4 font-bold outline-none focus:outline-none  ${
           isSelect ? 'text-secondary-main' : 'hover:text-base-lighter'
         } transition-all duration-300 ease-out`}
       >

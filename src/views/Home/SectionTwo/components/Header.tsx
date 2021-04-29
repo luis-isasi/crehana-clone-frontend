@@ -5,6 +5,7 @@ import {
   MENTORS,
   EXCLUSIVE_PREMIUM,
   YOUR_ACTIVITY,
+  CONTAINER_HOME,
 } from '../../contants';
 import { SelectedName } from '../types';
 
@@ -26,7 +27,9 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
   };
 
   return (
-    <header className="h-auto flex items-center  text-gray-300 whitespace-nowrap  overflow-x-scroll scrool-none">
+    <header
+      className={`${CONTAINER_HOME} h-auto flex items-center px-4 pt-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-scroll scrool-none`}
+    >
       <Button
         name={RECOMENDATIONS}
         onClick={handleClick}
