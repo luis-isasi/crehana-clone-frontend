@@ -1,6 +1,6 @@
 import SalesAndStars from './components/SalesAndStars';
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 import IconComplete from '@Components/Icons/IconComplete';
 import Price from './components/Price';
 import AvatarTeacher from './components/AvatarTeacher';

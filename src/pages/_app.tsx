@@ -10,12 +10,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <QueryClientProvider client={client}>
       <ContextUserProvider>
-        <div className=" w-screen h-screen flex flex-col">
-          <Header />
-          <div className="flex-1">
-            <Component {...pageProps} />
-          </div>
-        </div>
+        <Header />
+        <Component {...pageProps} />
       </ContextUserProvider>
     </QueryClientProvider>
   );

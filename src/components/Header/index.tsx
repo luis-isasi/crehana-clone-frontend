@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMovil from './HeaderMovil';
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 
 const Index: React.FC = () => {
   const [isDesktop] = useResponsive({ type: 'min', mediaquery: MEDIAQUERY_LG });

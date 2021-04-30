@@ -8,7 +8,7 @@ import BtnToPremium from './components/Buttons/BtnToPremium';
 import FooterText from './components/FooterModal/FooterText';
 
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 
 interface Props {
   setIsOpenModal: (isOpenModal: boolean) => void;

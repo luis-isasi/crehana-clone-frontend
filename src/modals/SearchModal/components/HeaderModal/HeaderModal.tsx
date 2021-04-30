@@ -3,7 +3,7 @@ import Arrow from '@Components/Icons/Arrow';
 import BtnCloseModal from '../Buttons/BtnCloseModal';
 import Search from '../Search';
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 
 interface Props {
   handleBtn: (e: React.MouseEvent<HTMLButtonElement>) => void;

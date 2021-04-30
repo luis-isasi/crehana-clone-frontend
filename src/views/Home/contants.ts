@@ -5,3 +5,6 @@ export const YOUR_ACTIVITY = 'your_activity';
 
 export const CONTAINER_HOME =
   'px-4 md:px-6 lg:px-20 xl:px-32 2xl:px-0 2xl:max-w-8xl mx-auto';
+
+export const NEXT = 'NEXT';
+export const PREVIOUS = 'PREVIOUS';

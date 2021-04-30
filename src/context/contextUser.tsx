@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION_KEY } from 'Contants';
+import { USER_SESSION_KEY } from '@Constans';
 import useFetch from '@Hooks/useFetch';
 
 interface User {

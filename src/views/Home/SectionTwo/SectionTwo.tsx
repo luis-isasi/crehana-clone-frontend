@@ -34,7 +34,7 @@ const SectionTwo = () => {
   };
 
   return (
-    <section className="bg-base-dark h-auto w-full overflow-hidden">
+    <section className="bg-base-dark h-auto w-full overflow-hidden box-border">
       <Header
         isSelectedBtn={isSelectedBtn}
         setIsSelectedBtn={setIsSelectedBtn}
