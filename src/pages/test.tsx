@@ -1,18 +1,31 @@
-const test = () => {
-  const onClick = () => {};
+import useResponsive from '@Hooks/useResponsive';
+import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
+
+const Test = () => {
+  const [isMovil] = useResponsive({
+    maxMediaQuery: MEDIAQUERY_MD,
+  });
+  const [isTabletOrLaptop] = useResponsive({
+    minMediaQuery: MEDIAQUERY_MD,
+    maxMediaQuery: MEDIAQUERY_XL,
+  });
+  const [isDesktop] = useResponsive({
+    minMediaQuery: MEDIAQUERY_XL,
+  });
+
+  console.log('====================================');
+  // console.log({ isMovil });
+  console.log({ isTabletOrLaptop });
+  // console.log({ isDesktop });
+  console.log('====================================');
 
   return (
     <div className="h-102 w-100 ">
-      <ul className="h-100 w-500 bg-gray-600 flex ">
-        <li className="bg-blue-500 m-1 h-88 w-full"></li>
-        <li className="bg-red-500 m-1 h-88 w-full"></li>
-        <li className="bg-yellow-500 m-1 h-88 w-full"></li>
-        <li className="bg-purple-500 m-1 h-88 w-full"></li>
-        <li className="bg-black m-1 h-88 w-full"></li>
-      </ul>
-      <button onClick={onClick}>SIGUIENTE</button>
+      {isMovil && 'estamos en movil'}
+      {isTabletOrLaptop && 'estamos en tablet o laptop'}
+      {isDesktop && 'estamos en desktop'}
     </div>
   );
 };
 
-export default test;
+export default Test;

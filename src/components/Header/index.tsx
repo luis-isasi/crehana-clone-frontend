@@ -6,7 +6,9 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from '@Constans';
 
 const Index: React.FC = () => {
-  const [isDesktop] = useResponsive({ type: 'min', mediaquery: MEDIAQUERY_LG });
+  const [isDesktop] = useResponsive({
+    minMediaQuery: MEDIAQUERY_LG,
+  });
   const router = useRouter();
 
   const isLoginOrRegister =

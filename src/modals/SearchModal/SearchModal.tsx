@@ -16,8 +16,7 @@ interface Props {
 
 const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
   const [isMovilAndTablet] = useResponsive({
-    type: 'max',
-    mediaquery: MEDIAQUERY_LG,
+    maxMediaQuery: MEDIAQUERY_LG,
   });
 
   const handleBtn = (e: React.MouseEvent<HTMLButtonElement>) => {

@@ -9,8 +9,7 @@ import MostSelling from './components/MostSelling';
 
 const CardCourse: React.FC = () => {
   const [isMovilAndTablet] = useResponsive({
-    type: 'max',
-    mediaquery: MEDIAQUERY_LG,
+    maxMediaQuery: MEDIAQUERY_LG,
   });
 
   return (

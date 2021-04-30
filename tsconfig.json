@@ -20,7 +20,8 @@
       "@Modals/*": ["src/modals/*"],
       "@Hooks/*": ["src/hooks/*"],
       "@Views/*": ["src/views/*"],
-      "@Constans": ["Constans.ts"]
+      "@Constans": ["constans.ts"],
+      "@types": ["types.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

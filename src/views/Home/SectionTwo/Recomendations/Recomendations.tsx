@@ -4,24 +4,20 @@ import Image from 'next/image';
 import SwitchSliderMovil from './components/SwitchSliderMovil';
 import SwitchSliderDesktop from './components/SwitchSliderDesktop';
 import CardCourse from './components/CardCourse';
-import { MEDIAQUERY_MD } from '@Constans';
+import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { PREVIOUS, NEXT } from '../../contants';
 import useResponsive from '@Hooks/useResponsive';
-import { render } from 'react-dom';
 
 const Recomendations = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
   const [isMovil] = useResponsive({
-    type: 'max',
-    mediaquery: MEDIAQUERY_MD,
+    maxMediaQuery: MEDIAQUERY_MD,
   });
   const [isTabletOrLaptop] = useResponsive({
-    type: 'min',
-    mediaquery: MEDIAQUERY_MD,
+    minMediaQuery: MEDIAQUERY_XL,
   });
   const [isDesktop] = useResponsive({
-    type: 'min',
-    mediaquery: MEDIAQUERY_MD,
+    minMediaQuery: MEDIAQUERY_MD,
   });
 
   const ulRef = useRef<HTMLUListElement>();
