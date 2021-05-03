@@ -1,9 +1,11 @@
-import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+import { useEffect } from 'react';
 
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import { PREVIOUS, NEXT } from '../../../contants';
 
 interface Props {
   selectedIndex: number;
+  setSelectedIndex: (selectedIndex: number) => void;
   totalSections: number;
   handlePreviousAndNext: (
     type: typeof PREVIOUS | typeof NEXT,
@@ -13,12 +15,16 @@ interface Props {
 
 const SwitchSliderDesktop: React.FC<Props> = ({
   selectedIndex,
+  setSelectedIndex,
   totalSections,
   handlePreviousAndNext,
 }) => {
-  // useEffect(() => {
-
-  // }, [selectedIndex])
+  useEffect(() => {
+    return () => {
+      //cada vez que se desmonta, hacemos que el index vuelva a comenzar
+      setSelectedIndex(1);
+    };
+  }, []);
 
   return (
     <div className="flex items-center justify-between min-w-47 ">

@@ -102,6 +102,7 @@ const Recomendations = () => {
           {isTabletOrLaptop && (
             <SwitchSliderDesktop
               selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
               handlePreviousAndNext={handlePreviousAndNext}
               totalSections={4}
             />
@@ -109,6 +110,7 @@ const Recomendations = () => {
           {isDesktop && (
             <SwitchSliderDesktop
               selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
               handlePreviousAndNext={handlePreviousAndNext}
               totalSections={3}
             />
@@ -127,6 +129,7 @@ const Recomendations = () => {
         {isMovil && (
           <SwitchSliderMovil
             selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
             handlePreviousAndNext={handlePreviousAndNext}
             totalSections={12}
           />
