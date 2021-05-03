@@ -17,7 +17,7 @@ const SwitchSliderMovil: React.FC<Props> = ({
   handlePreviousAndNext,
 }) => {
   return (
-    <div className="flex items-center justify-center mb-7">
+    <div className="flex items-center justify-center mb-7 z-10">
       <button
         disabled={selectedIndex === 1}
         className="disabled:text-gray-400 outline-none focus:outline-none mx-8"

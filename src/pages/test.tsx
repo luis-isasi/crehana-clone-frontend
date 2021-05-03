@@ -13,17 +13,10 @@ const Test = () => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
-  console.log('====================================');
-  // console.log({ isMovil });
-  console.log({ isTabletOrLaptop });
-  // console.log({ isDesktop });
-  console.log('====================================');
-
   return (
-    <div className="h-102 w-100 ">
-      {isMovil && 'estamos en movil'}
-      {isTabletOrLaptop && 'estamos en tablet o laptop'}
-      {isDesktop && 'estamos en desktop'}
+    <div className="relative bg-blue-300 h-102 w-100 ">
+      <div className="bg-primary-light absolute  bottom-0 h-40 w-full"></div>
+      <div className="bg-red-500  h-98 w-full "></div>
     </div>
   );
 };
