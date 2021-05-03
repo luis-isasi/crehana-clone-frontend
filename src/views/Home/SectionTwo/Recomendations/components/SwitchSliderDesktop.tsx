@@ -16,8 +16,12 @@ const SwitchSliderDesktop: React.FC<Props> = ({
   totalSections,
   handlePreviousAndNext,
 }) => {
+  // useEffect(() => {
+
+  // }, [selectedIndex])
+
   return (
-    <div className="flex items-center justify-between min-w-47">
+    <div className="flex items-center justify-between min-w-47 ">
       <span>
         <strong>{`${selectedIndex}`}</strong>
         {` / ${totalSections}`}

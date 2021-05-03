@@ -22,10 +22,6 @@ const Recomendations = () => {
 
   const ulRef = useRef<HTMLUListElement>();
 
-  console.log({ isMovil });
-  console.log({ isTabletOrLaptop });
-  console.log({ isDesktop });
-
   const renderImgMovil = () => {
     let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     return array.map((index) => {
@@ -94,10 +90,10 @@ const Recomendations = () => {
   };
 
   return (
-    <section className={`relative min-h-100 h-100 w-full `}>
-      <div className="bg-primary-light absolute  bottom-0 h-1/2 w-full  flex flex-col items-center justify-end"></div>
+    <section className={`relative min-h-100 h-auto w-full `}>
+      <div className="bg-primary-light absolute bottom-0 h-1/2 w-full  flex flex-col items-center justify-end"></div>
       <div
-        className={`${CONTAINER_HOME} h-full w-full  box-border  overflow-visible flex flex-col`}
+        className={`${CONTAINER_HOME} md:h-96 w-full box-border overflow-visible flex flex-col`}
       >
         <header className="mb-5 mt-1 flex items-center md:justify-between">
           <h2 className="text-lg font-bold md:text-2xl">
@@ -118,7 +114,7 @@ const Recomendations = () => {
             />
           )}
         </header>
-        <div className="min-h-98 h-98 md:min-h-102 md:h-102 w-full overflow-hidden">
+        <div className="min-h-96 h-96 md:min-h-102 md:h-102 w-full overflow-hidden">
           <ul
             ref={ulRef}
             className=" flex min-h-88 h-88 md:h-96 w-1200 md:w-400 xl:w-300"
