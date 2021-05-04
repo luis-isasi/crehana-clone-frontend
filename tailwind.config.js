@@ -93,6 +93,7 @@ module.exports = {
           lighter: {
             DEFAULT: '#878FB8',
             16: 'rgba(135, 143, 184, 0.16)',
+            24: 'rgba(135,143,184,0.24)',
           },
         },
         primary: {

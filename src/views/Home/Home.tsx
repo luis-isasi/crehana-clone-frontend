@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import { useUser } from '@Context/contextUser';
-import LoadingScreen from '@Components/LoadingScreen';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 
