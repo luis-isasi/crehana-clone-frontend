@@ -28,7 +28,7 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
 
   return (
     <header
-      className={`${CONTAINER_HOME} h-auto flex items-center px-4 pt-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-scroll scrool-none`}
+      className={`${CONTAINER_HOME} bg-base-dark  z-10 sticky top-0 h-auto flex items-center px-4 mt-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-auto scrool-none`}
     >
       <Button
         name={RECOMENDATIONS}

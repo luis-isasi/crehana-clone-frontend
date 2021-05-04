@@ -42,7 +42,7 @@ const YourInterests = () => {
   };
 
   return (
-    <section className="min-h-100 h-auto w-full pt-10">
+    <section className="min-h-100 h-auto w-full py-10">
       <div
         className={`${CONTAINER_HOME} h-auto  w-full box-border overflow-visible flex flex-col`}
       >
