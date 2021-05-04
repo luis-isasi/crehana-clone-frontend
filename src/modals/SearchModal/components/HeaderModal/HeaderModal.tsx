@@ -10,7 +10,7 @@ interface Props {
 }
 
 const HeaderModal: React.FC<Props> = ({ handleBtn }) => {
-  const [isMovilAndTablet] = useResponsive({
+  const isMovilAndTablet = useResponsive({
     maxMediaQuery: MEDIAQUERY_LG,
   });
 

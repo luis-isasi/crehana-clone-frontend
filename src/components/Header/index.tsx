@@ -6,7 +6,7 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from '@Constans';
 
 const Index: React.FC = () => {
-  const [isDesktop] = useResponsive({
+  const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_LG,
   });
   const router = useRouter();

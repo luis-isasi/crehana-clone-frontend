@@ -8,7 +8,7 @@ import AddToCar from './components/AddToCar';
 import MostSelling from './components/MostSelling';
 
 const CardCourse: React.FC = () => {
-  const [isMovilAndTablet] = useResponsive({
+  const isMovilAndTablet = useResponsive({
     maxMediaQuery: MEDIAQUERY_LG,
   });
 

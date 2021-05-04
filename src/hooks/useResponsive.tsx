@@ -46,7 +46,7 @@ const useResponsive = ({
     setIsScreen(screen);
   };
 
-  return [isScreen];
+  return isScreen;
 };
 
 export default useResponsive;

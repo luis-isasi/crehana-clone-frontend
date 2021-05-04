@@ -15,7 +15,7 @@ interface Props {
 }
 
 const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
-  const [isMovilAndTablet] = useResponsive({
+  const isMovilAndTablet = useResponsive({
     maxMediaQuery: MEDIAQUERY_LG,
   });
 

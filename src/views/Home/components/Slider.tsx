@@ -14,14 +14,14 @@ interface Props {
 const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
 
-  const [isMovil] = useResponsive({
+  const isMovil = useResponsive({
     maxMediaQuery: MEDIAQUERY_MD,
   });
-  const [isTabletOrLaptop] = useResponsive({
+  const isTabletOrLaptop = useResponsive({
     minMediaQuery: MEDIAQUERY_MD,
     maxMediaQuery: MEDIAQUERY_XL,
   });
-  const [isDesktop] = useResponsive({
+  const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_XL,
   });
 

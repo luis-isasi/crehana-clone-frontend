@@ -11,13 +11,13 @@ import SwitchSliderMovil from '../../components/SwitchSliderMovil';
 const YourInterests = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
 
-  const [isMobile] = useResponsive({
+  const isMobile = useResponsive({
     maxMediaQuery: MEDIAQUERY_MD,
   });
-  const [isMinTabletOrDesktop] = useResponsive({
+  const isMinTabletOrDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_MD,
   });
-  const [isDesktop] = useResponsive({
+  const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_XL,
   });
 
