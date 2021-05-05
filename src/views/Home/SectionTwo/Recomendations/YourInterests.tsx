@@ -44,7 +44,7 @@ const YourInterests = () => {
   return (
     <section className="min-h-100 h-auto w-full py-10">
       <div
-        className={`${CONTAINER_HOME} h-auto  w-full box-border overflow-visible flex flex-col`}
+        className={`${CONTAINER_HOME} h-auto w-full box-border overflow-visible flex flex-col`}
       >
         <header className="flex items-center md:justify-between">
           <h2 className="text-lg font-bold md:text-2xl">Según tus intereses</h2>
@@ -62,7 +62,7 @@ const YourInterests = () => {
         </div>
         <Slider
           Card={CardInterest}
-          heightAndWidth={'min-h-88 h-88 w-full'}
+          heightAndWidth={'min-h-80 h-80 w-full'}
           sliderRef={sliderRef}
         />
         {isMobile && (

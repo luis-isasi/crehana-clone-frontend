@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import SwitchSliderMovil from './SwitchSliderMovil';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
-import { PREVIOUS, NEXT } from '../contants';
 import useResponsive from '@Hooks/useResponsive';
 
 interface Props {
@@ -12,8 +10,6 @@ interface Props {
 }
 
 const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(1);
-
   const isMovil = useResponsive({
     maxMediaQuery: MEDIAQUERY_MD,
   });
@@ -72,7 +68,7 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
   return (
     <div
       className={`${
-        heightAndWidth || 'min-h-88 h-88 md:min-h-98 md:h-98 w-full'
+        heightAndWidth || 'min-h-88 h-88 md:min-h-96 md:h-96 w-full'
       } overflow-hidden`}
     >
       <ul ref={sliderRef} className="flex h-full w-1200 md:w-400 xl:w-300">

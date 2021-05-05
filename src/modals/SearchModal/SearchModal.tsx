@@ -25,7 +25,7 @@ const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
   };
 
   return ReactDOM.createPortal(
-    <div className="bg-white  max-h-screen w-screen h-auto absolute top-0 left-0 flex flex-col justify-start">
+    <div className="bg-white z-50 max-h-screen w-screen h-auto absolute top-0 left-0 flex flex-col justify-start">
       <div className=" flex-grow w-full overflow-y-auto scrool-none scroolbar">
         <Container>
           <HeaderModal handleBtn={handleBtn} />
