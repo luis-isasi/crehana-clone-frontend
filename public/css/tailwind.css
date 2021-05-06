@@ -22,13 +22,17 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
 
   .scrool-none::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 12px;
+    width: 8px;
+  }
+
+  .bg-scroolbar-white::-webkit-scrollbar-track {
+    background-color: white;
   }
 
   .scroolbar::-webkit-scrollbar-thumb {
     background-color: #aeaeb1;
     border-radius: 12px;
-    border: 3px solid white;
+    border: 1px solid white;
   }
 }
 

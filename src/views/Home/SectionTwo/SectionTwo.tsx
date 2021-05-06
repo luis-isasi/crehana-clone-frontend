@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 
 import { SelectedName } from './types';
 import {
@@ -34,7 +34,7 @@ const SectionTwo = () => {
   };
 
   return (
-    <section className="bg-base-dark h-auto w-full overflow-hidden">
+    <section className="bg-base-dark h-auto w-full ">
       <Header
         isSelectedBtn={isSelectedBtn}
         setIsSelectedBtn={setIsSelectedBtn}

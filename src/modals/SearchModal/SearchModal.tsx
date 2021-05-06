@@ -8,16 +8,15 @@ import BtnToPremium from './components/Buttons/BtnToPremium';
 import FooterText from './components/FooterModal/FooterText';
 
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 
 interface Props {
   setIsOpenModal: (isOpenModal: boolean) => void;
 }
 
 const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
-  const [isMovilAndTablet] = useResponsive({
-    type: 'max',
-    mediaquery: MEDIAQUERY_LG,
+  const isMovilAndTablet = useResponsive({
+    maxMediaQuery: MEDIAQUERY_LG,
   });
 
   const handleBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,7 +25,7 @@ const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
   };
 
   return ReactDOM.createPortal(
-    <div className="bg-white  max-h-screen w-screen h-auto absolute top-0 left-0 flex flex-col justify-start">
+    <div className="bg-white z-50 max-h-screen w-screen h-auto absolute top-0 left-0 flex flex-col justify-start">
       <div className=" flex-grow w-full overflow-y-auto scrool-none scroolbar">
         <Container>
           <HeaderModal handleBtn={handleBtn} />

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Link from '@Components/Link';
+import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
 import { useUser } from '@Context/contextUser';
@@ -24,7 +24,7 @@ const HeaderDesktop: React.FC = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <div className="container h-full mx-auto bg-primary-primary box-border  lg:px-14  xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center ">
+    <div className="container h-full mx-auto box-border lg:px-14 xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center">
       <div className="flex items-center">
         <Link
           text="crehana"

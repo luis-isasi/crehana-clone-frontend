@@ -1,4 +1,4 @@
-// const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -17,6 +17,7 @@ module.exports = {
         18: '4.5rem',
         22: '5.5rem',
         26: '6.5rem',
+        30: '7.5rem',
         42: '10.5rem',
         45: '11.25rem',
         46: '11.5rem',
@@ -25,6 +26,9 @@ module.exports = {
         50: '12.5rem',
         58: '14.5rem',
         62: '15.5rem',
+        82: '20.5rem',
+        84: '21rem',
+        86: '21.5rem',
         88: '22rem',
         98: '27rem',
         100: '30rem',
@@ -74,6 +78,39 @@ module.exports = {
         1100: '1100%',
         1200: '1200%',
       },
+      zIndex: {
+        '-1': '-1',
+        '-2': '-2',
+        '-3': '-3',
+        '-4': '-4',
+        '-5': '-5',
+        '-6': '-6',
+        '-7': '-7',
+        '-8': '-8',
+        '-9': '-9',
+        '-10': '-10',
+        '-11': '-11',
+        '-12': '-12',
+        '-13': '-13',
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9',
+        11: '11',
+        12: '12',
+        13: '13',
+        14: '14',
+        15: '15',
+        16: '16',
+        17: '17',
+        18: '18',
+        19: '19',
+      },
       minWidth: (theme) => ({
         ...theme('spacing'),
       }),
@@ -90,9 +127,18 @@ module.exports = {
       colors: {
         base: {
           dark: '#070E27',
+          main: {
+            DEFAULT: '#181B32',
+            80: 'rgba(24,27,50,0.8)',
+          },
+          light: {
+            'dark-mode': '#2C2F48',
+          },
           lighter: {
             DEFAULT: '#878FB8',
+            'dark-mode': '#393C57',
             16: 'rgba(135, 143, 184, 0.16)',
+            24: 'rgba(135,143,184,0.24)',
           },
         },
         primary: {
@@ -136,16 +182,32 @@ module.exports = {
       objectFit: ['hover', 'focus'],
       objectPosition: ['hover', 'focus'],
       transitionDelay: ['hover', 'focus'],
-      width: ['hover', 'focus'],
-      borderWidth: ['hover', 'focus'],
+      width: ['hover', 'focus', 'before', 'after'],
+      height: ['hover', 'focus', 'before', 'after'],
+      inset: ['group-hover', 'hover'],
+      scale: ['group-hover', 'hover'],
       fontSize: ['hover', 'focus'],
+      textColor: ['disabled'],
       opacity: ['disabled'],
       cursor: ['disabled'],
       backgroundColor: ['disabled', 'active', 'checked'],
+      borderWidth: ['hover', 'focus', 'disabled'],
       borderRadius: ['disabled', 'active', 'checked'],
-      borderColor: ['checked'],
-      textColor: ['disabled'],
+      borderColor: ['disabled', 'active', 'checked'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-pseudo-elements'),
+    plugin(({ addUtilities }) => {
+      const newUtilities = {
+        '.empty-content': {
+          content: "''",
+        },
+      };
+
+      addUtilities(newUtilities, {
+        variants: ['before', 'after'],
+      });
+    }),
+  ],
 };

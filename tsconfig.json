@@ -19,7 +19,9 @@
       "@Context/*": ["src/context/*"],
       "@Modals/*": ["src/modals/*"],
       "@Hooks/*": ["src/hooks/*"],
-      "@Views/*": ["src/views/*"]
+      "@Views/*": ["src/views/*"],
+      "@Constans": ["constans.ts"],
+      "@types": ["types.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

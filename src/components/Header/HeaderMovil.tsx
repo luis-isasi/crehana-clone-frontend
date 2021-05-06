@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Link from '@Components/Link';
+import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
 import Search from './components/SearchIcon';
@@ -12,7 +12,7 @@ const HeaderMovil = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <div className="w-full h-full mx-auto bg-primary-primary box-border px-5 flex items-center justify-between md:px-10">
+    <div className="w-full h-full mx-auto box-border px-5 flex items-center justify-between md:px-10">
       <div className="bg-transparent flex items-center w-18 min-h-0">
         {isLoginOrRegister ? null : (
           <>

@@ -1,39 +1,52 @@
 import { useState, useEffect } from 'react';
+import { MEDIAQUERY } from '@types';
 
 interface Parameters {
-  type: 'max' | 'min';
-  mediaquery: number;
+  minMediaQuery?: MEDIAQUERY;
+  maxMediaQuery?: MEDIAQUERY;
 }
 
-const useResponsive = ({ type, mediaquery }: Parameters) => {
+const useResponsive = ({
+  minMediaQuery = undefined,
+  maxMediaQuery = undefined,
+}: Parameters) => {
   const [isScreen, setIsScreen] = useState<boolean | undefined>(undefined);
-  const [screenWidth, setScreenWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    let screen;
-    if (type === 'max') {
-      screen = window.innerWidth < mediaquery;
-    } else {
-      screen = window.innerWidth > mediaquery;
-    }
-    setIsScreen(screen);
-  }, [screenWidth]);
+    validateDimensions();
+  }, []);
 
   useEffect(() => {
-    window.addEventListener('resize', updateDimensions);
+    window.addEventListener('resize', validateDimensions);
 
     return () => {
-      window.removeEventListener('resize', updateDimensions);
+      window.removeEventListener('resize', validateDimensions);
     };
   }, []);
 
-  const updateDimensions = () => {
-    const width: number = window.innerWidth;
+  const validateDimensions = () => {
+    let widthScreen: number = window.innerWidth;
 
-    setScreenWidth(width);
+    let screen;
+
+    //Si solo hay un minMediaQuery, solo evaluamos si es mayor a esa media query
+    if (minMediaQuery && !maxMediaQuery) {
+      screen = widthScreen > minMediaQuery;
+    }
+
+    //Si solo hay un maxMediaQuery, solo evaluamos si es min a esa media query
+    if (maxMediaQuery && !minMediaQuery) {
+      screen = widthScreen < maxMediaQuery;
+    }
+    //Si solo hay minMediaQuery y maxMediaQuery, evaluamos si es menos al min y al max de la media query
+    if (minMediaQuery && maxMediaQuery) {
+      screen = widthScreen > minMediaQuery && widthScreen < maxMediaQuery;
+    }
+
+    setIsScreen(screen);
   };
 
-  return [isScreen];
+  return isScreen;
 };
 
 export default useResponsive;

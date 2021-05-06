@@ -1,16 +1,15 @@
 import SalesAndStars from './components/SalesAndStars';
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_LG } from 'Contants';
+import { MEDIAQUERY_LG } from '@Constans';
 import IconComplete from '@Components/Icons/IconComplete';
 import Price from './components/Price';
 import AvatarTeacher from './components/AvatarTeacher';
 import AddToCar from './components/AddToCar';
-import MostSelling from './components/MostSelling';
+import MostSelling from '@Components/Labels/MostSelling';
 
 const CardCourse: React.FC = () => {
-  const [isMovilAndTablet] = useResponsive({
-    type: 'max',
-    mediaquery: MEDIAQUERY_LG,
+  const isMovilAndTablet = useResponsive({
+    maxMediaQuery: MEDIAQUERY_LG,
   });
 
   return (

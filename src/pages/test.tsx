@@ -1,18 +1,24 @@
-const test = () => {
-  const onClick = () => {};
+import Image from 'next/image';
 
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import Arrow from '@Components/Icons/Arrow';
+
+const Test = () => {
   return (
-    <div className="h-102 w-100 ">
-      <ul className="h-100 w-500 bg-gray-600 flex ">
-        <li className="bg-blue-500 m-1 h-88 w-full"></li>
-        <li className="bg-red-500 m-1 h-88 w-full"></li>
-        <li className="bg-yellow-500 m-1 h-88 w-full"></li>
-        <li className="bg-purple-500 m-1 h-88 w-full"></li>
-        <li className="bg-black m-1 h-88 w-full"></li>
-      </ul>
-      <button onClick={onClick}>SIGUIENTE</button>
+    <div className="bg-transparent relative rounded-md overflow-hidden h-98 w-72 mx-auto cursor-pointer">
+      <div className="inner group h-full w-full">
+        <Image
+          layout="fill"
+          loader={({ src }) => `${src}`}
+          src={'https://source.unsplash.com/random'}
+          priority={true}
+          alt="cardCourse"
+          className="object-cover absolute transform group-hover:scale-125 transition-all duration-200 ease-out "
+        />
+        <div className="bg-gray-500 z-0 text-white opacity-60 h-11 w-full  absolute top-10 group-hover:top-36  transition-all duration-200 ease-out"></div>
+      </div>
     </div>
   );
 };
 
-export default test;
+export default Test;
