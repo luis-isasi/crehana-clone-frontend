@@ -26,6 +26,9 @@ module.exports = {
         50: '12.5rem',
         58: '14.5rem',
         62: '15.5rem',
+        82: '20.5rem',
+        84: '21rem',
+        86: '21.5rem',
         88: '22rem',
         98: '27rem',
         100: '30rem',
@@ -130,6 +133,7 @@ module.exports = {
           },
           lighter: {
             DEFAULT: '#878FB8',
+            'dark-mode': '#393C57',
             16: 'rgba(135, 143, 184, 0.16)',
             24: 'rgba(135,143,184,0.24)',
           },
@@ -186,7 +190,7 @@ module.exports = {
       backgroundColor: ['disabled', 'active', 'checked'],
       borderWidth: ['hover', 'focus', 'disabled'],
       borderRadius: ['disabled', 'active', 'checked'],
-      borderColor: ['checked', 'disabled'],
+      borderColor: ['disabled', 'active', 'checked'],
     },
   },
   plugins: [

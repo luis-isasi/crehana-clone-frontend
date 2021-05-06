@@ -62,7 +62,7 @@ const YourInterests = () => {
         </div>
         <Slider
           Card={CardInterest}
-          heightAndWidth={'min-h-80 h-80 w-full'}
+          heightAndWidth={'min-h-82 h-82 w-full'}
           sliderRef={sliderRef}
         />
         {isMobile && (

@@ -5,7 +5,7 @@ import IconComplete from '@Components/Icons/IconComplete';
 import Price from './components/Price';
 import AvatarTeacher from './components/AvatarTeacher';
 import AddToCar from './components/AddToCar';
-import MostSelling from './components/MostSelling';
+import MostSelling from '@Components/Labels/MostSelling';
 
 const CardCourse: React.FC = () => {
   const isMovilAndTablet = useResponsive({

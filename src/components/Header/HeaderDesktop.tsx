@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Link from '@Components/Link';
+import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
 import { useUser } from '@Context/contextUser';
