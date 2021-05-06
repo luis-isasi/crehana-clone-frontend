@@ -21,7 +21,7 @@ const CardInterest = () => {
         <div
           className="absolute h-full w-full z-1 box-border p-2  flex flex-col justify-between"
           style={{
-            boxShadow: 'inset 0px -20px 100px black',
+            boxShadow: 'inset 0px -20px 100px rgba(24, 27, 50)',
           }}
         >
           <div>
