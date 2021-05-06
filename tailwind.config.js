@@ -17,6 +17,7 @@ module.exports = {
         18: '4.5rem',
         22: '5.5rem',
         26: '6.5rem',
+        30: '7.5rem',
         42: '10.5rem',
         45: '11.25rem',
         46: '11.5rem',
@@ -129,6 +130,9 @@ module.exports = {
           main: {
             DEFAULT: '#181B32',
             80: 'rgba(24,27,50,0.8)',
+          },
+          light: {
+            'dark-mode': '#2C2F48',
           },
           lighter: {
             DEFAULT: '#878FB8',

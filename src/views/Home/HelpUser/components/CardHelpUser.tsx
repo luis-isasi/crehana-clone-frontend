@@ -1,15 +1,30 @@
 import Image from 'next/image';
 
-const CardHelpUser = () => {
+import LinkPrimary from '@Components/Links/LinkPrimary';
+
+interface Props {
+  LinkHref: string;
+  LinkText: string;
+  text: string;
+  src: string;
+}
+
+const CardHelpUser: React.FC<Props> = ({ LinkHref, LinkText, text, src }) => {
   return (
-    <div className="relative rounded-md overflow-hidden w-full h-full">
+    <div className=" bg-base-light-dark-mode box-border p-3 rounded-md overflow-hidden w-full h-full flex">
       <Image
-        layout="fill"
+        layout="fixed"
         loader={({ src }) => `${src}`}
-        src={'https://source.unsplash.com/random'}
-        priority={true}
-        className="object-cover"
+        src={src}
+        width="96"
+        height="96"
       />
+      <div className="flex-grow box-border px-3 flex flex-col justify-between">
+        <p>{text}</p>
+        <LinkPrimary href={LinkHref} classPadding="py-1 px-4">
+          {LinkText}
+        </LinkPrimary>
+      </div>
     </div>
   );
 };

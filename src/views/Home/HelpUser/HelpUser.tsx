@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import SwitchSliderMovil from '../components/SwitchSliderMovil';
-import CardHelpUser from './components/CardHelpUser';
+import UpdateNumber from './components/UpdateNumber';
 import { CONTAINER_HOME } from '../contants';
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
@@ -29,7 +29,7 @@ const HelpUser = () => {
       for (let i = 1; i <= cardsInSection; i++) {
         console.log('imprimiendo card');
 
-        return <CardHelpUser />;
+        return <UpdateNumber />;
       }
     };
     let arr = [1, 2, 3];
@@ -38,7 +38,7 @@ const HelpUser = () => {
       return (
         <li key={index} className="h-full w-full flex">
           {/* {renderNumberCards(cardsInSection)} */}
-          <CardHelpUser />
+          <UpdateNumber />
         </li>
       );
     });
@@ -81,7 +81,7 @@ const HelpUser = () => {
             necesites resolver.
           </p>
         </header>
-        <div className="min-h-36 h-36 w-full overflow-hidden ">
+        <div className="min-h-30 h-30 w-full overflow-hidden ">
           <ul ref={sliderRef} className="flex h-full w-300 md:w-200 xl:w-full">
             {isMovil &&
               renderSectionsAndCards({ sections: 3, cardsInSection: 1 })}
