@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="/css/tailwind-build.css" />
         </Head>
-        <body className="scrool-none scroolbar">
+        <body className="scrool-none scroolbar bg-scroolbar-white">
           <Main />
           <div id="modal"></div>
           <NextScript />
