@@ -15,18 +15,20 @@ const Index: React.FC = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <header
-      className={`bg-primary-primary text-white font-semibold ${
-        isLoginOrRegister
-          ? 'h-25'
-          : isDesktop
-          ? 'h-18 min-h-18'
-          : 'h-13 min-h-13'
-      }`}
-    >
-      {isDesktop === true && <HeaderDesktop />}
-      {isDesktop === false && <HeaderMovil />}
-    </header>
+    <>
+      <header
+        className={`bg-base-lighter-16 text-white font-semibold ${
+          isLoginOrRegister
+            ? 'h-25'
+            : isDesktop
+            ? 'h-18 min-h-18'
+            : 'h-13 min-h-13'
+        }`}
+      >
+        {isDesktop === true && <HeaderDesktop />}
+        {isDesktop === false && <HeaderMovil />}
+      </header>
+    </>
   );
 };
 

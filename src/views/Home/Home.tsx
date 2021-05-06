@@ -13,11 +13,17 @@ const Home: React.FC = () => {
       <Head>
         <title>Home | Crehana</title>
       </Head>
-      <div className="bg-base-dark h-auto w-full text-white ">
+      <div className="bg-transparent h-auto w-full text-white ">
         <SectionOne firstName={user?.firstname} />
         <SectionTwo />
         <HelpUser />
       </div>
+      <style global jsx>{`
+        body {
+          //bg-base-dark
+          background-color: rgba(7, 14, 39, 1);
+        }
+      `}</style>
     </>
   );
 };
