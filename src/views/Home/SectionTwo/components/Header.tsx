@@ -27,33 +27,35 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
   };
 
   return (
-    <header
-      className={`${CONTAINER_HOME} bg-base-dark  z-10 sticky top-0 h-auto flex items-center px-4 mt-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-auto scrool-none`}
-    >
-      <Button
-        name={RECOMENDATIONS}
-        onClick={handleClick}
-        text="Recomendaciones"
-        isSelect={isSelect(RECOMENDATIONS)}
-      />
-      <Button
-        name={MENTORS}
-        onClick={handleClick}
-        isSelect={isSelect(MENTORS)}
-        text="Mentores"
-      />
-      <Button
-        name={EXCLUSIVE_PREMIUM}
-        onClick={handleClick}
-        isSelect={isSelect(EXCLUSIVE_PREMIUM)}
-        text="Exclusio Premium"
-      />
-      <Button
-        name={YOUR_ACTIVITY}
-        onClick={handleClick}
-        isSelect={isSelect(YOUR_ACTIVITY)}
-        text="Tu actividad"
-      />
+    <header className={`w-full h-auto bg-base-dark sticky top-0 z-10`}>
+      <div
+        className={`${CONTAINER_HOME} h-auto flex items-center px-4 mt-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-auto scrool-none`}
+      >
+        <Button
+          name={RECOMENDATIONS}
+          onClick={handleClick}
+          text="Recomendaciones"
+          isSelect={isSelect(RECOMENDATIONS)}
+        />
+        <Button
+          name={MENTORS}
+          onClick={handleClick}
+          isSelect={isSelect(MENTORS)}
+          text="Mentores"
+        />
+        <Button
+          name={EXCLUSIVE_PREMIUM}
+          onClick={handleClick}
+          isSelect={isSelect(EXCLUSIVE_PREMIUM)}
+          text="Exclusio Premium"
+        />
+        <Button
+          name={YOUR_ACTIVITY}
+          onClick={handleClick}
+          isSelect={isSelect(YOUR_ACTIVITY)}
+          text="Tu actividad"
+        />
+      </div>
     </header>
   );
 };
