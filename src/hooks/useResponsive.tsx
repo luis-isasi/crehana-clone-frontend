@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { MEDIAQUERY } from '@types';
+import { MediaQuery } from '@types';
 
 interface Parameters {
-  minMediaQuery?: MEDIAQUERY;
-  maxMediaQuery?: MEDIAQUERY;
+  minMediaQuery?: MediaQuery;
+  maxMediaQuery?: MediaQuery;
 }
 
 const useResponsive = ({

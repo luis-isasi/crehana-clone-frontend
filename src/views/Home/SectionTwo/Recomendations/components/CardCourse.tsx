@@ -6,7 +6,7 @@ import Link from '@Components/Links/Link';
 
 const CardCourse = () => {
   return (
-    <div className="group relative rounded-md overflow-hidden w-full h-full cursor-pointer">
+    <div className="text-white group relative rounded-md overflow-hidden w-full h-full cursor-pointer">
       <Image
         layout="fill"
         loader={({ src }) => `${src}`}

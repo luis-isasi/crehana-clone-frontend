@@ -10,7 +10,7 @@ const LinkPrimary: React.FC<Props> = ({ href, classPadding, children }) => {
     <Link
       className={`${
         classPadding || 'py-2 px-4'
-      } cursor-pointer border-2 font-extrabold text-base rounded text-center border-white hover:opacity-80 group-hover:opacity-80 active:border-primary-light  active:bg-primary-light bg-transparent w-full box-border `}
+      } cursor-pointer border-2 font-extrabold text-base text-primary-light active:text-white dark:text-white rounded text-center border-primary-light dark:border-white hover:opacity-80 group-hover:opacity-80 dark:active:border-primary-light  active:bg-primary-light bg-transparent w-full box-border `}
       href={href}
     >
       {children}

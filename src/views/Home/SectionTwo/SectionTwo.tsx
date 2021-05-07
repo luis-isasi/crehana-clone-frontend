@@ -34,7 +34,7 @@ const SectionTwo = () => {
   };
 
   return (
-    <section className="bg-base-dark h-auto w-full ">
+    <section className="dark:bg-base-lighter-16  h-auto w-full pt-5 ">
       <Header
         isSelectedBtn={isSelectedBtn}
         setIsSelectedBtn={setIsSelectedBtn}
