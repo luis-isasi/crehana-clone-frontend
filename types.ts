@@ -4,11 +4,19 @@ import {
   MEDIAQUERY_LG,
   MEDIAQUERY_XL,
   MEDIAQUERY_2X1,
+  DARK,
+  LIGHT,
 } from '@Constans';
 
-export type MEDIAQUERY =
+export type MediaQuery =
   | typeof MEDIAQUERY_SM
   | typeof MEDIAQUERY_MD
   | typeof MEDIAQUERY_LG
   | typeof MEDIAQUERY_XL
   | typeof MEDIAQUERY_2X1;
+
+export type Theme = typeof DARK | typeof LIGHT | null;
+
+export interface UserSettings {
+  theme: Theme;
+}

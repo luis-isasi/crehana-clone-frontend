@@ -53,15 +53,14 @@ const SwitchSliderDesktop: React.FC<Props> = ({
       <div className="min-w-28 flex items-center justify-between">
         <button
           disabled={selectedIndex === 1}
-          className="border disabled:border-transparent border-gray-400 hover:border-secondary-main focus:border-secondary-main focus:outline-none text-secondary-main disabled:text-gray-400 p-3 rounded-md"
+          className="border-2 box-border  disabled:border-transparent border-gray-400 hover:border-primary-main dark:hover:border-secondary-main focus:border-primary-main dark:focus:border-secondary-main focus:outline-none text-primary-main dark:text-secondary-main disabled:text-gray-400 p-3 rounded-md"
           onClick={handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
         >
           <ArrowBackIosRoundedIcon />
         </button>
-
         <button
           disabled={selectedIndex === totalSections}
-          className="border disabled:border-transparent border-gray-400 hover:border-secondary-main focus:border-secondary-main focus:outline-none text-secondary-main disabled:text-gray-400 p-3 rounded-md "
+          className="border-2 box-border disabled:border-transparent border-gray-400 hover:border-primary-main dark:hover:border-secondary-main focus:border-primary-main dark:focus:border-secondary-main focus:outline-none text-primary-main dark:text-secondary-main disabled:text-gray-400 p-3 rounded-md "
           onClick={handlePreviousAndNext(NEXT, selectedIndex + 1)}
         >
           <ArrowBackIosRoundedIcon className="transform rotate-180" />

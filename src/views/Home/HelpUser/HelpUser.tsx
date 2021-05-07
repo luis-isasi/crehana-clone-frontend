@@ -72,8 +72,8 @@ const HelpUser = () => {
 
   const sliderRef = useRef();
   return (
-    <section className="bg-base-main h-auto w-full box-border py-4">
-      <div className={`${CONTAINER_HOME} bg-base-main w-full`}>
+    <section className="h-auto w-full bg-gray-100 dark:bg-base-main text-gray-900 dark:text-white box-border py-4 tex">
+      <div className={`${CONTAINER_HOME} w-full`}>
         <header className="mb-5">
           <p className="font-bold my-1">¿Necesitas ayuda?</p>
           <p className="text-sm text-gray-400 my-1">

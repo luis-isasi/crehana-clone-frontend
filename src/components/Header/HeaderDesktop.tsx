@@ -24,7 +24,7 @@ const HeaderDesktop: React.FC = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <div className="container h-full mx-auto box-border lg:px-14 xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center">
+    <div className="container h-full text-gray-800 dark:text-white mx-auto box-border lg:px-14 xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center">
       <div className="flex items-center">
         <Link
           text="crehana"

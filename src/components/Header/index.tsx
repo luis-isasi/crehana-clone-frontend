@@ -17,7 +17,7 @@ const Index: React.FC = () => {
   return (
     <>
       <header
-        className={`bg-base-lighter-16 text-white font-semibold ${
+        className={`dark:bg-base-lighter-16  text-white font-semibold ${
           isLoginOrRegister
             ? 'h-25'
             : isDesktop

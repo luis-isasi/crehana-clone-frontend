@@ -1,8 +1,6 @@
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       spacing: {
@@ -182,12 +180,12 @@ module.exports = {
       objectFit: ['hover', 'focus'],
       objectPosition: ['hover', 'focus'],
       transitionDelay: ['hover', 'focus'],
-      width: ['hover', 'focus', 'before', 'after'],
-      height: ['hover', 'focus', 'before', 'after'],
-      inset: ['group-hover', 'hover'],
+      width: ['hover', 'focus'],
+      height: ['hover', 'focus'],
+      inset: ['group-hover', 'hover', 'checked'],
       scale: ['group-hover', 'hover'],
       fontSize: ['hover', 'focus'],
-      textColor: ['disabled'],
+      textColor: ['disabled', 'active'],
       opacity: ['disabled'],
       cursor: ['disabled'],
       backgroundColor: ['disabled', 'active', 'checked'],
@@ -196,18 +194,5 @@ module.exports = {
       borderColor: ['disabled', 'active', 'checked'],
     },
   },
-  plugins: [
-    require('tailwindcss-pseudo-elements'),
-    plugin(({ addUtilities }) => {
-      const newUtilities = {
-        '.empty-content': {
-          content: "''",
-        },
-      };
-
-      addUtilities(newUtilities, {
-        variants: ['before', 'after'],
-      });
-    }),
-  ],
+  plugins: [],
 };

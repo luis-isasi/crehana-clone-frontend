@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import Switch from './components/Switch';
+import Switch from '@Components/Switch';
+import BtnDarkMode from '@Components/buttons/BtnDarkMode';
 import HelloUser from './components/HelloUser';
 import { CONTAINER_HOME } from '../contants';
 
@@ -10,7 +11,7 @@ interface Props {
 
 const SectionOne: React.FC<Props> = ({ firstName }) => {
   return (
-    <section className="bg-base-lighter-16 h-auto w-full">
+    <section className="dark:bg-base-lighter-16 h-auto w-full">
       <div
         className={`${CONTAINER_HOME} box-border py-4 md:py-6 pb-0 md:pb-6 `}
       >
@@ -20,10 +21,10 @@ const SectionOne: React.FC<Props> = ({ firstName }) => {
             <span className="text-gray-400 text-xs font-normal hidden lg:block">
               MODO NOCTURNO
             </span>
-            <Switch />
+            <BtnDarkMode />
           </div>
         </div>
-        <div className="bg-base-dark box-border p-2 lg:px-20 xl:px-24 2xl:px-28 flex flex-col items-center md:flex-row-reverse  md:justify-between ">
+        <div className="bg-base-dark box-border rounded-md text-white p-2 lg:px-20 xl:px-24 2xl:px-28 flex flex-col items-center md:flex-row-reverse  md:justify-between ">
           <Image
             loader={({ src }) => `${src}`}
             src="https://source.unsplash.com/random"

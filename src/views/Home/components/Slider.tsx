@@ -71,7 +71,10 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
         heightAndWidth || 'min-h-88 h-88 md:min-h-96 md:h-96 w-full'
       } overflow-hidden`}
     >
-      <ul ref={sliderRef} className="flex h-full w-1200 md:w-400 xl:w-300">
+      <ul
+        ref={sliderRef}
+        className="flex h-full box-border p-2 w-1200 md:w-400 xl:w-300"
+      >
         {isMovil && renderImgMovil()}
         {isTabletOrLaptop && renderImgLaptop()}
         {isDesktop && renderImgDesktop()}

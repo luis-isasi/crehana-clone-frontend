@@ -25,12 +25,12 @@ const NewCourses = () => {
 
   return (
     <section className="relative min-h-100 h-auto w-full pb-6">
-      <div className="bg-primary-light absolute bottom-0 h-1/2 w-full flex flex-col items-center justify-end" />
+      <div className="bg-primary-main dark:bg-primary-light  absolute bottom-0 h-1/2 w-full flex flex-col items-center justify-end" />
       <div
         className={`${CONTAINER_HOME}  h-auto w-full box-border overflow-visible flex flex-col`}
       >
         <header className="mb-5 mt-1 flex items-center md:justify-between">
-          <h2 className="text-lg font-bold md:text-2xl">
+          <h2 className=" text-lg font-bold md:text-2xl">
             Nuevos cursos, nuevos retos
           </h2>
           {isMinTabletOrDesktop && (
