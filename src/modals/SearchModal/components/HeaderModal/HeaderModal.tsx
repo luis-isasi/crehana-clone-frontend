@@ -1,5 +1,5 @@
 import LogoCrehana from '@Components/Icons/LogoCrehana';
-import Arrow from '@Components/Icons/Arrow';
+import Arrow from '@Components/Icons/ArrowIcon';
 import BtnCloseModal from '../Buttons/BtnCloseModal';
 import Search from '../Search';
 import useResponsive from '@Hooks/useResponsive';

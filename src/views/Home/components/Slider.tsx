@@ -23,6 +23,7 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
 
   const renderImgMovil = () => {
     let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const arr2 = Array.from({ length: 10 });
     return array.map((index) => {
       return (
         <li key={index} className="h-full w-full">

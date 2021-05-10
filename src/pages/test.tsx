@@ -1,21 +1,15 @@
-import useDarkMode from '@Hooks/useDarkMode';
+import SettingsIcon from '@Components/Icons/SettingsIcon';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const Test = () => {
-  const { theme, changeTheme } = useDarkMode();
-
-  // className="bg-gray-500 dark:bg-gray-900 h-98 w-72 mx-auto  transition-colors  duration-500 ease-in "
   return (
-    <>
-      <div>
-        <button
-          onClick={() => {
-            changeTheme();
-          }}
-        >
-          {theme}
-        </button>
-      </div>
-    </>
+    <div>
+      <span>
+        <SettingsIcon className="transform rotate-45  " />
+
+        <ArrowForwardIcon className="transform rotate-180" />
+      </span>
+    </div>
   );
 };
 

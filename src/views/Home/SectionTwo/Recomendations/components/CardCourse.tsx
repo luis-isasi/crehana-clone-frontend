@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import Arrow from '@Components/Icons/Arrow';
+import Arrow from '@Components/Icons/ArrowIcon';
 import Link from '@Components/Links/Link';
 
 const CardCourse = () => {
