@@ -1,14 +1,21 @@
-import SettingsIcon from '@Components/Icons/SettingsIcon';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import CourseCard from '@Components/CourseCard';
 
 const Test = () => {
   return (
-    <div>
-      <span>
-        <SettingsIcon className="transform rotate-45  " />
-
-        <ArrowForwardIcon className="transform rotate-180" />
-      </span>
+    <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-2">
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
+      <CourseCard inModal={true} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import PeopleIcon from '@Components/Icons/PeopleIcon';
 
 const SalesAndStars: React.FC = () => {
   return (
-    <div className="mb-3 mt-12 lg:mt-10 xl:mt-10  flex items-center">
+    <div className="mb-3 mt-6 lg:mt-10 xl:mt-10  flex items-center">
       <span className="flex items-center mr-2">
         <PeopleIcon />
         <span className="mx-2 font-light text-gray-800">544</span>
