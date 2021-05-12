@@ -17,24 +17,24 @@ import Community from './components/Community';
 import Notification from './components/Notification';
 
 const HeaderDesktop: React.FC = () => {
-  const router = useRouter();
   const { user } = useUser();
+  const router = useRouter();
 
   const isLoginOrRegister =
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <div className="container h-full text-gray-800 dark:text-white mx-auto box-border lg:px-14 xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center">
+    <div className="container h-full mx-auto box-border lg:px-14 xl:px-6 lg:max-w-screen-xl 2xl:max-w-9xl flex items-center">
       <div className="flex items-center">
         <Link
           text="crehana"
           href="/"
-          className="font-bold text-3xl hover:cursor-pointer"
+          className="font-bold text-3xl hover:cursor-pointer text-primary-main dark:text-white"
         />
         {isLoginOrRegister ? null : (
           <>
             <Categories />
-            <div className="border-l border-gray-600 h-9"></div>
+            <div className="border-l border-gray-200 dark:border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3" />
           </>
         )}
       </div>
@@ -45,7 +45,7 @@ const HeaderDesktop: React.FC = () => {
           <div className="flex items-center text-sm">
             <LinkToBusiness />
             <LinkToPremium />
-            <div className="border-l border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3"></div>
+            <div className="border-l border-gray-200 dark:border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3" />
             {user === null && (
               <>
                 <LinkToLogin />
