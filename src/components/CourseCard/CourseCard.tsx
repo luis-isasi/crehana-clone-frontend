@@ -55,13 +55,11 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
             </div>
             <AddToCar />
           </div>
-
           {((inModal && isLaptopOrDesktop) || !inModal) && (
             <span className="font-light text-sm text-gray-500 my-2">
               Por Ismael Mon
             </span>
           )}
-
           {inModal && isMovilAndTablet && (
             <div className="flex items-center mt-5">
               <IconComplete />

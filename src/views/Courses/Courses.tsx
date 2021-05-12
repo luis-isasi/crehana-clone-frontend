@@ -1,22 +1,33 @@
 import SearchOptions from './components/SearchOptions';
-import CourseCard from '@Components/CourseCard';
+import RecommendedCourses from './RecommendedCourses';
+import NewCourses from './NewCourses';
+import Specializations from './Specializations';
+import CoursesSlider from './CoursesSlider';
+import useResponsive from '@Hooks/useResponsive';
+import { MEDIAQUERY_XL } from '@Constans';
 
 const Courses = () => {
+  const isDesktop = useResponsive({
+    minMediaQuery: MEDIAQUERY_XL,
+  });
+
   return (
-    <div>
-      <SearchOptions />
+    <div className="h-auto w-full">
+      {!isDesktop && <SearchOptions />}
       <div className="w-full h-auto">
-        <div className="w-full max-w-6xl h-auto  box-border px-5 mx-auto ">
-          <h5 className="my-5 font-extrabold sm:text-xl">
-            Cursos online recomendados por la comunidad
-          </h5>
-          <div className="grid grid-flow-row gap-10 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
-            <CourseCard inModal={false} />
-            <CourseCard inModal={false} />
-            <CourseCard inModal={false} />
-            <CourseCard inModal={false} />
-            <CourseCard inModal={false} />
-            <CourseCard inModal={false} />
+        <div className="w-full max-w-screen-xl h-auto box-border px-5 mx-auto">
+          {isDesktop && <CoursesSlider />}
+          <div className="w-full h-auto flex flex-row">
+            {isDesktop && (
+              <div className="h-full w-52 mr-8 bg-indigo-500 ">
+                Mostrar todos los cursos online
+              </div>
+            )}
+            <div className="flex-grow flex flex-col">
+              <RecommendedCourses />
+              <NewCourses />
+              <Specializations />
+            </div>
           </div>
         </div>
       </div>
