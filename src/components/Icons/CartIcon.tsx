@@ -6,7 +6,7 @@ const SvgComponent: React.FC<{ className?: string }> = ({ className }) => {
       height={20}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      color="#4B22F4"
+      fill="#4B22F4"
     >
       <path
         className="fill-current"
