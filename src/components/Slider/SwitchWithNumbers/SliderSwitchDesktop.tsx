@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-import { PREVIOUS, NEXT } from '../contants';
+import { PREVIOUS, NEXT } from '@Constans';
 
 interface Props {
   selectedIndex: number;
@@ -18,7 +18,19 @@ const SwitchSliderDesktop: React.FC<Props> = ({
 }) => {
   useEffect(() => {
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
+
     setSelectedIndex(1);
+    sliderRef.current.animate(
+      [
+        {
+          marginLeft: '0%',
+        },
+      ],
+      {
+        iterations: 1,
+        fill: 'forwards',
+      }
+    );
   }, [totalSections]);
 
   const handlePreviousAndNext = (

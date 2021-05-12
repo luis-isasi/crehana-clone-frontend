@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-import { PREVIOUS, NEXT } from '../contants';
+import { PREVIOUS, NEXT } from '@Constans';
 
 interface Props {
   selectedIndex: number;
@@ -10,7 +10,7 @@ interface Props {
   sliderRef: React.RefObject<HTMLUListElement>;
 }
 
-const SwitchSliderMovil: React.FC<Props> = ({
+const SwitchWithPoints: React.FC<Props> = ({
   selectedIndex,
   setSelectedIndex,
   totalSections,
@@ -68,4 +68,4 @@ const SwitchSliderMovil: React.FC<Props> = ({
   );
 };
 
-export default SwitchSliderMovil;
+export default SwitchWithPoints;

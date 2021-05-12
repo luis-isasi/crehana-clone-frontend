@@ -4,9 +4,9 @@ import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { CONTAINER_HOME } from '../../contants';
 import useResponsive from '@Hooks/useResponsive';
 import CardCourse from './components/CardCourse';
-import Slider from '../../components/Slider';
-import SwitchSliderDesktop from '../../components/SwitchSliderDesktop';
-import SwitchSliderMovil from '../../components/SwitchSliderMovil';
+import Slider from '@Components/Slider/Slider';
+import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwitchDesktop';
+import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 
 const NewCourses = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
@@ -34,7 +34,7 @@ const NewCourses = () => {
             Nuevos cursos, nuevos retos
           </h2>
           {isMinTabletOrDesktop && (
-            <SwitchSliderDesktop
+            <SliderSwitchDesktop
               sliderRef={sliderRef}
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
@@ -44,7 +44,7 @@ const NewCourses = () => {
         </header>
         <Slider Card={CardCourse} sliderRef={sliderRef} />
         {isMobile && (
-          <SwitchSliderMovil
+          <SliderSwitchMovil
             sliderRef={sliderRef}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}

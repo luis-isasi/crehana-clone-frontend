@@ -1,10 +1,15 @@
 import { useRef, useState } from 'react';
 
-import SwitchSliderMovil from '../components/SwitchSliderMovil';
-import UpdateNumber from './components/UpdateNumber';
-import { CONTAINER_HOME } from '../contants';
-import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
+import { CONTAINER_HOME } from '../contants';
+import { DataHelpUser } from './types';
+import useResponsive from '@Hooks/useResponsive';
+import { Items } from './items';
+import SwitchSliderMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
+import SwitchWithPoints from '@Components/Slider/SwitchWithPoints';
+import CardHelpUser from './components/CardHelpUser';
+
+// const arr2 = Array.from({ length: 10 });
 
 const HelpUser = () => {
   const [index, setIndex] = useState<number>(1);
@@ -18,6 +23,11 @@ const HelpUser = () => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
+  // useEffect(() => {
+  //   console.log('asfsaf');
+  //   setIndex(1);
+  // }, [isMovil, isTabletOrLaptop, isDesktop]);
+
   const renderSectionsAndCards = ({
     sections,
     cardsInSection,
@@ -25,47 +35,36 @@ const HelpUser = () => {
     sections: number;
     cardsInSection: number;
   }) => {
-    const renderNumberCards = (cardsInSection: number) => {
-      for (let i = 1; i <= cardsInSection; i++) {
-        console.log('imprimiendo card');
+    //inicializamos el index
+    const arrSections = Array.from({ length: sections });
+    let index = 0;
 
-        return <UpdateNumber />;
-      }
+    //funcion para retonrar los cards dentro de la section
+    const renderCards = (cardsInSection: number) => {
+      const cards: DataHelpUser[] = Items.slice(index, index + cardsInSection);
+
+      //le damos un nuevo valor al index para el siguiente render de cards en section
+      index = index + cardsInSection;
+
+      return cards.map(({ id, href, linkText, src, text }) => (
+        <CardHelpUser
+          key={id}
+          LinkHref={href}
+          LinkText={linkText}
+          src={src}
+          text={text}
+        />
+      ));
     };
-    let arr = [1, 2, 3];
 
-    return arr.map((x, index) => {
+    //renderizamos las sections y dentro los cards correspondientes
+    return arrSections.map((x, index) => {
       return (
         <li key={index} className="h-full w-full flex">
-          {/* {renderNumberCards(cardsInSection)} */}
-          <UpdateNumber />
+          {renderCards(cardsInSection)}
         </li>
       );
     });
-
-    // let i = 1;
-    // while (i <= sections) {
-    //   console.log(i, sections);
-
-    //   i++;
-    //   return (
-    //     <li key={index} className="h-full w-full flex">
-    //       {/* {renderNumberCards(cardsInSection)} */}
-    //       <CardHelpUser />
-    //     </li>
-    //   );
-    // }
-
-    // for (let i = 1; i <= sections; i++) {
-    //   console.log(i, sections);
-
-    //   return (
-    //     <li key={index} className="h-full w-full flex">
-    //       {/* {renderNumberCards(cardsInSection)} */}
-    //       <CardHelpUser />
-    //     </li>
-    //   );
-    // }
   };
 
   // md:grid md:grid-flow-col md:grid-cols-3 md:gap-6
@@ -82,7 +81,7 @@ const HelpUser = () => {
           </p>
         </header>
         <div className="min-h-30 h-30 w-full overflow-hidden ">
-          <ul ref={sliderRef} className="flex h-full w-300 md:w-200 xl:w-full">
+          <ul ref={sliderRef} className="flex h-full w-300 md:w-300 xl:w-full">
             {isMovil &&
               renderSectionsAndCards({ sections: 3, cardsInSection: 1 })}
             {isTabletOrLaptop &&
@@ -91,14 +90,22 @@ const HelpUser = () => {
               renderSectionsAndCards({ sections: 1, cardsInSection: 3 })}
           </ul>
         </div>
-        <div>
+        {isMovil && (
           <SwitchSliderMovil
             selectedIndex={index}
             setSelectedIndex={setIndex}
             sliderRef={sliderRef}
             totalSections={3}
           />
-        </div>
+        )}
+        {isTabletOrLaptop && (
+          <SwitchWithPoints
+            selectedIndex={index}
+            setSelectedIndex={setIndex}
+            sliderRef={sliderRef}
+            totalSections={3}
+          />
+        )}
       </div>
     </section>
   );
