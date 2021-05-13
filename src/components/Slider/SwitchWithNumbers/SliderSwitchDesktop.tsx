@@ -18,8 +18,9 @@ const SwitchSliderDesktop: React.FC<Props> = ({
 }) => {
   useEffect(() => {
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
-
     setSelectedIndex(1);
+
+    //reset animate to 0%
     sliderRef.current.animate(
       [
         {
