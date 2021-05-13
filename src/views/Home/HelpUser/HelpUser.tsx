@@ -9,8 +9,6 @@ import SwitchSliderMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitch
 import SwitchWithPoints from '@Components/Slider/SwitchWithPoints';
 import CardHelpUser from './components/CardHelpUser';
 
-// const arr2 = Array.from({ length: 10 });
-
 const HelpUser = () => {
   const [index, setIndex] = useState<number>(1);
 
@@ -22,11 +20,6 @@ const HelpUser = () => {
   const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_2X1,
   });
-
-  // useEffect(() => {
-  //   console.log('asfsaf');
-  //   setIndex(1);
-  // }, [isMovil, isTabletOrLaptop, isDesktop]);
 
   const renderSectionsAndCards = ({
     sections,
@@ -57,7 +50,7 @@ const HelpUser = () => {
       ));
     };
 
-    //renderizamos las sections y dentro los cards correspondientes
+    //renderizamos las sections y dentro sus cards correspondientes
     return arrSections.map((data, index) => {
       return (
         <li

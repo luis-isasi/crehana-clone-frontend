@@ -22,18 +22,23 @@ const SwitchWithPoints: React.FC<Props> = ({
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
     setSelectedIndex(1);
 
-    //reset animate to 0%
-    sliderRef.current.animate(
-      [
+    //We save the slider's ref, for later use in the cleanup function
+    let _sliderRef = sliderRef;
+
+    return () => {
+      //reset marginleft to 0%
+      _sliderRef.current.animate(
+        [
+          {
+            marginLeft: '0%',
+          },
+        ],
         {
-          marginLeft: '0%',
-        },
-      ],
-      {
-        iterations: 1,
-        fill: 'forwards',
-      }
-    );
+          iterations: 1,
+          fill: 'forwards',
+        }
+      );
+    };
   }, [totalSections]);
 
   const handlePreviousAndNext = (
