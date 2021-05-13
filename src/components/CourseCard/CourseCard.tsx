@@ -72,10 +72,10 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
           <Price />
           {!inModal && (
             <div className="h-auto w-full my-2 flex">
-              <button className="box-border p-3 mr-4 border border-primary-main focus:outline-none ">
-                <CartIcon className="" />
+              <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none ">
+                <CartIcon className="text-primary-main" />
               </button>
-              <BtnPrimary classPadding="py-3">Comprar ahora</BtnPrimary>
+              <BtnPrimary className="py-3 w-full">Comprar ahora</BtnPrimary>
             </div>
           )}
         </div>
@@ -85,52 +85,3 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
 };
 
 export default CardCourse;
-
-//  <div
-//       className={`box-border ${
-//         inModal && 'p-3'
-//       } max-w-full  w-full md:w-1/3  lg:w-1/4 lg:max-w-1/4 xl:w-1/4 xl:max-w-1/4 2xl:w-1/5 2xl:max-w-1/5`}
-//     >
-//       <div
-//         className={`w-full bg-blue-500 h-auto pb-0 md:pb-5 mb-2 md:mb-8 transition duration-300 ease-in-out hover:shadow-lg flex ${
-//           inModal ? 'flex-row' : 'flex-col'
-//         } md:flex-col cursor-pointer`}
-//       >
-//         <CourseImg inModal={inModal} />
-//         <div className="w-full box-border h-full md:h-1/2 px-3 md:p-3 bg-blue-300 ">
-//           <div className="flex flex-row md:flex-row ">
-//             <div className="flex flex-col justify-start w-full">
-//               {isMovilAndTablet && <MostSelling />}
-//               <p className="font-semibold text-gray-700 text-sm h-4 md:h-10 mt-2 lg:mt-0">
-//                 Marketing digital desde cero
-//               </p>
-//             </div>
-//             <AddToCar />
-//           </div>
-//           {isMovilAndTablet === false && (
-//             <span className="font-light text-sm text-gray-500 my-2 ">
-//               Por Ismael Mon
-//             </span>
-//           )}
-//           {isMovilAndTablet === undefined ? null : isMovilAndTablet ? (
-//             <div className="flex items-center mt-5">
-//               <IconComplete />
-//               <span className="px-2 my-3 text-gray-500 font-semibold text-sm">
-//                 Completo
-//               </span>
-//             </div>
-//           ) : (
-//             <SalesAndStars />
-//           )}
-//           <Price />
-//           {!inModal && (
-//             <div className="h-auto w-full my-2 flex">
-//               <button className="box-border p-3 mr-4 border border-primary-main focus:outline-none ">
-//                 <CartIcon className="" />
-//               </button>
-//               <BtnPrimary classPadding="py-3">Comprar ahora</BtnPrimary>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </div>

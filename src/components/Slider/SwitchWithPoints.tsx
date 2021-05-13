@@ -85,7 +85,7 @@ const SwitchWithPoints: React.FC<Props> = ({
   };
 
   return (
-    <div className="h-auto w-full mx-auto flex items-center justify-center my-5 z-30">
+    <div className="h-auto w-full mx-auto flex items-center justify-center my-5 z-20">
       <button
         disabled={selectedIndex === 1}
         className="text-primary-main dark:text-secondary-main disabled:text-gray-400 dark:disabled:text-gray-400 outline-none focus:outline-none mx-4"
