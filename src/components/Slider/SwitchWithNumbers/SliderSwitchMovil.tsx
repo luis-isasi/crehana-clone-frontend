@@ -1,22 +1,17 @@
 import { useEffect } from 'react';
 
-import { PREVIOUS, NEXT } from '@Constans';
 import ExpandMoreIcon from '@Components/Icons/ExpandMoreIcon';
+import { PREVIOUS, NEXT } from '@Constans';
+import { PropsSwitchMovil } from '../types';
+import { handlePreviousAndNext, resetAnimate } from '../utils';
 
-interface Props {
-  selectedIndex: number;
-  setSelectedIndex: (selectedIndex: number) => void;
-  totalSections: number;
-  sliderRef: React.RefObject<HTMLUListElement>;
-  colorText?: string;
-}
-
-const SwitchSliderMovil: React.FC<Props> = ({
+const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
   selectedIndex,
   setSelectedIndex,
   totalSections,
   sliderRef,
   colorText,
+  marginLeft = 100,
 }) => {
   useEffect(() => {
     //cada vez que renderizamos el switch volvemos el index a 0
@@ -26,42 +21,23 @@ const SwitchSliderMovil: React.FC<Props> = ({
     let _sliderRef = sliderRef;
 
     return () => {
-      //reset marginleft to 0%
-      _sliderRef.current.animate(
-        [
-          {
-            marginLeft: '0%',
-          },
-        ],
-        {
-          iterations: 1,
-          fill: 'forwards',
-        }
-      );
+      resetAnimate(_sliderRef);
     };
   }, [totalSections]);
 
-  const handlePreviousAndNext = (
+  const _handlePreviousAndNext = (
     type: typeof NEXT | typeof PREVIOUS,
     newIndex: number
   ) => () => {
-    if (selectedIndex === totalSections && type === NEXT) return;
-    if (selectedIndex === 1 && type === PREVIOUS) return;
-
-    sliderRef.current.animate(
-      [
-        {
-          marginLeft: `-${newIndex - 1}00%`,
-        },
-      ],
-      {
-        duration: 150,
-        iterations: 1,
-        easing: 'ease-in',
-        fill: 'forwards',
-      }
-    );
-    setSelectedIndex(newIndex);
+    handlePreviousAndNext({
+      type,
+      newIndex,
+      marginLeft,
+      selectedIndex,
+      setSelectedIndex,
+      sliderRef,
+      totalSections,
+    });
   };
 
   return (
@@ -72,7 +48,7 @@ const SwitchSliderMovil: React.FC<Props> = ({
           colorText ||
           'text-primary-main dark:text-secondary-main disabled:text-gray-400 dark:disabled:text-gray-400'
         }  outline-none focus:outline-none mx-8`}
-        onClick={handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
+        onClick={_handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
       >
         <ExpandMoreIcon className="transform rotate-180 w-8 h-8" />
       </button>
@@ -86,7 +62,7 @@ const SwitchSliderMovil: React.FC<Props> = ({
           colorText ||
           'text-primary-main dark:text-secondary-main disabled:text-gray-400 dark:disabled:text-gray-400'
         }  outline-none focus:outline-none mx-8`}
-        onClick={handlePreviousAndNext(NEXT, selectedIndex + 1)}
+        onClick={_handlePreviousAndNext(NEXT, selectedIndex + 1)}
       >
         <ExpandMoreIcon className="w-8 h-8" />
       </button>

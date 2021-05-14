@@ -1,11 +1,27 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-import SwitchWithPoints from '@Components/Slider/SwitchWithPoints';
+import SwitchSecondaryPoints from '@Components/Slider/SwitchWithPoints/SwitchSecondaryPoints';
 import Link from '@Components/Links/Link';
 
 const CoursesSlider = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
   const sliderRef = useRef<HTMLUListElement>();
+
+  useEffect(() => {
+    sliderRef.current.animate(
+      [
+        {
+          marginLeft: '-100%',
+        },
+      ],
+      {
+        duration: 10000,
+        iterations: Infinity,
+        easing: 'ease-in',
+        fill: 'forwards',
+      }
+    );
+  }, []);
 
   const renderCards = () => {
     return Items.map(({ id, href, title, text, urlImg }) => (
@@ -36,8 +52,8 @@ const CoursesSlider = () => {
       <ul ref={sliderRef} className="w-1000 h-full flex">
         {renderCards()}
       </ul>
-      <div className="absolute bottom-0 w-full">
-        <SwitchWithPoints
+      <div className="absolute bottom-0 w-full my-3">
+        <SwitchSecondaryPoints
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
           sliderRef={sliderRef}

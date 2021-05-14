@@ -2,19 +2,15 @@ import React, { useEffect } from 'react';
 
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import { PREVIOUS, NEXT } from '@Constans';
+import { PropsSwitchDesktop } from '../types';
+import { handlePreviousAndNext, resetAnimate } from '../utils';
 
-interface Props {
-  selectedIndex: number;
-  setSelectedIndex: (selectedIndex: number) => void;
-  totalSections: number;
-  sliderRef: React.RefObject<HTMLUListElement>;
-}
-
-const SwitchSliderDesktop: React.FC<Props> = ({
+const SwitchSliderDesktop: React.FC<PropsSwitchDesktop> = ({
   selectedIndex,
   setSelectedIndex,
   totalSections,
   sliderRef,
+  marginLeft = 100,
 }) => {
   useEffect(() => {
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
@@ -24,42 +20,23 @@ const SwitchSliderDesktop: React.FC<Props> = ({
     let _sliderRef = sliderRef;
 
     return () => {
-      //reset marginleft to 0%
-      _sliderRef.current.animate(
-        [
-          {
-            marginLeft: '0%',
-          },
-        ],
-        {
-          iterations: 1,
-          fill: 'forwards',
-        }
-      );
+      resetAnimate(_sliderRef);
     };
   }, [totalSections]);
 
-  const handlePreviousAndNext = (
+  const _handlePreviousAndNext = (
     type: typeof NEXT | typeof PREVIOUS,
     newIndex: number
   ) => () => {
-    if (selectedIndex === 12 && type === NEXT) return;
-    if (selectedIndex === 1 && type === PREVIOUS) return;
-
-    sliderRef.current.animate(
-      [
-        {
-          marginLeft: `-${newIndex - 1}00%`,
-        },
-      ],
-      {
-        duration: 150,
-        iterations: 1,
-        easing: 'ease-in',
-        fill: 'forwards',
-      }
-    );
-    setSelectedIndex(newIndex);
+    handlePreviousAndNext({
+      type,
+      newIndex,
+      marginLeft,
+      selectedIndex,
+      setSelectedIndex,
+      sliderRef,
+      totalSections,
+    });
   };
 
   return (
@@ -72,14 +49,14 @@ const SwitchSliderDesktop: React.FC<Props> = ({
         <button
           disabled={selectedIndex === 1}
           className="border-2 box-border  disabled:border-transparent border-gray-400 hover:border-primary-main dark:hover:border-secondary-main focus:border-primary-main dark:focus:border-secondary-main focus:outline-none text-primary-main dark:text-secondary-main disabled:text-gray-400 p-3 rounded-md"
-          onClick={handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
+          onClick={_handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
         >
           <ArrowBackIosRoundedIcon />
         </button>
         <button
           disabled={selectedIndex === totalSections}
           className="border-2 box-border disabled:border-transparent border-gray-400 hover:border-primary-main dark:hover:border-secondary-main focus:border-primary-main dark:focus:border-secondary-main focus:outline-none text-primary-main dark:text-secondary-main disabled:text-gray-400 p-3 rounded-md "
-          onClick={handlePreviousAndNext(NEXT, selectedIndex + 1)}
+          onClick={_handlePreviousAndNext(NEXT, selectedIndex + 1)}
         >
           <ArrowBackIosRoundedIcon className="transform rotate-180" />
         </button>

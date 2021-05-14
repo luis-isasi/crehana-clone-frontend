@@ -5,8 +5,8 @@ import { CONTAINER_HOME } from '../contants';
 import { DataHelpUser } from './types';
 import useResponsive from '@Hooks/useResponsive';
 import { Items } from './items';
-import SwitchSliderMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
-import SwitchWithPoints from '@Components/Slider/SwitchWithPoints';
+import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
+import SwitchPrimaryPoints from '@Components/Slider/SwitchWithPoints/SwitchPrimaryPoints';
 import CardHelpUser from './components/CardHelpUser';
 
 const HelpUser = () => {
@@ -86,7 +86,7 @@ const HelpUser = () => {
           </ul>
         </div>
         {isMovil && (
-          <SwitchSliderMovil
+          <SliderSwitchMovil
             selectedIndex={index}
             setSelectedIndex={setIndex}
             sliderRef={sliderRef}
@@ -94,7 +94,7 @@ const HelpUser = () => {
           />
         )}
         {isTabletOrLaptop && (
-          <SwitchWithPoints
+          <SwitchPrimaryPoints
             selectedIndex={index}
             setSelectedIndex={setIndex}
             sliderRef={sliderRef}

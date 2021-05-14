@@ -1,17 +1,11 @@
 import { useEffect } from 'react';
-
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+
 import { PREVIOUS, NEXT } from '@Constans';
+import { handlePreviousAndNext, resetAnimate } from '../utils';
+import { PropsSwitchWithPoints } from '../types';
 
-interface Props {
-  selectedIndex: number;
-  setSelectedIndex: (selectedIndex: number) => void;
-  totalSections: number;
-  sliderRef: React.RefObject<HTMLUListElement>;
-  marginLeft?: number;
-}
-
-const SwitchWithPoints: React.FC<Props> = ({
+const SwitchPrimaryPoints: React.FC<PropsSwitchWithPoints> = ({
   selectedIndex,
   setSelectedIndex,
   totalSections,
@@ -26,42 +20,23 @@ const SwitchWithPoints: React.FC<Props> = ({
     let _sliderRef = sliderRef;
 
     return () => {
-      //reset marginleft to 0%
-      _sliderRef.current.animate(
-        [
-          {
-            marginLeft: '0%',
-          },
-        ],
-        {
-          iterations: 1,
-          fill: 'forwards',
-        }
-      );
+      resetAnimate(_sliderRef);
     };
   }, [totalSections]);
 
-  const handlePreviousAndNext = (
+  const _handlePreviousAndNext = (
     type: typeof NEXT | typeof PREVIOUS | 'OTHER',
     newIndex: number
   ) => () => {
-    if (selectedIndex === totalSections && type === NEXT) return;
-    if (selectedIndex === 1 && type === PREVIOUS) return;
-
-    sliderRef.current.animate(
-      [
-        {
-          marginLeft: `-${(newIndex - 1) * marginLeft}%`,
-        },
-      ],
-      {
-        duration: 150,
-        iterations: 1,
-        easing: 'ease-in',
-        fill: 'forwards',
-      }
-    );
-    setSelectedIndex(newIndex);
+    handlePreviousAndNext({
+      type,
+      newIndex,
+      marginLeft,
+      selectedIndex,
+      setSelectedIndex,
+      sliderRef,
+      totalSections,
+    });
   };
 
   const renderPointsSections = () => {
@@ -78,7 +53,7 @@ const SwitchWithPoints: React.FC<Props> = ({
             selectedIndex === selectIndex &&
             'bg-primary-main dark:bg-secondary-main'
           } rounded-circle h-3 w-3 bg-gray-300 dark:bg-gray-700 mx-2 focus:outline-none`}
-          onClick={handlePreviousAndNext('OTHER', selectIndex)}
+          onClick={_handlePreviousAndNext('OTHER', selectIndex)}
         />
       );
     });
@@ -89,7 +64,7 @@ const SwitchWithPoints: React.FC<Props> = ({
       <button
         disabled={selectedIndex === 1}
         className="text-primary-main dark:text-secondary-main disabled:text-gray-400 dark:disabled:text-gray-400 outline-none focus:outline-none mx-4"
-        onClick={handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
+        onClick={_handlePreviousAndNext(PREVIOUS, selectedIndex - 1)}
       >
         <ArrowBackIosRoundedIcon />
       </button>
@@ -97,7 +72,7 @@ const SwitchWithPoints: React.FC<Props> = ({
       <button
         disabled={selectedIndex === totalSections}
         className="text-primary-main dark:text-secondary-main disabled:text-gray-400 dark:disabled:text-gray-400 outline-none focus:outline-none mx-4"
-        onClick={handlePreviousAndNext(NEXT, selectedIndex + 1)}
+        onClick={_handlePreviousAndNext(NEXT, selectedIndex + 1)}
       >
         <ArrowBackIosRoundedIcon className="transform rotate-180" />
       </button>
@@ -105,4 +80,4 @@ const SwitchWithPoints: React.FC<Props> = ({
   );
 };
 
-export default SwitchWithPoints;
+export default SwitchPrimaryPoints;
