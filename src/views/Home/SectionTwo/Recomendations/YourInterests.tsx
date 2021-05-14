@@ -4,9 +4,9 @@ import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { CONTAINER_HOME } from '../../contants';
 import useResponsive from '@Hooks/useResponsive';
 import CardInterest from './components/CardInterest';
-import Slider from '../../components/Slider';
-import SwitchSliderDesktop from '../../components/SwitchSliderDesktop';
-import SwitchSliderMovil from '../../components/SwitchSliderMovil';
+import Slider from '@Components/Slider/Slider';
+import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwitchDesktop';
+import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 
 const YourInterests = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
@@ -49,7 +49,7 @@ const YourInterests = () => {
         <header className="flex items-center md:justify-between">
           <h2 className="text-lg font-bold md:text-2xl">Según tus intereses</h2>
           {isMinTabletOrDesktop && (
-            <SwitchSliderDesktop
+            <SliderSwitchDesktop
               sliderRef={sliderRef}
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
@@ -66,7 +66,7 @@ const YourInterests = () => {
           sliderRef={sliderRef}
         />
         {isMobile && (
-          <SwitchSliderMovil
+          <SliderSwitchMovil
             sliderRef={sliderRef}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}

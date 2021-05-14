@@ -21,7 +21,7 @@ const CardHelpUser: React.FC<Props> = ({ LinkHref, LinkText, text, src }) => {
       />
       <div className="flex-grow px-3 flex flex-col justify-between">
         <p>{text}</p>
-        <LinkPrimary href={LinkHref} classPadding="py-1 px-4">
+        <LinkPrimary href={LinkHref} className="py-1 px-4">
           {LinkText}
         </LinkPrimary>
       </div>

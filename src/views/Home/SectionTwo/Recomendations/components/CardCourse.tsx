@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import Arrow from '@Components/Icons/ArrowIcon';
+import ArrowIcon from '@Components/Icons/ArrowIcon';
 import Link from '@Components/Links/Link';
 
 const CardCourse = () => {
@@ -13,7 +13,7 @@ const CardCourse = () => {
         src={'https://source.unsplash.com/random'}
         priority={true}
         alt="cardCourse"
-        className="object-cover absolute transform group-hover:scale-110 transition-all duration-300 ease-out "
+        className="object-cover absolute transform group-hover:scale-110 transition-all duration-300 ease-out"
       />
       <div className="h-auto w-full box-border p-5 absolute -bottom-13 group-hover:bottom-0 transition-all duration-300 ease-out flex flex-col justify-end font-semibold ">
         <span className="text-sm font-normal mt-2">NEGOCIOS</span>
@@ -24,12 +24,10 @@ const CardCourse = () => {
         </time>
         <Link
           href="/home"
-          className="w-full mt-5 flex items-center text-base font-bold hover:text-secondary-main"
+          className="w-full mt-5 flex items-center text-base font-bold text-white hover:text-secondary-main"
         >
           Ver detalle del curso
-          <span className="transform rotate-180 mx-2">
-            <Arrow className="fill-current " />
-          </span>
+          <ArrowIcon className="transform rotate-180 mx-2" />
         </Link>
       </div>
     </div>
