@@ -1,1 +1,1 @@
-export { default } from '@Views/Courses';
+export { default } from '@Views/CoursesOnline';

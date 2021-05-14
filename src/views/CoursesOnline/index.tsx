@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Courses from './Courses';
+import Courses from './CoursesOnline';
 
 const index = () => {
   return (
