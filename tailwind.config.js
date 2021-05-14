@@ -124,7 +124,10 @@ module.exports = {
       maxHeight: (theme) => ({
         ...theme('spacing'),
       }),
-      colors: {
+      colors: (theme) => ({
+        red: {
+          main: '#E6215D',
+        },
         base: {
           dark: '#070E27',
           main: {
@@ -154,7 +157,7 @@ module.exports = {
           main: '#0BD4C1',
           dark: '#0B756F',
         },
-      },
+      }),
       borderRadius: {
         circle: '50%',
       },
