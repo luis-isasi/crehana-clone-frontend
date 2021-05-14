@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import ExpandMoreIcon from '@Components/Icons/ExpandMoreIcon';
 import { PREVIOUS, NEXT } from '@Constans';
@@ -6,23 +6,19 @@ import { PropsSwitchMovil } from '../types';
 import { handlePreviousAndNext, resetAnimate } from '../utils';
 
 const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
-  selectedIndex,
-  setSelectedIndex,
   totalSections,
   sliderRef,
   colorText,
   marginLeft = 100,
 }) => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(1);
+
   useEffect(() => {
-    //cada vez que renderizamos el switch volvemos el index a 0
+    //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
     setSelectedIndex(1);
 
-    //We save the slider's ref, for later use in the cleanup function
-    let _sliderRef = sliderRef;
-
-    return () => {
-      resetAnimate(_sliderRef);
-    };
+    //reset animate
+    resetAnimate(sliderRef);
   }, [totalSections]);
 
   const _handlePreviousAndNext = (

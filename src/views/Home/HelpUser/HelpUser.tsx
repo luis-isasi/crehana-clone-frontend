@@ -8,9 +8,12 @@ import { Items } from './items';
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 import SwitchPrimaryPoints from '@Components/Slider/SwitchWithPoints/SwitchPrimaryPoints';
 import CardHelpUser from './components/CardHelpUser';
+import { resetAnimate } from '@Components/Slider/utils';
 
 const HelpUser = () => {
   const [index, setIndex] = useState<number>(1);
+
+  const sliderRef = useRef<HTMLUListElement>();
 
   const isMovil = useResponsive({ maxMediaQuery: MEDIAQUERY_MD });
   const isTabletOrLaptop = useResponsive({
@@ -63,7 +66,6 @@ const HelpUser = () => {
     });
   };
 
-  const sliderRef = useRef();
   return (
     <section className="h-auto w-full bg-gray-100 dark:bg-base-main text-gray-900 dark:text-white box-border py-4 ">
       <div className={`${CONTAINER_HOME} w-full`}>

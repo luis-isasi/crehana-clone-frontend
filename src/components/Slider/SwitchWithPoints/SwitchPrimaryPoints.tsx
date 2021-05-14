@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 
 import { PREVIOUS, NEXT } from '@Constans';
@@ -6,22 +6,18 @@ import { handlePreviousAndNext, resetAnimate } from '../utils';
 import { PropsSwitchWithPoints } from '../types';
 
 const SwitchPrimaryPoints: React.FC<PropsSwitchWithPoints> = ({
-  selectedIndex,
-  setSelectedIndex,
   totalSections,
   sliderRef,
   marginLeft = 100,
 }) => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(1);
+
   useEffect(() => {
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
     setSelectedIndex(1);
 
-    //We save the slider's ref, for later use in the cleanup function
-    let _sliderRef = sliderRef;
-
-    return () => {
-      resetAnimate(_sliderRef);
-    };
+    //reset animate
+    resetAnimate(sliderRef);
   }, [totalSections]);
 
   const _handlePreviousAndNext = (

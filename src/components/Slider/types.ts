@@ -12,8 +12,8 @@ export interface ParametersHandlePreviousAndNext {
 }
 
 interface PropsSwitch {
-  selectedIndex: number;
-  setSelectedIndex: (selectedIndex: number) => void;
+  // selectedIndex: number;
+  // setSelectedIndex: (selectedIndex: number) => void;
   totalSections: number;
   sliderRef: React.RefObject<HTMLUListElement>;
   marginLeft?: number;

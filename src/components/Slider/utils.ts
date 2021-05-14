@@ -1,4 +1,5 @@
 import { NEXT, PREVIOUS } from '@Constans';
+import React from 'react';
 import { ParametersHandlePreviousAndNext } from './types';
 
 export const handlePreviousAndNext = ({
@@ -29,7 +30,7 @@ export const handlePreviousAndNext = ({
   setSelectedIndex(newIndex);
 };
 
-export const resetAnimate = (_sliderRef: any) => {
+export const resetAnimate = (_sliderRef: React.RefObject<HTMLUListElement>) => {
   //reset marginleft to 0%
   _sliderRef.current.animate(
     [
