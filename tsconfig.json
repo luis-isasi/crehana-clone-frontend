@@ -21,7 +21,8 @@
       "@Hooks/*": ["src/hooks/*"],
       "@Views/*": ["src/views/*"],
       "@Constans": ["constans.ts"],
-      "@types": ["types.ts"]
+      "@types": ["types.ts"],
+      "@Placeholders/*": ["./src/Placeholders/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

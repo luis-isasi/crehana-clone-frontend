@@ -37,6 +37,14 @@ const SwitchSecondaryPoints: React.FC<PropsSwitchWithPoints> = ({
         setSelectedIndex,
       });
     }
+
+    let _refIntervalAnimate = refIntervalAnimate;
+    //y cuando se desmonte el componente limpiamos el setInterval
+    return () => {
+      if (_refIntervalAnimate.current) {
+        clearInterval(_refIntervalAnimate.current);
+      }
+    };
   }, []);
 
   useEffect(() => {

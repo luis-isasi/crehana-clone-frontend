@@ -5,6 +5,7 @@ import NewCourses from './NewCourses';
 import Specializations from './Specializations';
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_XL } from '@Constans';
+import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
 
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
@@ -12,7 +13,9 @@ const OptionsFilterMovil = dynamic(
 const OptionsFilterDesktop = dynamic(
   () => import('./components/OptionsFIlterDesktop')
 );
-const CoursesSlider = dynamic(() => import('./components/CoursesSlider'));
+const CoursesSlider = dynamic(() => import('./components/CoursesSlider'), {
+  loading: () => <PHCoursesSliderDesktop />,
+});
 
 const Courses = () => {
   const isMovilUntilLaptop = useResponsive({
@@ -27,7 +30,7 @@ const Courses = () => {
     <div className="h-auto w-full">
       {isMovilUntilLaptop && <OptionsFilterMovil />}
       <div className="w-full h-auto">
-        <div className="w-full max-w-screen-xl h-auto box-border px-5 mx-auto">
+        <div className="w-full xl:max-w-6xl 2xl:max-w-screen-xl h-auto box-border px-5 mx-auto">
           {isDesktop && (
             <div>
               <CoursesSlider />
