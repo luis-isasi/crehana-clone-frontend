@@ -1,27 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 import SwitchSecondaryPoints from '@Components/Slider/SwitchWithPoints/SwitchSecondaryPoints';
 import Link from '@Components/Links/Link';
 
 const CoursesSlider = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(1);
   const sliderRef = useRef<HTMLUListElement>();
-
-  useEffect(() => {
-    sliderRef.current.animate(
-      [
-        {
-          marginLeft: '-100%',
-        },
-      ],
-      {
-        duration: 10000,
-        iterations: Infinity,
-        easing: 'ease-in',
-        fill: 'forwards',
-      }
-    );
-  }, []);
 
   const renderCards = () => {
     return Items.map(({ id, href, title, text, urlImg }) => (
@@ -33,15 +16,15 @@ const CoursesSlider = () => {
           backgroundPosition: 'center',
           backgroundSize: 'cover',
         }}
-        className="h-full w-full mr-2 text-white flex flex-col justify-center items-start box-border px-15"
+        className="h-full w-full  text-white flex flex-col justify-center items-start box-border px-15"
       >
         <h4 className="font-extrabold text-2xl mb-1">{title}</h4>
         <p className="text-base mb-2">{text}</p>
         <Link
           href={href}
-          className="px-10 py-3 bg-primary-main rounded-md font-bold shadow-md"
+          className="px-10 py-3 bg-primary-main hover:bg-primary-light rounded-md font-bold shadow-md"
         >
-          Ver detalles
+          Ver detalles - {`${id}`}
         </Link>
       </li>
     ));
@@ -54,10 +37,10 @@ const CoursesSlider = () => {
       </ul>
       <div className="absolute bottom-0 w-full my-3">
         <SwitchSecondaryPoints
-          selectedIndex={selectedIndex}
-          setSelectedIndex={setSelectedIndex}
           sliderRef={sliderRef}
           totalSections={10}
+          automaticSlider={true}
+          duration={400}
         />
       </div>
     </div>

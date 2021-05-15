@@ -1,19 +1,31 @@
-import SearchOptions from './components/SearchOptions';
+import dynamic from 'next/dynamic';
+
 import RecommendedCourses from './RecommendedCourses';
 import NewCourses from './NewCourses';
 import Specializations from './Specializations';
-import CoursesSlider from './CoursesSlider';
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_XL } from '@Constans';
 
+const OptionsFilterMovil = dynamic(
+  () => import('./components/OptionsFilterMovil')
+);
+const OptionsFilterDesktop = dynamic(
+  () => import('./components/OptionsFIlterDesktop')
+);
+const CoursesSlider = dynamic(() => import('./components/CoursesSlider'));
+
 const Courses = () => {
+  const isMovilUntilLaptop = useResponsive({
+    maxMediaQuery: MEDIAQUERY_XL,
+  });
+
   const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_XL,
   });
 
   return (
     <div className="h-auto w-full">
-      {!isDesktop && <SearchOptions />}
+      {isMovilUntilLaptop && <OptionsFilterMovil />}
       <div className="w-full h-auto">
         <div className="w-full max-w-screen-xl h-auto box-border px-5 mx-auto">
           {isDesktop && (
@@ -23,12 +35,7 @@ const Courses = () => {
             </div>
           )}
           <div className="w-full h-auto flex flex-row">
-            {isDesktop && (
-              // ESTO SERA UN IMPORT DYNAMIC
-              <div className="h-full w-52 mr-8 bg-indigo-500 ">
-                Mostrar todos los cursos online
-              </div>
-            )}
+            {isDesktop && <OptionsFilterDesktop />}
             <div className="flex-grow flex flex-col">
               <RecommendedCourses />
               <NewCourses />

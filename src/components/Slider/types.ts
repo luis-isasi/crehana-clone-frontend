@@ -1,4 +1,5 @@
 import { NEXT, PREVIOUS } from '@Constans';
+import { easing } from '@material-ui/core';
 import React from 'react';
 
 export interface ParametersHandlePreviousAndNext {
@@ -12,8 +13,6 @@ export interface ParametersHandlePreviousAndNext {
 }
 
 interface PropsSwitch {
-  // selectedIndex: number;
-  // setSelectedIndex: (selectedIndex: number) => void;
   totalSections: number;
   sliderRef: React.RefObject<HTMLUListElement>;
   marginLeft?: number;
@@ -28,4 +27,28 @@ export interface PropsSwitchMovil extends PropsSwitch {
 }
 
 //Slider Switch with points
-export interface PropsSwitchWithPoints extends PropsSwitch {}
+export interface PropsSwitchWithPoints extends PropsSwitch {
+  automaticSlider?: boolean;
+  intervalTime?: number;
+  easing?: EffectTiming['easing'];
+  duration?: EffectTiming['duration'];
+}
+
+/*-----------AUTOMATIC SLIDER----------*/
+//when We start the automatic slider
+export interface InitAutomaticSlider {
+  refIntervalAnimate: any;
+  setSelectedIndex: (newIndex: number) => void;
+  sliderRef: React.RefObject<HTMLUListElement>;
+  intervalTime: number;
+  marginLeft: number;
+  easing: EffectTiming['easing'];
+  duration: EffectTiming['duration'];
+  totalSections: number;
+  initIndex?: number;
+}
+
+//when We start the automatic slider
+export interface HandleAutomaticSlider extends InitAutomaticSlider {
+  newIndex: number;
+}
