@@ -46,7 +46,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
             <div className="flex flex-col justify-start w-full">
               {isMovilAndTablet && inModal && <MostSelling />}
               <p
-                className={`font-semibold text-gray-700 text-sm h-auto md:h-10 ${
+                className={`font-semibold text-gray-700 text-sm xl:text-base xl:font-medium h-auto md:h-10 ${
                   inModal && 'mt-2'
                 } lg:mt-0`}
               >
