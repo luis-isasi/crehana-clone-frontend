@@ -4,8 +4,9 @@ import RecommendedCourses from './RecommendedCourses';
 import NewCourses from './NewCourses';
 import Specializations from './Specializations';
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_XL } from '@Constans';
+import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
+import BannerToPremium from '@Components/banners/BannerToPremium';
 
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
@@ -20,6 +21,10 @@ const CoursesSlider = dynamic(() => import('./components/CoursesSlider'), {
 const CoursesOnline = () => {
   const isMovilUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
+  });
+
+  const isTablet = useResponsive({
+    minMediaQuery: MEDIAQUERY_MD,
   });
 
   const isDesktop = useResponsive({
@@ -47,6 +52,14 @@ const CoursesOnline = () => {
           </div>
         </div>
       </div>
+      {isTablet && (
+        <div className="fixed bottom-0 w-full h-auto z-10">
+          <BannerToPremium
+            text="Accede a todos estos cursos por un único pago anual"
+            linkText="Hazte Premium hoy"
+          />
+        </div>
+      )}
     </div>
   );
 };

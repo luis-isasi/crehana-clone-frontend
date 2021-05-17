@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 
 import CardCourse from '@Components/CourseCard';
-import FooterModal from './components/FooterModal';
+import FooterModal from '../../components/banners/BannerToPremium/BannerToPremium';
 import Container from './components/Container';
 import HeaderModal from './components/HeaderModal';
-import BtnToPremium from './components/Buttons/BtnToPremium';
-import FooterText from './components/FooterModal/FooterText';
+import BtnToPremium from '../../components/buttons/BtnToPremium';
+import BannerToPremiumText from '@Components/banners/BannerToPremium/BannerToPremiumText';
 
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from '@Constans';
@@ -37,7 +37,7 @@ const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
             </div>
             {isMovilAndTablet && (
               <div className="box-border px-3 h-20 ">
-                <FooterText />
+                <BannerToPremiumText />
                 <BtnToPremium />
               </div>
             )}

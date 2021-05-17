@@ -170,6 +170,7 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out forwards',
         'fade-out': 'fadeOut 0.3s ease-in-out forwards',
+        'appear-upward': 'appearUpward 0.3s ease-in-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -181,6 +182,10 @@ module.exports = {
           '0%': { opacity: 1 },
           '50%': { opacity: 0.5 },
           '100%': { opacity: 0 },
+        },
+        appearUpward: {
+          '0%': { marginBottom: '-100%' },
+          '100%': { marginBottom: '0%' },
         },
       },
     },
