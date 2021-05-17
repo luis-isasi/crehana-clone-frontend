@@ -198,7 +198,7 @@ module.exports = {
       fontSize: ['hover', 'focus'],
       textColor: ['disabled', 'active'],
       opacity: ['disabled'],
-      cursor: ['disabled'],
+      cursor: ['disabled', 'hover'],
       backgroundColor: ['disabled', 'active', 'checked'],
       borderWidth: ['hover', 'focus', 'disabled'],
       borderRadius: ['disabled', 'active', 'checked'],

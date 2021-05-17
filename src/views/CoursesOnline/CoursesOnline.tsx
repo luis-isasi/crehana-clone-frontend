@@ -17,7 +17,7 @@ const CoursesSlider = dynamic(() => import('./components/CoursesSlider'), {
   loading: () => <PHCoursesSliderDesktop />,
 });
 
-const Courses = () => {
+const CoursesOnline = () => {
   const isMovilUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
@@ -34,12 +34,12 @@ const Courses = () => {
           {isDesktop && (
             <div>
               <CoursesSlider />
-              <div className="text-xs text-gray-400 my-5">{`inicio > cursos online`}</div>
+              <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
             </div>
           )}
           <div className="w-full h-auto flex flex-row">
             {isDesktop && <OptionsFilterDesktop />}
-            <div className="flex-grow flex flex-col">
+            <div className="flex-grow flex flex-col ">
               <RecommendedCourses />
               <NewCourses />
               <Specializations />
@@ -51,4 +51,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default CoursesOnline;
