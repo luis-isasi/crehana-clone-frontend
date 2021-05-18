@@ -1,25 +1,17 @@
 import Image from 'next/image';
 
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 
-import Link from '@Components/Links/Link';
 import LinkPrimary from '@Components/Links/LinkPrimary';
 import MostSelling from '@Components/Labels/MostSelling';
 import PeopleIcon from '@Components/Icons/PeopleIcon';
+import HoverSeeTrailer from '@Components/CourseCard/components/HoverSeeTrailer';
 
 const CardInterest = () => {
   return (
-    <div className="dark:bg-base-main text-gray-900 shadow-md dark:text-white group rounded-md overflow-hidden w-full h-full flex flex-col">
+    <div className="dark:bg-base-main text-gray-900 shadow-md dark:text-white group rounded-md overflow-hidden w-full min-h-82 h-auto flex flex-col">
       <div className="h-1/2 w-full relative bg-transparent">
-        <div className="absolute h-full w-full z-2 bg-base-main bg-opacity-70 opacity-0 hover:opacity-100  transition-all duration-200 ease-in  flex items-center justify-center">
-          <Link href="/home" className="flex items-center">
-            <VisibilityOutlinedIcon className="fill-current text-white" />
-            <span className="font-bold text-base mx-2 text-white">
-              Ver trailer
-            </span>
-          </Link>
-        </div>
+        <HoverSeeTrailer />
         <div
           className="absolute h-full w-full z-1 box-border p-2  flex flex-col justify-between"
           style={{

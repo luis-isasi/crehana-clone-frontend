@@ -1,16 +1,14 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { CONTAINER_HOME } from '../../contants';
 import useResponsive from '@Hooks/useResponsive';
-import CardCourse from './components/CardCourse';
+import CourseCard from './components/CourseCard';
 import Slider from '@Components/Slider/Slider';
 import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwitchDesktop';
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 
 const NewCourses = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(1);
-
   const isMobile = useResponsive({
     maxMediaQuery: MEDIAQUERY_MD,
   });
@@ -37,19 +35,15 @@ const NewCourses = () => {
             {isMinTabletOrDesktop && (
               <SliderSwitchDesktop
                 sliderRef={sliderRef}
-                selectedIndex={selectedIndex}
-                setSelectedIndex={setSelectedIndex}
                 totalSections={isDesktop ? 3 : 4}
               />
             )}
           </header>
-          <Slider Card={CardCourse} sliderRef={sliderRef} />
+          <Slider Card={CourseCard} sliderRef={sliderRef} />
           <div id="switch">
             {isMobile && (
               <SliderSwitchMovil
                 sliderRef={sliderRef}
-                selectedIndex={selectedIndex}
-                setSelectedIndex={setSelectedIndex}
                 totalSections={12}
                 colorText="text-white"
               />

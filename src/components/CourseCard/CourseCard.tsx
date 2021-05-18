@@ -29,14 +29,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
           inModal ? 'flex-row' : 'flex-col'
         } md:flex-col cursor-pointer`}
       >
-        <div className="relative">
-          {!inModal && (
-            <div className="absolute z-5 top-4 left-4">
-              <MostSelling />
-            </div>
-          )}
-          <CourseImg inModal={inModal} />
-        </div>
+        <CourseImg inModal={inModal} />
         <div
           className={`w-full box-border min-h-36 h-full md:min-h-52  md:h-1/2 ${
             inModal ? 'px-3' : 'p-3'

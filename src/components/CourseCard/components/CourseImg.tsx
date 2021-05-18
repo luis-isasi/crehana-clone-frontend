@@ -1,6 +1,9 @@
 import Image from 'next/image';
+
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_SM } from '@Constans';
+import MostSelling from '@Components/Labels/MostSelling';
+import HoverSeeTrailer from './HoverSeeTrailer';
 
 const CourseImg: React.FC<{ inModal: boolean }> = ({ inModal }) => {
   const isMovile = useResponsive({
@@ -22,13 +25,21 @@ const CourseImg: React.FC<{ inModal: boolean }> = ({ inModal }) => {
   }
 
   return (
-    <Image
-      layout="responsive"
-      loader={({ src }) => `${src}`}
-      src={'https://source.unsplash.com/random'}
-      width={320}
-      height={225}
-    />
+    <div className="relative">
+      <HoverSeeTrailer />
+      {!inModal && (
+        <div className="absolute z-3 top-4 left-4">
+          <MostSelling />
+        </div>
+      )}
+      <Image
+        layout="responsive"
+        loader={({ src }) => `${src}`}
+        src={'https://source.unsplash.com/random'}
+        width={320}
+        height={225}
+      />
+    </div>
   );
 };
 
