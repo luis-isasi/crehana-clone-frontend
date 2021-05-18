@@ -32,8 +32,6 @@ module.exports = {
         98: '27rem',
         100: '30rem',
         102: '32rem',
-        '8xl': '85rem',
-        '9xl': '90rem',
         '1/4': '25%',
         '1/2': '50%',
         '3/4': '75%',
@@ -49,6 +47,14 @@ module.exports = {
         '3/6': '50%',
         '4/6': '66.666667%',
         '5/6': '83.333333%',
+        '2xl': '42rem',
+        '3xl': '48rem',
+        '4xl': '56rem',
+        '5xl': '64rem',
+        '6xl': '72rem',
+        '7xl': '80rem',
+        '8xl': '85rem',
+        '9xl': '90rem',
       },
       borderWidth: {
         1: '1px',
@@ -164,6 +170,7 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out forwards',
         'fade-out': 'fadeOut 0.3s ease-in-out forwards',
+        'appear-upward': 'appearUpward 0.3s ease-in-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -175,6 +182,10 @@ module.exports = {
           '0%': { opacity: 1 },
           '50%': { opacity: 0.5 },
           '100%': { opacity: 0 },
+        },
+        appearUpward: {
+          '0%': { marginBottom: '-100%' },
+          '100%': { marginBottom: '0%' },
         },
       },
     },
@@ -192,7 +203,7 @@ module.exports = {
       fontSize: ['hover', 'focus'],
       textColor: ['disabled', 'active'],
       opacity: ['disabled'],
-      cursor: ['disabled'],
+      cursor: ['disabled', 'hover'],
       backgroundColor: ['disabled', 'active', 'checked'],
       borderWidth: ['hover', 'focus', 'disabled'],
       borderRadius: ['disabled', 'active', 'checked'],

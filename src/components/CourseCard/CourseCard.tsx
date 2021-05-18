@@ -7,7 +7,6 @@ import CourseImg from './components/CourseImg';
 import AddToCar from './components/AddToCar';
 import MostSelling from '@Components/Labels/MostSelling';
 import CartIcon from '@Components/Icons/CartIcon';
-
 import BtnPrimary from '@Components/buttons/BtnPrimary';
 
 interface Props {
@@ -18,6 +17,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
   const isMovilAndTablet = useResponsive({
     maxMediaQuery: MEDIAQUERY_LG,
   });
+
   const isLaptopOrDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_LG,
   });
@@ -29,14 +29,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
           inModal ? 'flex-row' : 'flex-col'
         } md:flex-col cursor-pointer`}
       >
-        <div className="relative">
-          {!inModal && (
-            <div className="absolute z-5 top-4 left-4">
-              <MostSelling />
-            </div>
-          )}
-          <CourseImg inModal={inModal} />
-        </div>
+        <CourseImg inModal={inModal} />
         <div
           className={`w-full box-border min-h-36 h-full md:min-h-52  md:h-1/2 ${
             inModal ? 'px-3' : 'p-3'
@@ -46,7 +39,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
             <div className="flex flex-col justify-start w-full">
               {isMovilAndTablet && inModal && <MostSelling />}
               <p
-                className={`font-semibold text-gray-700 text-sm h-auto md:h-10 ${
+                className={`font-semibold text-gray-700 text-sm xl:text-base xl:font-medium h-auto md:h-10 ${
                   inModal && 'mt-2'
                 } lg:mt-0`}
               >
@@ -72,10 +65,12 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
           <Price />
           {!inModal && (
             <div className="h-auto w-full my-2 flex">
-              <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none ">
+              <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none transform hover:-translate-y-1 transition-all duration-200 ease-out">
                 <CartIcon className="text-primary-main" />
               </button>
-              <BtnPrimary className="py-3 w-full">Comprar ahora</BtnPrimary>
+              <BtnPrimary className="py-3 w-full transform hover:-translate-y-1 transition-all duration-200 ease-out">
+                Comprar ahora
+              </BtnPrimary>
             </div>
           )}
         </div>

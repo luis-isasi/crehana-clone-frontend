@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { CONTAINER_HOME } from '../../contants';
 import useResponsive from '@Hooks/useResponsive';
-import CardInterest from './components/CardInterest';
+import InterestCard from './components/InterestCard';
 import Slider from '@Components/Slider/Slider';
 import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwitchDesktop';
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
@@ -51,8 +51,6 @@ const YourInterests = () => {
           {isMinTabletOrDesktop && (
             <SliderSwitchDesktop
               sliderRef={sliderRef}
-              selectedIndex={selectedIndex}
-              setSelectedIndex={setSelectedIndex}
               totalSections={isDesktop ? 3 : 4}
             />
           )}
@@ -61,17 +59,12 @@ const YourInterests = () => {
           {renderInterests()}
         </div>
         <Slider
-          Card={CardInterest}
-          heightAndWidth={'min-h-82 h-82 w-full'}
+          Card={InterestCard}
+          heightAndWidth={'min-h-82 h-82 md:min-h-88 md:h-88 w-full'}
           sliderRef={sliderRef}
         />
         {isMobile && (
-          <SliderSwitchMovil
-            sliderRef={sliderRef}
-            selectedIndex={selectedIndex}
-            setSelectedIndex={setSelectedIndex}
-            totalSections={12}
-          />
+          <SliderSwitchMovil sliderRef={sliderRef} totalSections={12} />
         )}
       </div>
     </section>

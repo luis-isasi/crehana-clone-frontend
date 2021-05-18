@@ -1,16 +1,51 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 
 import { PREVIOUS, NEXT } from '@Constans';
-import { handlePreviousAndNext, resetAnimate } from '../utils';
+import {
+  handlePreviousAndNext,
+  resetAnimate,
+  initAutomaticSlider,
+  handleAutomaticSlider,
+} from '../utils';
 import { PropsSwitchWithPoints } from '../types';
 
 const SwitchSecondaryPoints: React.FC<PropsSwitchWithPoints> = ({
   totalSections,
   sliderRef,
   marginLeft = 100,
+  intervalTime = 4000,
+  automaticSlider = false,
+  easing = 'ease-in',
+  duration = 300,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
+
+  const refIntervalAnimate = useRef<any>();
+
+  useEffect(() => {
+    //if the value automaticAnimate is true, we generate the automatic animate
+    if (automaticSlider) {
+      initAutomaticSlider({
+        sliderRef,
+        totalSections,
+        refIntervalAnimate,
+        intervalTime,
+        duration,
+        easing,
+        marginLeft,
+        setSelectedIndex,
+      });
+    }
+
+    let _refIntervalAnimate = refIntervalAnimate;
+    //y cuando se desmonte el componente limpiamos el setInterval
+    return () => {
+      if (_refIntervalAnimate.current) {
+        clearInterval(_refIntervalAnimate.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     //cada vez que cambia el total de sections, hacemos que el index vuelva a comenzar
@@ -33,6 +68,21 @@ const SwitchSecondaryPoints: React.FC<PropsSwitchWithPoints> = ({
       sliderRef,
       totalSections,
     });
+
+    //if the value automaticAnimate is true, we generate the automatic animate
+    if (automaticSlider) {
+      handleAutomaticSlider({
+        newIndex,
+        sliderRef,
+        totalSections,
+        refIntervalAnimate,
+        intervalTime,
+        duration,
+        easing,
+        marginLeft,
+        setSelectedIndex,
+      });
+    }
   };
 
   const renderPointsSections = () => {
