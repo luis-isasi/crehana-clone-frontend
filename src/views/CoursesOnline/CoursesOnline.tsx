@@ -32,35 +32,38 @@ const CoursesOnline = () => {
   });
 
   return (
-    <div className="h-auto w-full">
-      {isMovilUntilLaptop && <OptionsFilterMovil />}
-      <div className="w-full h-auto">
-        <div className="w-full xl:max-w-6xl 2xl:max-w-screen-xl h-auto box-border px-5 mx-auto">
-          {isDesktop && (
-            <div>
-              <CoursesSlider />
-              <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
-            </div>
-          )}
-          <div className="w-full h-auto flex flex-row">
-            {isDesktop && <OptionsFilterDesktop />}
-            <div className="flex-grow flex flex-col ">
-              <RecommendedCourses />
-              <NewCourses />
-              <Specializations />
+    <>
+      <div className="h-auto w-full">
+        {isMovilUntilLaptop && <OptionsFilterMovil />}
+        <div className="w-full h-auto">
+          <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
+            {isDesktop && (
+              <div>
+                <CoursesSlider />
+                <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
+              </div>
+            )}
+            <div className="w-full h-auto flex flex-row">
+              {isDesktop && <OptionsFilterDesktop />}
+              <div className="flex-grow flex flex-col ">
+                <RecommendedCourses />
+                <NewCourses />
+                <Specializations />
+              </div>
             </div>
           </div>
         </div>
+        {isTablet && (
+          <div className="fixed bottom-0 w-full h-auto z-10">
+            <BannerToPremium
+              text="Accede a todos estos cursos por un único pago anual"
+              linkText="Hazte Premium hoy"
+            />
+          </div>
+        )}
       </div>
-      {isTablet && (
-        <div className="fixed bottom-0 w-full h-auto z-10">
-          <BannerToPremium
-            text="Accede a todos estos cursos por un único pago anual"
-            linkText="Hazte Premium hoy"
-          />
-        </div>
-      )}
-    </div>
+      <style jsx>{``}</style>
+    </>
   );
 };
 

@@ -17,6 +17,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
   const isMovilAndTablet = useResponsive({
     maxMediaQuery: MEDIAQUERY_LG,
   });
+
   const isLaptopOrDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_LG,
   });
