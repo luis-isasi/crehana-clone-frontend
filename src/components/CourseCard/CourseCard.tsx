@@ -7,7 +7,6 @@ import CourseImg from './components/CourseImg';
 import AddToCar from './components/AddToCar';
 import MostSelling from '@Components/Labels/MostSelling';
 import CartIcon from '@Components/Icons/CartIcon';
-
 import BtnPrimary from '@Components/buttons/BtnPrimary';
 
 interface Props {
@@ -65,10 +64,12 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
           <Price />
           {!inModal && (
             <div className="h-auto w-full my-2 flex">
-              <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none ">
+              <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none transform hover:-translate-y-1 transition-all duration-200 ease-out">
                 <CartIcon className="text-primary-main" />
               </button>
-              <BtnPrimary className="py-3 w-full">Comprar ahora</BtnPrimary>
+              <BtnPrimary className="py-3 w-full transform hover:-translate-y-1 transition-all duration-200 ease-out">
+                Comprar ahora
+              </BtnPrimary>
             </div>
           )}
         </div>
