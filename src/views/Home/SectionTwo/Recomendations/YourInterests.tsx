@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import { CONTAINER_HOME } from '../../contants';
@@ -9,8 +9,6 @@ import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwit
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 
 const YourInterests = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(1);
-
   const isMobile = useResponsive({
     maxMediaQuery: MEDIAQUERY_MD,
   });

@@ -22,7 +22,8 @@
       "@Views/*": ["src/views/*"],
       "@Constans": ["constans.ts"],
       "@types": ["types.ts"],
-      "@Placeholders/*": ["./src/Placeholders/*"]
+      "@Placeholders/*": ["./src/Placeholders/*"],
+      "@Utils": ["./utils.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

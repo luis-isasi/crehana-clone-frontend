@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { MEDIAQUERY_MD, MEDIAQUERY_2X1 } from '@Constans';
 import { CONTAINER_HOME } from '../contants';
@@ -8,11 +8,8 @@ import { Items } from './items';
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
 import SwitchPrimaryPoints from '@Components/Slider/SwitchWithPoints/SwitchPrimaryPoints';
 import CardHelpUser from './components/CardHelpUser';
-import { resetAnimate } from '@Components/Slider/utils';
 
 const HelpUser = () => {
-  const [index, setIndex] = useState<number>(1);
-
   const sliderRef = useRef<HTMLUListElement>();
 
   const isMovil = useResponsive({ maxMediaQuery: MEDIAQUERY_MD });
@@ -88,17 +85,10 @@ const HelpUser = () => {
           </ul>
         </div>
         {isMovil && (
-          <SliderSwitchMovil
-            selectedIndex={index}
-            setSelectedIndex={setIndex}
-            sliderRef={sliderRef}
-            totalSections={3}
-          />
+          <SliderSwitchMovil sliderRef={sliderRef} totalSections={3} />
         )}
         {isTabletOrLaptop && (
           <SwitchPrimaryPoints
-            selectedIndex={index}
-            setSelectedIndex={setIndex}
             sliderRef={sliderRef}
             totalSections={2}
             marginLeft={50}
