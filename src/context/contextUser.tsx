@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION_KEY } from '@Constans';
+import { USER_SESSION_KEY, EP_LOGIN, EP_REGISTER } from '@Constans';
 import { fetcher } from '@Utils';
 import { ParametersUserData } from '@Types';
 
@@ -50,7 +50,7 @@ export const ContextUserProvider = ({ children }) => {
 
   const loginUser = ({ email, password }: ParametersUserData) => async () => {
     let response: Response = await fetcher({
-      endpoint: '/auth/login-user/',
+      endpoint: EP_LOGIN,
       method: 'POST',
       data: {
         email,
@@ -72,7 +72,7 @@ export const ContextUserProvider = ({ children }) => {
     password,
   }: ParametersUserData) => async () => {
     let response: Response = await fetcher({
-      endpoint: '/auth/create-account/',
+      endpoint: EP_REGISTER,
       method: 'POST',
       data: {
         email,
