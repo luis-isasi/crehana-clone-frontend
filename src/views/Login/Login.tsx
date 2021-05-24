@@ -3,10 +3,10 @@ import Link from '@Components/Links/Link';
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
-import { useUser } from '@Context/contextUser';
+import { useContextUser } from '@Context/contextUser';
 
 const Login: React.FC = () => {
-  const { loginUser } = useUser();
+  const { loginUser } = useContextUser();
 
   return (
     <>

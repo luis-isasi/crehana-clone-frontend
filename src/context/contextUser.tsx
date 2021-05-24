@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { USER_SESSION_KEY } from '@Constans';
-import useFetch from '@Hooks/useFetch';
+import { fetcher } from '@Utils';
+import { ParametersUserData } from '@Types';
 
 interface User {
   token: string;
@@ -14,8 +15,8 @@ interface User {
 
 interface TypeContextUser {
   user: User;
-  loginUser: (email: string, password: string) => void;
-  registerUser: (email: string, password: string) => void;
+  loginUser: ({ email, password }: ParametersUserData) => void;
+  registerUser: ({ email, password }: ParametersUserData) => void;
   signoutUser: () => void;
   setDataUserLocalStorage: (dataUser: User) => void;
 }
@@ -47,12 +48,14 @@ export const ContextUserProvider = ({ children }) => {
     setUser(dataUser);
   };
 
-  const fetch = useFetch();
-
-  const loginUser = (email: string, password: string) => async () => {
-    let response: Response = await fetch('/auth/login-user/', 'POST', {
-      email,
-      password,
+  const loginUser = ({ email, password }: ParametersUserData) => async () => {
+    let response: Response = await fetcher({
+      endpoint: '/auth/login-user/',
+      method: 'POST',
+      data: {
+        email,
+        password,
+      },
     });
 
     let data = await response.json();
@@ -64,10 +67,17 @@ export const ContextUserProvider = ({ children }) => {
     return data;
   };
 
-  const registerUser = (email: string, password: string) => async () => {
-    let response: Response = await fetch('/auth/create-account/', 'POST', {
-      email,
-      password,
+  const registerUser = ({
+    email,
+    password,
+  }: ParametersUserData) => async () => {
+    let response: Response = await fetcher({
+      endpoint: '/auth/create-account/',
+      method: 'POST',
+      data: {
+        email,
+        password,
+      },
     });
 
     let data = await response.json();
@@ -100,7 +110,7 @@ export const ContextUserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => {
+export const useContextUser = () => {
   const dataUser = useContext(ContextUser);
 
   if (typeof dataUser === 'undefined') {

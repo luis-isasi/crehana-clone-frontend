@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
-import { useUser } from '@Context/contextUser';
+import { useContextUser } from '@Context/contextUser';
 import Categories from './components/Categories';
 import Search from './components/SearchIcon';
 import LinkToBusiness from './components/buttons/LinkToBusiness';
@@ -17,7 +17,7 @@ import Community from './components/Community';
 import Notification from './components/Notification';
 
 const HeaderDesktop: React.FC = () => {
-  const { user } = useUser();
+  const { user } = useContextUser();
   const router = useRouter();
 
   const isLoginOrRegister =

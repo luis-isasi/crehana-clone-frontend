@@ -17,6 +17,12 @@ export type MediaQuery =
 
 export type Theme = typeof DARK | typeof LIGHT | null;
 
+//User settings
 export interface UserSettings {
   theme: Theme;
+}
+
+export interface ParametersUserData {
+  email: string;
+  password: string;
 }

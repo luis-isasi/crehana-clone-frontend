@@ -5,11 +5,11 @@ import CheckIcon from '@material-ui/icons/Check';
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
-import { useUser } from '@Context/contextUser';
+import { useContextUser } from '@Context/contextUser';
 
 const Register: React.FC = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
-  const { registerUser } = useUser();
+  const { registerUser } = useContextUser();
 
   return (
     <>

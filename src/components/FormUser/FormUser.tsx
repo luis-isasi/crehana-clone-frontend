@@ -4,7 +4,7 @@ import { useMutation } from 'react-query';
 
 import FormField from './components/FormField';
 import Btn from './components/Btn';
-import { useUser } from '@Context/contextUser';
+import { useContextUser } from '@Context/contextUser';
 import { PropsFormUser, InitialState, FormAction } from './types';
 
 const initialState: InitialState = {
@@ -51,12 +51,12 @@ const FormUser: React.FC<PropsFormUser> = ({
   isChecked,
 }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { setDataUserLocalStorage } = useUser();
+  const { setDataUserLocalStorage } = useContextUser();
   const router = useRouter();
 
   const { data, isLoading, isError, error, mutate }: any = useMutation(
     typeForm,
-    fetcher(state.email, state.password),
+    fetcher({ email: state.email, password: state.password }),
     {
       onError: () => {
         dispatch({

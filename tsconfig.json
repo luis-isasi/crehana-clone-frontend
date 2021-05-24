@@ -20,10 +20,10 @@
       "@Modals/*": ["src/modals/*"],
       "@Hooks/*": ["src/hooks/*"],
       "@Views/*": ["src/views/*"],
-      "@Constans": ["constans.ts"],
-      "@types": ["types.ts"],
-      "@Placeholders/*": ["./src/Placeholders/*"],
-      "@Utils": ["./utils.tsx"]
+      "@Constans": ["src/constans.ts"],
+      "@Types": ["src/types.ts"],
+      "@Placeholders/*": ["src/Placeholders/*"],
+      "@Utils": ["src/utils.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
