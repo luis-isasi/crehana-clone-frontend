@@ -49,45 +49,26 @@ export const ContextUserProvider = ({ children }) => {
     setUser(dataUser);
   };
 
-  const loginUser = ({ email, password }: ParametersUserData) => async () => {
-    let response: Response = await fetcher({
+  const loginUser = ({ email, password }: ParametersUserData) => {
+    return fetcher({
       endpoint: EP_LOGIN,
       method: 'POST',
-      data: {
+      body: {
         email,
         password,
       },
     });
-
-    let data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.data.error);
-    }
-
-    return data;
   };
 
-  const registerUser = ({
-    email,
-    password,
-  }: ParametersUserData) => async () => {
-    let response: Response = await fetcher({
+  const registerUser = ({ email, password }: ParametersUserData) => {
+    return fetcher({
       endpoint: EP_REGISTER,
       method: 'POST',
-      data: {
+      body: {
         email,
         password,
       },
     });
-
-    let data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.data.error);
-    }
-
-    return data;
   };
 
   const signoutUser = () => {

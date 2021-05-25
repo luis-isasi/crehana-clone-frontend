@@ -73,6 +73,9 @@ const FormUser: React.FC<PropsFormUser> = ({
     }
   );
 
+  console.log({ data });
+  console.log({ isError });
+
   useEffect(() => {
     if (data && !isError) {
       let { data: _data } = data;
