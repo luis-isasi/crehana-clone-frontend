@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION, EP_LOGIN, EP_REGISTER } from '@Constans';
+import { USER_SESSION } from '@Constans';
+import { EP_LOGIN, EP_REGISTER } from './constants';
 import { fetcher } from '@Utils';
 import { ParametersUserData } from '@Types';
 

@@ -1,6 +1,6 @@
 import { USER_SESSION } from '@Constans';
 
-export function fetcher({
+export function fetcher<DataResponse>({
   endpoint,
   method,
   data,
