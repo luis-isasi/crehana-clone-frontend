@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import useResponsive from '@Hooks/useResponsive';
 
@@ -21,45 +19,35 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
-  const renderImgMovil = () => {
-    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    return array.map((index) => {
-      return (
-        <li key={index} className="h-full w-full">
-          <Card />
-        </li>
-      );
-    });
-  };
+  const renderSectionsAndCards = ({
+    sections,
+    cardsInSection,
+  }: {
+    sections: number;
+    cardsInSection: number;
+  }) => {
+    //inicializamos el index
+    const arrSections = Array.from({ length: sections });
+    let index = 0;
 
-  const renderImgLaptop = () => {
-    let array = [1, 2, 3, 4];
-    return array.map((index) => {
+    //funcion para retonrar los cards dentro de la section
+    const renderCards = (cardsInSection: number) => {
+      const cards = Array.from({ length: cardsInSection });
+
+      //le damos un nuevo valor al index para el siguiente render de cards en section
+      index = index + cardsInSection;
+
+      return cards.map((data, index) => <Card key={`slider-card-${index}`} />);
+    };
+
+    //renderizamos las sections y dentro sus cards correspondientes
+    return arrSections.map((data, index) => {
       return (
         <li
           key={index}
-          className="h-full w-100 grid grid-flow-col grid-cols-3 gap-6"
+          className="h-full w-100 md:grid md:grid-flow-col md:grid-cols-3 xl:grid-cols-4 md:gap-6"
         >
-          <Card />
-          <Card />
-          <Card />
-        </li>
-      );
-    });
-  };
-
-  const renderImgDesktop = () => {
-    let array = [1, 2, 3];
-    return array.map((index) => {
-      return (
-        <li
-          key={index}
-          className="h-full w-100 grid grid-flow-col grid-cols-4 gap-6"
-        >
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {renderCards(cardsInSection)}
         </li>
       );
     });
@@ -75,9 +63,11 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
         ref={sliderRef}
         className="flex h-full box-border p-2 w-1200 md:w-400 xl:w-300"
       >
-        {isMovil && renderImgMovil()}
-        {isTabletOrLaptop && renderImgLaptop()}
-        {isDesktop && renderImgDesktop()}
+        {isMovil && renderSectionsAndCards({ sections: 12, cardsInSection: 1 })}
+        {isTabletOrLaptop &&
+          renderSectionsAndCards({ sections: 4, cardsInSection: 3 })}
+        {isDesktop &&
+          renderSectionsAndCards({ sections: 3, cardsInSection: 4 })}
       </ul>
     </div>
   );

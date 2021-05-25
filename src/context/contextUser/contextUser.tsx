@@ -1,8 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION_KEY } from '@Constans';
-import useFetch from '@Hooks/useFetch';
+import { USER_SESSION } from '@Constans';
+import { EP_LOGIN, EP_REGISTER } from './constants';
+import { fetcher } from '@Utils';
+import { ParametersUserData } from '@Types';
 
 interface User {
   token: string;
@@ -14,8 +16,8 @@ interface User {
 
 interface TypeContextUser {
   user: User;
-  loginUser: (email: string, password: string) => void;
-  registerUser: (email: string, password: string) => void;
+  loginUser: ({ email, password }: ParametersUserData) => void;
+  registerUser: ({ email, password }: ParametersUserData) => void;
   signoutUser: () => void;
   setDataUserLocalStorage: (dataUser: User) => void;
 }
@@ -28,7 +30,7 @@ export const ContextUserProvider = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    const dataUser = JSON.parse(localStorage.getItem(USER_SESSION_KEY));
+    const dataUser = JSON.parse(localStorage.getItem(USER_SESSION));
     if (dataUser) {
       setUser({
         token: dataUser.token,
@@ -43,16 +45,18 @@ export const ContextUserProvider = ({ children }) => {
   }, []);
 
   const setDataUserLocalStorage = (dataUser: User) => {
-    localStorage.setItem(USER_SESSION_KEY, JSON.stringify(dataUser));
+    localStorage.setItem(USER_SESSION, JSON.stringify(dataUser));
     setUser(dataUser);
   };
 
-  const fetch = useFetch();
-
-  const loginUser = (email: string, password: string) => async () => {
-    let response: Response = await fetch('/auth/login-user/', 'POST', {
-      email,
-      password,
+  const loginUser = ({ email, password }: ParametersUserData) => async () => {
+    let response: Response = await fetcher({
+      endpoint: EP_LOGIN,
+      method: 'POST',
+      data: {
+        email,
+        password,
+      },
     });
 
     let data = await response.json();
@@ -64,10 +68,17 @@ export const ContextUserProvider = ({ children }) => {
     return data;
   };
 
-  const registerUser = (email: string, password: string) => async () => {
-    let response: Response = await fetch('/auth/create-account/', 'POST', {
-      email,
-      password,
+  const registerUser = ({
+    email,
+    password,
+  }: ParametersUserData) => async () => {
+    let response: Response = await fetcher({
+      endpoint: EP_REGISTER,
+      method: 'POST',
+      data: {
+        email,
+        password,
+      },
     });
 
     let data = await response.json();
@@ -80,7 +91,7 @@ export const ContextUserProvider = ({ children }) => {
   };
 
   const signoutUser = () => {
-    localStorage.removeItem(USER_SESSION_KEY);
+    localStorage.removeItem(USER_SESSION);
     setUser(null);
     router.push('/');
   };
@@ -100,7 +111,7 @@ export const ContextUserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => {
+export const useContextUser = () => {
   const dataUser = useContext(ContextUser);
 
   if (typeof dataUser === 'undefined') {

@@ -1,6 +1,8 @@
+import { ParametersUserData } from '@Types';
+
 export interface PropsFormUser {
   typeForm: 'login' | 'register';
-  fetcher: (email: string, password: string) => any;
+  fetcher: ({ email, password }: ParametersUserData) => any;
   isChecked?: boolean;
 }
 

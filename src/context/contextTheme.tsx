@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { DARK, LIGHT, USER_SETTINGS } from '@Constans';
-import { UserSettings, Theme } from '@types';
+import { UserSettings, Theme } from '@Types';
 
 interface ContextThemeState {
   theme: Theme;

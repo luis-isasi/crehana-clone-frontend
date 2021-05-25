@@ -1,12 +1,12 @@
 import Head from 'next/head';
 
-import { useUser } from '@Context/contextUser';
+import { useContextUser } from '@Context/contextUser';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import HelpUser from './HelpUser/HelpUser';
 
 const Home: React.FC = () => {
-  const { user } = useUser();
+  const { user } = useContextUser();
 
   return (
     <>

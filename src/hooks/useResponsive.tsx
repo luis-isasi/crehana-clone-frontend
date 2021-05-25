@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MediaQuery } from '@types';
+import { MediaQuery } from '@Types';
 
 interface Parameters {
   minMediaQuery?: MediaQuery;
