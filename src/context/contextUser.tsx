@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION_KEY, EP_LOGIN, EP_REGISTER } from '@Constans';
+import { USER_SESSION, EP_LOGIN, EP_REGISTER } from '@Constans';
 import { fetcher } from '@Utils';
 import { ParametersUserData } from '@Types';
 
@@ -29,7 +29,7 @@ export const ContextUserProvider = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    const dataUser = JSON.parse(localStorage.getItem(USER_SESSION_KEY));
+    const dataUser = JSON.parse(localStorage.getItem(USER_SESSION));
     if (dataUser) {
       setUser({
         token: dataUser.token,
@@ -44,7 +44,7 @@ export const ContextUserProvider = ({ children }) => {
   }, []);
 
   const setDataUserLocalStorage = (dataUser: User) => {
-    localStorage.setItem(USER_SESSION_KEY, JSON.stringify(dataUser));
+    localStorage.setItem(USER_SESSION, JSON.stringify(dataUser));
     setUser(dataUser);
   };
 
@@ -90,7 +90,7 @@ export const ContextUserProvider = ({ children }) => {
   };
 
   const signoutUser = () => {
-    localStorage.removeItem(USER_SESSION_KEY);
+    localStorage.removeItem(USER_SESSION);
     setUser(null);
     router.push('/');
   };
