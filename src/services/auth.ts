@@ -23,6 +23,13 @@ const auth = {
       body: data,
     });
   },
+  registerUser: async (data: UserAuthData) => {
+    return fetcher<AuthResponse>({
+      endpoint: endpoints.REGISTER,
+      method: 'POST',
+      body: data,
+    });
+  },
 };
 
 export default auth;

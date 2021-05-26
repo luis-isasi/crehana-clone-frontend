@@ -8,8 +8,7 @@ import Link from '@Components/Links/Link';
 const CoursesSlider = () => {
   const sliderRef = useRef<HTMLUListElement>();
 
-  const { data, isLoading, isError } = useQuery(
-    'banners',
+  const { data, isLoading, isError } = useQuery('banners', () =>
     fetcher({ endpoint: '/banners/' })
   );
 

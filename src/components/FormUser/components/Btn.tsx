@@ -10,7 +10,6 @@ interface PropsBtn {
 
 const Btn: React.FC<PropsBtn> = ({ stateForm, onSubmit, isDisabled }) => {
   const router = useRouter();
-
   return (
     <button
       type="submit"

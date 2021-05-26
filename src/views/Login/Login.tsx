@@ -1,15 +1,15 @@
 import Link from '@Components/Links/Link';
+import { useRouter } from 'next/router';
 
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
-
-import authService from '../../services/auth';
+import authService from '@Services/auth';
 
 const Login: React.FC = () => {
+  const router = useRouter();
   const onSuccess = () => {
-    console.log('onSuccess');
-    // router.push('/home');
+    router.push('/home');
   };
 
   const onError = () => {

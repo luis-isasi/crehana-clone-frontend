@@ -6,8 +6,8 @@ export interface PropsFormUser {
   typeForm: 'login' | 'register';
   mutation: (data: UserAuthData) => Promise<AuthResponse>;
   isChecked?: boolean;
-  onSuccess: () => void;
-  onError: () => void;
+  onSuccess?: () => void;
+  onError?: () => void;
 }
 
 export type StateForm =

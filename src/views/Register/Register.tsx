@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import Link from '@Components/Links/Link';
 import CheckIcon from '@material-ui/icons/Check';
+import { useRouter } from 'next/router';
 
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
-import { useContextUser } from '@Context/contextUser';
+import authService from '@Services/auth';
 
 const Register: React.FC = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
-  const { registerUser } = useContextUser();
+  const router = useRouter();
+
+  const onSuccess = () => {
+    router.push('/home');
+  };
 
   return (
     <>
@@ -23,8 +28,9 @@ const Register: React.FC = () => {
           <BtnGoogle typeBtn="register" />
           <FormUser
             typeForm="register"
-            mutation={registerUser}
+            mutation={authService.registerUser}
             isChecked={isChecked}
+            onSuccess={onSuccess}
           />
         </div>
         <div className="flex items-center text-white mt-5">

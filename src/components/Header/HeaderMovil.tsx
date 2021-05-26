@@ -7,7 +7,6 @@ import MainIcon from './components/MainIcon';
 
 const HeaderMovil = () => {
   const router = useRouter();
-
   const isLoginOrRegister =
     router.pathname === '/login' || router.pathname === '/register';
 

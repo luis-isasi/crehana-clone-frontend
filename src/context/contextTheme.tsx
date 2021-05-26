@@ -14,8 +14,8 @@ const ContextTheme = createContext<ContextThemeState | undefined>(undefined);
 
 //Provider of context theme
 export const ContextThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(LIGHT);
   const router = useRouter();
+  const [theme, setTheme] = useState<Theme>(LIGHT);
 
   const conditionalTheme = theme === DARK ? LIGHT : DARK;
 
