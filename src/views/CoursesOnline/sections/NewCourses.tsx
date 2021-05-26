@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import CourseCard from '@Components/CourseCard';
 
 const NewCourses = () => {
@@ -16,4 +17,4 @@ const NewCourses = () => {
   );
 };
 
-export default NewCourses;
+export default memo(NewCourses);

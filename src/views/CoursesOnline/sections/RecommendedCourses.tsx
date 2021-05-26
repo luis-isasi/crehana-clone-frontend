@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import CourseCard from '@Components/CourseCard';
 
 const RecommendedCourses = () => {
@@ -16,4 +17,4 @@ const RecommendedCourses = () => {
   );
 };
 
-export default RecommendedCourses;
+export default memo(RecommendedCourses);

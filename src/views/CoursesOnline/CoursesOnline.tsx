@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
+import { useQuery } from 'react-query';
 
+import { fetcher } from '@Utils';
 import RecommendedCourses from './sections/RecommendedCourses';
 import NewCourses from './sections/NewCourses';
 import Specializations from './sections/Specializations';
@@ -28,6 +30,12 @@ const CoursesOnline = () => {
   const isDesktop = useResponsive({
     minMediaQuery: MEDIAQUERY_XL,
   });
+
+  const { data, isLoading, isError } = useQuery('banners', () =>
+    fetcher({ endpoint: '/banners/' })
+  );
+
+  console.log({ data });
 
   return (
     <div className="h-auto w-full">

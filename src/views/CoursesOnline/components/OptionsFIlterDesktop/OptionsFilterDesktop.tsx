@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import FilterOption from '../FilterOption';
 
 const OptionsFilterDesktop = () => {
@@ -24,7 +26,7 @@ const OptionsFilterDesktop = () => {
   );
 };
 
-export default OptionsFilterDesktop;
+export default memo(OptionsFilterDesktop);
 
 const Categorias = [
   {
