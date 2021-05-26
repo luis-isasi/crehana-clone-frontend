@@ -4,28 +4,30 @@ import { useRouter } from 'next/router';
 import { USER_SESSION } from '@Constans';
 import { EP_LOGIN, EP_REGISTER } from './constants';
 import { fetcher } from '@Utils';
-import { ParametersUserData } from '@Types';
+import { ParametersUserData, User } from '@Types';
+import { LoginRegister } from './types';
 
-interface User {
+//------------types----------
+interface UserLocalStorage extends User {
   token: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-  username: string;
 }
 
 interface TypeContextUser {
-  user: User;
+  user: UserLocalStorage;
   loginUser: ({ email, password }: ParametersUserData) => void;
   registerUser: ({ email, password }: ParametersUserData) => void;
   signoutUser: () => void;
-  setDataUserLocalStorage: (dataUser: User) => void;
+  setDataUserLocalStorage: (dataUser: UserLocalStorage) => void;
 }
 
+//Context
 const ContextUser = createContext<TypeContextUser | undefined>(undefined);
 
+//Provider
 export const ContextUserProvider = ({ children }) => {
-  const [user, setUser] = useState<undefined | null | User>(undefined);
+  const [user, setUser] = useState<undefined | null | UserLocalStorage>(
+    undefined
+  );
 
   const router = useRouter();
 
@@ -44,13 +46,13 @@ export const ContextUserProvider = ({ children }) => {
     }
   }, []);
 
-  const setDataUserLocalStorage = (dataUser: User) => {
+  const setDataUserLocalStorage = (dataUser: UserLocalStorage) => {
     localStorage.setItem(USER_SESSION, JSON.stringify(dataUser));
     setUser(dataUser);
   };
 
   const loginUser = ({ email, password }: ParametersUserData) => {
-    return fetcher({
+    return fetcher<LoginRegister>({
       endpoint: EP_LOGIN,
       method: 'POST',
       body: {
@@ -61,7 +63,7 @@ export const ContextUserProvider = ({ children }) => {
   };
 
   const registerUser = ({ email, password }: ParametersUserData) => {
-    return fetcher({
+    return fetcher<LoginRegister>({
       endpoint: EP_REGISTER,
       method: 'POST',
       body: {
@@ -92,6 +94,7 @@ export const ContextUserProvider = ({ children }) => {
   );
 };
 
+//Hook
 export const useContextUser = () => {
   const dataUser = useContext(ContextUser);
 

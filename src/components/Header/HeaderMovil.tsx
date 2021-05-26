@@ -25,7 +25,7 @@ const HeaderMovil = () => {
         <h1
           className={`${
             isLoginOrRegister ? 'text-4xl' : 'text-3xl'
-          } hover:cursor-pointer text-primary-main dark:text-white font-extrabold text-3xl `}
+          } hover:cursor-pointer text-white dark:text-primary-main font-extrabold text-3xl`}
         >
           crehana
         </h1>

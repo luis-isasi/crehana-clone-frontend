@@ -6,6 +6,15 @@ const Index: React.FC = () => {
           //bg-base-dark
           background-color: rgba(7, 14, 39, 1);
         }
+
+        header {
+          //bg-base-main
+          background-color: rgba(24, 27, 50, 1) !important;
+        }
+
+        header > :global(*) {
+          color: white;
+        }
       `}</style>
     </>
   );

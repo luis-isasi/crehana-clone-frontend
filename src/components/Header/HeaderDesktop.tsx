@@ -29,7 +29,7 @@ const HeaderDesktop: React.FC = () => {
         <Link
           text="crehana"
           href="/"
-          className="font-bold text-3xl hover:cursor-pointer text-primary-main dark:text-white"
+          className="font-bold text-3xl hover:cursor-pointer text-white dark:text-primary-main"
         />
         {isLoginOrRegister ? null : (
           <>

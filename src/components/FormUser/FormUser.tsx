@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 
 import FormField from './components/FormField';
@@ -47,62 +46,45 @@ const formReducer = (state: InitialState, action: FormAction) => {
 
 const FormUser: React.FC<PropsFormUser> = ({
   typeForm,
-  fetcher,
+  mutation,
   isChecked,
+  onSuccess,
+  onError,
 }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { setDataUserLocalStorage } = useContextUser();
-  const router = useRouter();
 
-  const { data, isLoading, isError, error, mutate }: any = useMutation(
+  const { isLoading, isError, error, mutate } = useMutation(
     typeForm,
-    fetcher({ email: state.email, password: state.password }),
+    () => mutation({ email: state.email, password: state.password }),
     {
       onError: () => {
         dispatch({
           type: 'SET_STATE_FORM',
           newState: 'ERROR',
         });
+        onError();
       },
-      onSuccess: () => {
+      onSuccess: (data) => {
         dispatch({
           type: 'SET_STATE_FORM',
           newState: 'COMPLETED',
         });
+
+        onSuccess();
+        const userData = {
+          token: data.data.token,
+          email: data.data.user?.email,
+          firstname: data.data.user.firstname,
+          lastname: data.data.user.lastname,
+          username: data.data.user.username,
+        };
+        setDataUserLocalStorage(userData);
       },
     }
   );
 
-  console.log({ data });
-  console.log({ isError });
-
-  useEffect(() => {
-    if (data && !isError) {
-      let { data: _data } = data;
-
-      const userData = {
-        token: _data.token,
-        email: _data.user.email,
-        firstname: _data.user.firstname,
-        lastname: _data.user.lastaname,
-        username: _data.user.username,
-      };
-      setDataUserLocalStorage(userData);
-      router.push('/home');
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (error) {
-      dispatch({
-        type: 'SET_ERROR',
-        nameError: 'error',
-        message: error.message as string,
-      });
-    }
-  }, [error]);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({
       type: 'SET_STATE_FORM',
@@ -189,7 +171,7 @@ const FormUser: React.FC<PropsFormUser> = ({
     }
   };
 
-  const isDisabled = () => {
+  const handleOnSubmitDisabled = () => {
     //el prop isChecked a veces puede ser undefined, en ese momento no nos interesa evaluarlo
     //cuando lleva un valor booleano debemos verificar que sea true para poder habilitar el button
     //entonces si es undefined  o si es true habilitamos el button submit
@@ -210,7 +192,7 @@ const FormUser: React.FC<PropsFormUser> = ({
   };
 
   return (
-    <form className="flex flex-col w-full mt-4" onSubmit={handleSubmit}>
+    <form className="flex flex-col w-full mt-4" onSubmit={handleOnSubmit}>
       <FormField
         name="email"
         textLabel="Correo"
@@ -225,12 +207,15 @@ const FormUser: React.FC<PropsFormUser> = ({
         onChange={handleChangeInput}
         errorMessage={state.errors.password}
       />
-      {state.errors.error ? (
+      {isError ? (
         <span className="text-red-500 text-center font-semibold text-xs my-3">
-          {state.errors.error}
+          {error?.message}
         </span>
       ) : null}
-      <Btn stateForm={state.stateForm} isDisabled={isDisabled} />
+      <Btn
+        stateForm={state.stateForm}
+        isDisabled={handleOnSubmitDisabled() || isLoading}
+      />
     </form>
   );
 };

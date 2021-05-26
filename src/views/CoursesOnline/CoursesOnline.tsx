@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 
-import RecommendedCourses from './RecommendedCourses';
-import NewCourses from './NewCourses';
-import Specializations from './Specializations';
+import RecommendedCourses from './sections/RecommendedCourses';
+import NewCourses from './sections/NewCourses';
+import Specializations from './sections/Specializations';
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';

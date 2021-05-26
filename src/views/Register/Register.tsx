@@ -60,9 +60,9 @@ const Register: React.FC = () => {
         </div>
       </div>
       <style global jsx>{`
-        body {
-          //bg-base-dark
-          background-color: rgba(7, 14, 39, 1);
+        header {
+          //bg-base-main
+          background-color: rgba(24, 27, 50, 1) !important;
         }
       `}</style>
     </>

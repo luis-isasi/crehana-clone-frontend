@@ -26,3 +26,10 @@ export interface ParametersUserData {
   email: string;
   password: string;
 }
+
+export interface User {
+  email: string;
+  firstname: string;
+  lastname: string;
+  username: string;
+}

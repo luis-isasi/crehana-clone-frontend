@@ -1,9 +1,13 @@
-import { ParametersUserData } from '@Types';
+import { User } from '@Types';
+
+import { UserAuthData, AuthResponse } from '../../services/auth';
 
 export interface PropsFormUser {
   typeForm: 'login' | 'register';
-  fetcher: ({ email, password }: ParametersUserData) => any;
+  mutation: (data: UserAuthData) => Promise<AuthResponse>;
   isChecked?: boolean;
+  onSuccess: () => void;
+  onError: () => void;
 }
 
 export type StateForm =
@@ -43,3 +47,11 @@ export type FormAction =
       type: 'SET_STATE_FORM';
       newState: StateForm;
     };
+
+//types for backend's data
+export interface LoginRegister {
+  refreshToken: string;
+  statusCode: number;
+  token: string;
+  user: User;
+}
