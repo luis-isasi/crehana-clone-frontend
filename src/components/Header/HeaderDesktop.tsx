@@ -29,7 +29,9 @@ const HeaderDesktop: React.FC = () => {
         <Link
           text="crehana"
           href="/"
-          className="font-bold text-3xl hover:cursor-pointer text-white dark:text-primary-main"
+          className={`font-bold text-3xl hover:cursor-pointer ${
+            isLoginOrRegister ? 'text-white' : 'text-primary-main'
+          }  dark:text-white`}
         />
         {isLoginOrRegister ? null : (
           <>

@@ -24,8 +24,10 @@ const HeaderMovil = () => {
       <Link href="/">
         <h1
           className={`${
-            isLoginOrRegister ? 'text-4xl' : 'text-3xl'
-          } hover:cursor-pointer text-white dark:text-primary-main font-extrabold text-3xl`}
+            isLoginOrRegister
+              ? 'text-4xl  text-white'
+              : 'text-3xl text-primary-main'
+          } hover:cursor-pointer  dark:text-white font-extrabold text-3xl`}
         >
           crehana
         </h1>
