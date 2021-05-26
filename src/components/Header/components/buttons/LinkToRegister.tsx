@@ -1,11 +1,9 @@
-import Link from 'next/link';
+import Link from '@Components/Links/LinkPrimary';
 
 const LinkToRegister = () => {
   return (
-    <Link href="/register">
-      <a className="border-white border-2 mx-1 py-2 px-6 hover:opacity-80 rounded-md text-base min-w-max">
-        Pruébalo sin costo
-      </a>
+    <Link href="/register" className="mx-1 py-2 px-6">
+      Pruébalo sin costo
     </Link>
   );
 };

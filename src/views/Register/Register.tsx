@@ -23,7 +23,7 @@ const Register: React.FC = () => {
           <BtnGoogle typeBtn="register" />
           <FormUser
             typeForm="register"
-            fetcher={registerUser}
+            mutation={registerUser}
             isChecked={isChecked}
           />
         </div>
