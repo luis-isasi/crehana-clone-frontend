@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Categories from './components/Categories';
 import FilterBy from './components/FilterBy';
 
@@ -12,4 +14,4 @@ const SearchOptions = () => {
   );
 };
 
-export default SearchOptions;
+export default memo(SearchOptions);

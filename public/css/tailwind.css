@@ -41,5 +41,5 @@ body {
 }
 
 .container-login-register {
-  @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center;
+  @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center -z-1 absolute top-0;
 }

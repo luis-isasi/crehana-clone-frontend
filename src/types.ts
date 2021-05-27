@@ -8,6 +8,7 @@ import {
   LIGHT,
 } from '@Constans';
 
+//Media Query
 export type MediaQuery =
   | typeof MEDIAQUERY_SM
   | typeof MEDIAQUERY_MD
@@ -15,6 +16,7 @@ export type MediaQuery =
   | typeof MEDIAQUERY_XL
   | typeof MEDIAQUERY_2X1;
 
+//Theme
 export type Theme = typeof DARK | typeof LIGHT | null;
 
 //User settings
@@ -22,7 +24,22 @@ export interface UserSettings {
   theme: Theme;
 }
 
-export interface ParametersUserData {
+export interface User {
   email: string;
-  password: string;
+  firstname: string;
+  lastname: string;
+  username: string;
+}
+
+//Banner
+export interface Banner {
+  backgroundImage: string;
+  ctaLabel: string;
+  ctaUrl: string;
+  expiresAt: string;
+  id: number;
+  isActive: boolean;
+  position: number;
+  subtitle: string;
+  title: string;
 }

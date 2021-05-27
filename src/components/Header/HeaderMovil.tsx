@@ -7,7 +7,6 @@ import MainIcon from './components/MainIcon';
 
 const HeaderMovil = () => {
   const router = useRouter();
-
   const isLoginOrRegister =
     router.pathname === '/login' || router.pathname === '/register';
 
@@ -24,8 +23,10 @@ const HeaderMovil = () => {
       <Link href="/">
         <h1
           className={`${
-            isLoginOrRegister ? 'text-4xl' : 'text-3xl'
-          } hover:cursor-pointer text-primary-main dark:text-white font-extrabold text-3xl `}
+            isLoginOrRegister
+              ? 'text-4xl  text-white'
+              : 'text-3xl text-primary-main'
+          } hover:cursor-pointer  dark:text-white font-extrabold text-3xl`}
         >
           crehana
         </h1>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+// import { ProtecRoute } from '@Context/contextUser';
 
 const Test = () => {
   return (
@@ -8,4 +8,5 @@ const Test = () => {
   );
 };
 
+Test.requireAuth = true;
 export default Test;

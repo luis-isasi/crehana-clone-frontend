@@ -23,7 +23,9 @@
       "@Constans": ["src/constans.ts"],
       "@Types": ["src/types.ts"],
       "@Placeholders/*": ["src/Placeholders/*"],
-      "@Utils": ["src/utils.ts"]
+      "@Utils": ["src/utils.ts"],
+      "@Services/*": ["src/services/*"],
+      "@Hoc/*": ["src/hoc/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

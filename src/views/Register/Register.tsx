@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from '@Components/Links/Link';
 import CheckIcon from '@material-ui/icons/Check';
+import { useRouter } from 'next/router';
 
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
-import { useContextUser } from '@Context/contextUser';
+import authService from '@Services/auth';
+import { useContextAuth } from '@Context/contextAuth';
 
 const Register: React.FC = () => {
+  const { user } = useContextAuth();
   const [isChecked, setIsChecked] = useState<boolean>(true);
-  const { registerUser } = useContextUser();
+  const router = useRouter();
+
+  //get the next page
+  const nextPage = router.query?.nextPage || '/home';
+
+  useEffect(() => {
+    user && router.replace(`${nextPage}`);
+  }, [user]);
+
+  const onSuccess = () => {
+    router.push('/home');
+  };
 
   return (
     <>
@@ -23,8 +37,9 @@ const Register: React.FC = () => {
           <BtnGoogle typeBtn="register" />
           <FormUser
             typeForm="register"
-            fetcher={registerUser}
+            mutation={authService.registerUser}
             isChecked={isChecked}
+            onSuccess={onSuccess}
           />
         </div>
         <div className="flex items-center text-white mt-5">
@@ -52,7 +67,9 @@ const Register: React.FC = () => {
           <span className="text-white text-xs">
             ¿Ya tienes una cuenta?
             <Link
-              href="/login"
+              href={`/login${
+                nextPage !== '/home' ? `?nextPage=${nextPage}` : ''
+              }`}
               className="text-green-500 font-semibold ml-2"
               text="Inicia sesión"
             />
@@ -60,9 +77,9 @@ const Register: React.FC = () => {
         </div>
       </div>
       <style global jsx>{`
-        body {
-          //bg-base-dark
-          background-color: rgba(7, 14, 39, 1);
+        header {
+          //bg-base-main
+          background-color: rgba(24, 27, 50, 1) !important;
         }
       `}</style>
     </>
