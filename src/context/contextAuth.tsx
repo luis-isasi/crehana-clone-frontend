@@ -1,9 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { USER_SESSION } from '@Constans';
 import { User } from '@Types';
-import LoadingScreen from '@Components/LoadingScreen';
 
 //------------types----------
 interface UserLocalStorage extends User {
@@ -74,21 +73,4 @@ export const useContextAuth = () => {
   }
 
   return dataUser;
-};
-
-export const ProtecRouteAuth = ({ children }) => {
-  const router = useRouter();
-  const { user } = useContextAuth();
-
-  //get the current path
-  const to = router.pathname;
-
-  if (user === undefined) return <LoadingScreen />;
-
-  if (user === null) {
-    //pass the current
-    router.push(`/login/?nextPage=${to}`);
-  }
-
-  return <>{children}</>;
 };

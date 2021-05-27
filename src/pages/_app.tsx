@@ -3,7 +3,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 
 import { ContextAuthProvider } from '@Context/contextAuth';
 import { ContextThemeProvider } from '@Context/contextTheme';
-import { ProtecRouteAuth } from '@Context/contextAuth';
+import ProtectRouteAuth from '@Hoc/ProtectRouteAuth';
 
 import Header from '@Components/Header';
 import Footer from '@Components/Footer';
@@ -16,11 +16,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <ContextThemeProvider>
         <ContextAuthProvider>
           {Component.requireAuth ? (
-            <ProtecRouteAuth>
+            <ProtectRouteAuth>
               <Header />
               <Component {...pageProps} />
               <Footer />
-            </ProtecRouteAuth>
+            </ProtectRouteAuth>
           ) : (
             <>
               <Header />
