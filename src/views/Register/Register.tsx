@@ -14,8 +14,11 @@ const Register: React.FC = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
   const router = useRouter();
 
+  //get the next page
+  const nextPage = router.query?.nextPage || '/home';
+
   useEffect(() => {
-    user && router.replace('/home');
+    user && router.replace(`${nextPage}`);
   }, [user]);
 
   const onSuccess = () => {
@@ -64,7 +67,9 @@ const Register: React.FC = () => {
           <span className="text-white text-xs">
             ¿Ya tienes una cuenta?
             <Link
-              href="/login"
+              href={`/login${
+                nextPage !== '/home' ? `?nextPage=${nextPage}` : ''
+              }`}
               className="text-green-500 font-semibold ml-2"
               text="Inicia sesión"
             />

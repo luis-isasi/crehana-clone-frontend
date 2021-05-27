@@ -49,7 +49,9 @@ const Login: React.FC = () => {
           <span className="text-white text-xs">
             ¿Aún no tienes una cuenta?
             <Link
-              href="/register"
+              href={`/register${
+                nextPage !== '/home' ? `?nextPage=${nextPage}` : ''
+              }`}
               className="text-green-500 font-semibold ml-2"
               text="Regístrate"
             />
