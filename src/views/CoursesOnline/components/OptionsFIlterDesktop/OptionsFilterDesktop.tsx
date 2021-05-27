@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import FilterOption from '../FilterOption';
+import FilterOption from './components/FilterOption';
 
 const OptionsFilterDesktop = () => {
   const renderCategories = () => {

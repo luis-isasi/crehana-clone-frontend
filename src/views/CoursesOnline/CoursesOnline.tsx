@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { useQuery } from 'react-query';
 
-import { fetcher } from '@Utils';
 import RecommendedCourses from './sections/RecommendedCourses';
 import NewCourses from './sections/NewCourses';
 import Specializations from './sections/Specializations';
@@ -9,6 +8,7 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
 import BannerToPremium from '@Components/banners/BannerToPremium';
+import { getBannersByDefault } from '@Services/coursesOnline';
 
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
@@ -31,11 +31,10 @@ const CoursesOnline = () => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
+  //get banners
   const { data, isLoading, isError } = useQuery('banners', () =>
-    fetcher({ endpoint: '/banners/' })
+    getBannersByDefault()
   );
-
-  console.log({ data });
 
   return (
     <div className="h-auto w-full">
@@ -46,7 +45,9 @@ const CoursesOnline = () => {
             // Only desktop
             isDesktop && (
               <div>
-                <CoursesSlider />
+                {!isLoading && !isError && (
+                  <CoursesSlider banners={data?.data} />
+                )}
                 <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
               </div>
             )
