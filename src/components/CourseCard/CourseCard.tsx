@@ -68,7 +68,7 @@ const CardCourse: React.FC<Props> = ({ inModal }) => {
               <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none transform hover:-translate-y-1 transition-all duration-200 ease-out">
                 <CartIcon className="text-primary-main" />
               </button>
-              <BtnPrimary className="py-3 w-full transform hover:-translate-y-1 transition-all duration-200 ease-out">
+              <BtnPrimary className="py-3 w-full  rounded-md transform hover:-translate-y-1 transition-all duration-200 ease-out">
                 Comprar ahora
               </BtnPrimary>
             </div>
