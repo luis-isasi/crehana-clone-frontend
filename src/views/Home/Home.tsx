@@ -22,4 +22,5 @@ const Home: React.FC = () => {
   );
 };
 
+Home.requireAuth = true;
 export default Home;

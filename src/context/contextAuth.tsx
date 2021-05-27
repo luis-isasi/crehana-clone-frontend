@@ -80,10 +80,14 @@ export const ProtecRouteAuth = ({ children }) => {
   const router = useRouter();
   const { user } = useContextAuth();
 
+  const to = router.pathname;
+
+  console.log({ user });
+
   if (user === undefined) return <LoadingScreen />;
 
   if (user === null) {
-    router.push('/login');
+    router.push(`/login/?nextPage=${to}`);
   }
 
   return <>{children}</>;

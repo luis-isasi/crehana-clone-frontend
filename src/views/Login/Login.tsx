@@ -8,8 +8,11 @@ import authService from '@Services/auth';
 
 const Login: React.FC = () => {
   const router = useRouter();
+  //get the next page
+  const nextPage = router.query?.nextPage || '/home';
+
   const onSuccess = () => {
-    router.push('/home');
+    router.push(`${nextPage}`);
   };
 
   const onError = () => {
