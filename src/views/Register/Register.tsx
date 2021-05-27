@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from '@Components/Links/Link';
 import CheckIcon from '@material-ui/icons/Check';
 import { useRouter } from 'next/router';
@@ -7,10 +7,16 @@ import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
 import authService from '@Services/auth';
+import { useContextAuth } from '@Context/contextAuth';
 
 const Register: React.FC = () => {
+  const { user } = useContextAuth();
   const [isChecked, setIsChecked] = useState<boolean>(true);
   const router = useRouter();
+
+  useEffect(() => {
+    user && router.replace('/home');
+  }, [user]);
 
   const onSuccess = () => {
     router.push('/home');

@@ -1,15 +1,22 @@
-import Link from '@Components/Links/Link';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import Link from '@Components/Links/Link';
 import BtnFacebook from '@Components/buttons/BtnFacebook';
 import BtnGoogle from '@Components/buttons/BtnGoogle';
 import FormUser from '@Components/FormUser';
 import authService from '@Services/auth';
+import { useContextAuth } from '@Context/contextAuth';
 
 const Login: React.FC = () => {
+  const { user } = useContextAuth();
   const router = useRouter();
   //get the next page
   const nextPage = router.query?.nextPage || '/home';
+
+  useEffect(() => {
+    user && router.replace(`${nextPage}`);
+  }, [user]);
 
   const onSuccess = () => {
     router.push(`${nextPage}`);

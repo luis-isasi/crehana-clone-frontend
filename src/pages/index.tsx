@@ -1,4 +1,16 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+import { useContextAuth } from '@Context/contextAuth';
+
 const Index: React.FC = () => {
+  const { user } = useContextAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    user && router.replace('/home');
+  }, [user]);
+
   return (
     <>
       <style global jsx>{`
