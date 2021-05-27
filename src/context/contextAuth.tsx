@@ -1,8 +1,9 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import router from 'next/router';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import { USER_SESSION } from '@Constans';
 import { User } from '@Types';
+import LoadingScreen from '@Components/LoadingScreen';
 
 //------------types----------
 interface UserLocalStorage extends User {
@@ -11,20 +12,19 @@ interface UserLocalStorage extends User {
 
 interface TypeContextUser {
   user: UserLocalStorage;
-  // loginUser: ({ email, password }: ParametersUserData) => void;
-  // registerUser: ({ email, password }: ParametersUserData) => void;
   signoutUser: () => void;
   setDataUserLocalStorage: (dataUser: UserLocalStorage) => void;
 }
 
 //Context
-const ContextUser = createContext<TypeContextUser | undefined>(undefined);
+const ContextAuth = createContext<TypeContextUser | undefined>(undefined);
 
 //Provider
-export const ContextUserProvider = ({ children }) => {
+export const ContextAuthProvider = ({ children }) => {
   const [user, setUser] = useState<undefined | null | UserLocalStorage>(
     undefined
   );
+  const router = useRouter();
 
   useEffect(() => {
     const dataUser = JSON.parse(localStorage.getItem(USER_SESSION));
@@ -46,28 +46,6 @@ export const ContextUserProvider = ({ children }) => {
     setUser(dataUser);
   };
 
-  // const loginUser = ({ email, password }: ParametersUserData) => {
-  //   return fetcher<LoginRegister>({
-  //     endpoint: EP_LOGIN,
-  //     method: 'POST',
-  //     body: {
-  //       email,
-  //       password,
-  //     },
-  //   });
-  // };
-
-  // const registerUser = ({ email, password }: ParametersUserData) => {
-  //   return fetcher<LoginRegister>({
-  //     endpoint: EP_REGISTER,
-  //     method: 'POST',
-  //     body: {
-  //       email,
-  //       password,
-  //     },
-  //   });
-  // };
-
   const signoutUser = () => {
     localStorage.removeItem(USER_SESSION);
     setUser(null);
@@ -75,7 +53,7 @@ export const ContextUserProvider = ({ children }) => {
   };
 
   return (
-    <ContextUser.Provider
+    <ContextAuth.Provider
       value={{
         user,
         signoutUser,
@@ -83,17 +61,30 @@ export const ContextUserProvider = ({ children }) => {
       }}
     >
       {children}
-    </ContextUser.Provider>
+    </ContextAuth.Provider>
   );
 };
 
 //Hook
-export const useContextUser = () => {
-  const dataUser = useContext(ContextUser);
+export const useContextAuth = () => {
+  const dataUser = useContext(ContextAuth);
 
   if (typeof dataUser === 'undefined') {
     throw new Error('useUser must be withing ContextUserProvider');
   }
 
   return dataUser;
+};
+
+export const ProtecRouteAuth = ({ children }) => {
+  const router = useRouter();
+  const { user } = useContextAuth();
+
+  if (user === undefined) return <LoadingScreen />;
+
+  if (user === null) {
+    router.push('/login');
+  }
+
+  return <>{children}</>;
 };

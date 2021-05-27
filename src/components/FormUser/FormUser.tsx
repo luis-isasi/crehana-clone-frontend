@@ -3,7 +3,7 @@ import { useMutation } from 'react-query';
 
 import FormField from './components/FormField';
 import Btn from './components/Btn';
-import { useContextUser } from '@Context/contextUser';
+import { useContextAuth } from '@Context/contextAuth';
 import { PropsFormUser, InitialState, FormAction } from './types';
 
 const initialState: InitialState = {
@@ -52,7 +52,7 @@ const FormUser: React.FC<PropsFormUser> = ({
   onError,
 }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { setDataUserLocalStorage } = useContextUser();
+  const { setDataUserLocalStorage } = useContextAuth();
 
   const { isLoading, isError, error, mutate } = useMutation(
     typeForm,

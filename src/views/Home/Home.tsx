@@ -1,12 +1,12 @@
 import Head from 'next/head';
 
-import { useContextUser } from '@Context/contextUser';
+import { useContextAuth } from '@Context/contextAuth';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import HelpUser from './HelpUser/HelpUser';
 
 const Home: React.FC = () => {
-  const { user } = useContextUser();
+  const { user } = useContextAuth();
 
   return (
     <>

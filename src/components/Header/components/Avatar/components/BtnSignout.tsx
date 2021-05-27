@@ -1,7 +1,7 @@
-import { useContextUser } from '@Context/contextUser';
+import { useContextAuth } from '@Context/contextAuth';
 
 const BtnSignout = () => {
-  const { signoutUser } = useContextUser();
+  const { signoutUser } = useContextAuth();
 
   return (
     <button
