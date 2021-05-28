@@ -7,7 +7,7 @@ import CourseImg from './components/CourseImg';
 import AddToCar from './components/AddToCar';
 import MostSelling from '@Components/Labels/MostSelling';
 import CartIcon from '@Components/Icons/CartIcon';
-import BtnPrimary from '@Components/buttons/BtnPrimary';
+import BtnPrimary from '@Components/buttons/BtnPrimaryBorder';
 
 interface Props {
   inModal?: boolean;

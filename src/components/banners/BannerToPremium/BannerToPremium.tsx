@@ -1,4 +1,4 @@
-import BtnToPremium from '@Components/buttons/BtnToPremium';
+import BtnPrimary from '@Components/buttons/BtnPrimary';
 import BannerToPremiumText from './BannerToPremiumText';
 
 interface Props {
@@ -6,11 +6,14 @@ interface Props {
   linkText?: string;
 }
 
-const BannerToPremium: React.FC<Props> = ({ text, linkText }) => {
+const BannerToPremium: React.FC<Props> = ({
+  text,
+  linkText = 'Ir a Premium',
+}) => {
   return (
     <div className="bg-primary-primary h-20 min-h-20 w-full box-border px-5 text-white font-bold flex items-center animate-appear-upward">
       <BannerToPremiumText>{text}</BannerToPremiumText>
-      <BtnToPremium>{linkText}</BtnToPremium>
+      <BtnPrimary>{linkText}</BtnPrimary>
     </div>
   );
 };

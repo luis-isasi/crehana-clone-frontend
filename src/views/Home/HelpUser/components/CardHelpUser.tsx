@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import LinkPrimary from '@Components/Links/LinkPrimary';
+import LinkPrimaryBorder from '@Components/Links/LinkPrimaryBorder';
 
 interface Props {
   LinkHref: string;
@@ -21,9 +21,9 @@ const CardHelpUser: React.FC<Props> = ({ LinkHref, LinkText, text, src }) => {
       />
       <div className="flex-grow px-3 flex flex-col justify-between">
         <p>{text}</p>
-        <LinkPrimary href={LinkHref} className="py-1 px-4">
+        <LinkPrimaryBorder href={LinkHref} className="py-1 px-4">
           {LinkText}
-        </LinkPrimary>
+        </LinkPrimaryBorder>
       </div>
     </div>
   );
