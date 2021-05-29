@@ -185,8 +185,9 @@ module.exports = {
           '100%': { opacity: 0 },
         },
         appearUpward: {
-          '0%': { marginBottom: '-100%' },
-          '100%': { marginBottom: '0%' },
+          '0%': { marginBottom: '-100%', opacity: 0 },
+          '50%': { marginBottom: '-50%', opacity: 0.5 },
+          '100%': { marginBottom: '0%', opacity: 1 },
         },
       },
     },

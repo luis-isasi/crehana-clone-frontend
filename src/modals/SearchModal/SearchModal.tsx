@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 
 import CardCourse from '@Components/CourseCard';
-import FooterModal from '../../components/banners/BannerToPremium/BannerToPremium';
+import FooterModal from '@Components/banners/BannerToPremium/BannerToPremium';
 import Container from './components/Container';
 import HeaderModal from './components/HeaderModal';
-import BtnPrimary from '../../components/buttons/BtnPrimary';
+import BtnPrimary from '@Components/buttons/BtnPrimary';
 import BannerToPremiumText from '@Components/banners/BannerToPremium/BannerToPremiumText';
 
 import useResponsive from '@Hooks/useResponsive';
