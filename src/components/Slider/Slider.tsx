@@ -32,7 +32,9 @@ const Slider: React.FC<Props> = ({ Card, heightAndWidth, sliderRef }) => {
 
     //funcion para retonrar los cards dentro de la section
     const renderCards = (cardsInSection: number) => {
+      //TODO: change .from to .slice
       const cards = Array.from({ length: cardsInSection });
+      //  const cards: DataHelpUser[] = Items.slice(index, index + cardsInSection);
 
       //le damos un nuevo valor al index para el siguiente render de cards en section
       index = index + cardsInSection;

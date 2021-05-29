@@ -1,6 +1,4 @@
 import { NEXT, PREVIOUS } from '@Constans';
-import { easing } from '@material-ui/core';
-import React from 'react';
 
 export interface ParametersHandlePreviousAndNext {
   type: typeof NEXT | typeof PREVIOUS | 'OTHER';
@@ -16,6 +14,7 @@ interface PropsSwitch {
   totalSections: number;
   sliderRef: React.RefObject<HTMLUListElement>;
   marginLeft?: number;
+  dark?: boolean;
 }
 
 //Slider Switch Desktop

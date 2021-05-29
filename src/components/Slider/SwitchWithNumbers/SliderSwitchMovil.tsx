@@ -10,6 +10,7 @@ const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
   sliderRef,
   colorText,
   marginLeft = 100,
+  dark = false,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
 
@@ -37,7 +38,11 @@ const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
   };
 
   return (
-    <div className="h-auto w-full mx-auto flex items-center justify-center my-5 z-30 text-gray-800 dark:text-white">
+    <div
+      className={`${
+        dark && 'dark'
+      } h-auto w-full mx-auto flex items-center justify-center my-5 z-30 text-gray-800 dark:text-white`}
+    >
       <button
         disabled={selectedIndex === 1}
         className={`${
@@ -48,7 +53,7 @@ const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
       >
         <ExpandMoreIcon className="transform rotate-180 w-8 h-8" />
       </button>
-      <span>
+      <span className="text-gray-800 dark:text-white">
         <strong>{`${selectedIndex}`}</strong>
         {` / ${totalSections}`}
       </span>
