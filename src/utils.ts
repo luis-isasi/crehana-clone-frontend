@@ -1,5 +1,7 @@
 import { USER_SESSION } from '@Constans';
+import { MyResponseError } from '@Types';
 
+//FETCHER
 export async function fetcher<DataResponse>({
   endpoint,
   method = 'GET',
@@ -17,7 +19,6 @@ export async function fetcher<DataResponse>({
     token = JSON.parse(tokenFromLS)?.token;
   } catch (err) {
     console.error(err);
-
     token = '';
   }
 
@@ -39,11 +40,14 @@ export async function fetcher<DataResponse>({
     }
   );
 
-  let data = await response.json();
+  let res: { data: any } = await response.json();
 
+  //no necesitamos retornar todo el objeto de error ya que react-query solo necesita el mensaje de error
+  //quizas en otro proyecto sin react-query, si, se deba retornar
   if (!response.ok) {
-    throw new Error(data.data.error as string);
+    const resError: MyResponseError = res.data;
+    throw new Error(resError.error);
   }
 
-  return data as DataResponse;
+  return res.data as DataResponse;
 }
