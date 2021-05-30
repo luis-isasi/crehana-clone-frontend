@@ -41,7 +41,7 @@ const SwitchSliderMovil: React.FC<PropsSwitchMovil> = ({
     <div
       className={`${
         dark && 'dark'
-      } h-auto w-full mx-auto flex items-center justify-center my-5 z-30 text-gray-800 dark:text-white`}
+      } h-auto w-full mx-auto flex items-center justify-center py-5 z-30 text-gray-800 dark:text-white`}
     >
       <button
         disabled={selectedIndex === 1}
