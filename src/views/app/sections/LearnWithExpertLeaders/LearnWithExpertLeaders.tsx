@@ -30,7 +30,6 @@ const LearnWithExpertLeaders = () => {
     //inicializamos el index
     const arrSections = Array.from({ length: sections });
     let index = 0;
-    console.log({ index });
 
     //funcion para retonrar los cards dentro de la section
     const renderCards = (cardsInSection: number) => {
