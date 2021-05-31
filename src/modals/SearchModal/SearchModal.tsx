@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 
 import CardCourse from '@Components/CourseCard';
-import FooterModal from '../../components/banners/BannerToPremium/BannerToPremium';
+import FooterModal from '@Components/banners/BannerToPremium/BannerToPremium';
 import Container from './components/Container';
 import HeaderModal from './components/HeaderModal';
-import BtnToPremium from '../../components/buttons/BtnToPremium';
+import BtnPrimary from '@Components/buttons/BtnPrimary';
 import BannerToPremiumText from '@Components/banners/BannerToPremium/BannerToPremiumText';
 
 import useResponsive from '@Hooks/useResponsive';
@@ -38,7 +38,7 @@ const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
             {isMovilAndTablet && (
               <div className="box-border px-3 h-20 ">
                 <BannerToPremiumText />
-                <BtnToPremium />
+                <BtnPrimary>Ir a Premium</BtnPrimary>
               </div>
             )}
             <p className=" box-border px-3 font-semibold text-gray-700 text-sm lg:text-lg my-4">

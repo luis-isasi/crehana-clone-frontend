@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 
-import LinkPrimary from '@Components/Links/LinkPrimary';
+import LinkPrimaryBorder from '@Components/Links/LinkPrimaryBorder';
 import MostSelling from '@Components/Labels/MostSelling';
 import PeopleIcon from '@Components/Icons/PeopleIcon';
 import HoverSeeTrailer from '@Components/CourseCard/components/HoverSeeTrailer';
@@ -48,7 +48,7 @@ const CardInterest = () => {
           Curso online de WordPress: Diseña y desarrolla páginas web desde cero
         </h5>
         <span className="text-xs">Por Marina Rodrigo</span>
-        <LinkPrimary href="/home">Detalles del curso</LinkPrimary>
+        <LinkPrimaryBorder href="/home">Detalles del curso</LinkPrimaryBorder>
       </div>
     </div>
   );

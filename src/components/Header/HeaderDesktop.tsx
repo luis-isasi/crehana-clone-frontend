@@ -36,7 +36,7 @@ const HeaderDesktop: React.FC = () => {
         {isLoginOrRegister ? null : (
           <>
             <Categories />
-            <div className="border-l border-gray-200 dark:border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3" />
+            <div className="border-l border-gray-400  h-9 mx-3 lg:mx-1 xl:mx-3" />
           </>
         )}
       </div>
@@ -47,7 +47,7 @@ const HeaderDesktop: React.FC = () => {
           <div className="flex items-center text-sm">
             <LinkToBusiness />
             <LinkToPremium />
-            <div className="border-l border-gray-200 dark:border-gray-600 h-9 mx-3 lg:mx-1 xl:mx-3" />
+            <div className="border-l border-gray-400 h-9 mx-3 lg:mx-1 xl:mx-3" />
             {user === null && (
               <>
                 <LinkToLogin />

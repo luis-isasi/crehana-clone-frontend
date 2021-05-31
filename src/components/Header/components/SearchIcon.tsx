@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 
 import SearchIconUI from '@material-ui/icons/Search';
-import SearchModal from '@Modals/SearchModal';
+
+//TODO: create placeholder for SearchModal
+const SearchModal = dynamic(() => import('@Modals/SearchModal'));
 
 const SearchIcon: React.FC = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

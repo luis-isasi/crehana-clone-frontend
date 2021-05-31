@@ -73,11 +73,11 @@ const FormUser: React.FC<PropsFormUser> = ({
 
         onSuccess();
         const userData = {
-          token: data.data.token,
-          email: data.data.user?.email,
-          firstname: data.data.user.firstname,
-          lastname: data.data.user.lastname,
-          username: data.data.user.username,
+          token: data.token,
+          email: data.user?.email,
+          firstname: data.user.firstname,
+          lastname: data.user.lastname,
+          username: data.user.username,
         };
         setDataUserLocalStorage(userData);
       },

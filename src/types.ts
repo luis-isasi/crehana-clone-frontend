@@ -43,3 +43,9 @@ export interface Banner {
   subtitle: string;
   title: string;
 }
+
+//Response Error
+export interface MyResponseError {
+  error: string;
+  statusCode: number;
+}
