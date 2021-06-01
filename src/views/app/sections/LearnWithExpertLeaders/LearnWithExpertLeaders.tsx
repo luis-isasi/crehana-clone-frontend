@@ -87,10 +87,12 @@ const LearnWithExpertLeaders = () => {
               dark={true}
             />
           ) : (
-            <SwitchSecondaryPoints
-              totalSections={isTablet ? 4 : 2}
-              sliderRef={ulRef}
-            />
+            <div className="py-5">
+              <SwitchSecondaryPoints
+                totalSections={isTablet ? 4 : 2}
+                sliderRef={ulRef}
+              />
+            </div>
           )}
         </div>
       </section>
