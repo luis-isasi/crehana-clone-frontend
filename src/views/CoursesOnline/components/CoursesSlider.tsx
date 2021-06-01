@@ -11,6 +11,8 @@ interface Props {
 const CoursesSlider: React.FC<Props> = ({ banners }) => {
   const sliderRef = useRef<HTMLUListElement>();
 
+  console.log({ banners });
+
   const renderCards = () => {
     return banners.map(
       ({ id, backgroundImage, title, subtitle, ctaUrl, ctaLabel }) => (

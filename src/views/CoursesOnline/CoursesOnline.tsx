@@ -32,7 +32,7 @@ const CoursesOnline = () => {
   });
 
   //get banners
-  const { data, isLoading, isError } = useQuery('banners', () =>
+  const { data: banners, isLoading, isError } = useQuery('banners', () =>
     getBannersByDefault()
   );
 
@@ -42,12 +42,10 @@ const CoursesOnline = () => {
       <div className="w-full h-auto">
         <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
           {
-            // Only desktop
+            //Only desktop
             isDesktop && (
               <div>
-                {!isLoading && !isError && (
-                  <CoursesSlider banners={data?.data} />
-                )}
+                {!isLoading && !isError && <CoursesSlider banners={banners} />}
                 <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
               </div>
             )
