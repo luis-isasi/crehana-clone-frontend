@@ -1,22 +1,22 @@
 import Image from 'next/image';
 
-import Switch from '@Components/Switch';
+import { useContextAuth } from '@Context/contextAuth';
 import BtnDarkMode from '@Components/buttons/BtnDarkMode';
 import HelloUser from './components/HelloUser';
 import { CONTAINER_HOME } from '../contants';
 
-interface Props {
-  firstName?: string;
-}
+const SectionOne: React.FC = () => {
+  const { user } = useContextAuth();
 
-const SectionOne: React.FC<Props> = ({ firstName }) => {
+  console.log({ user });
+
   return (
     <section className="dark:bg-base-lighter-16 h-auto w-full">
       <div
         className={`${CONTAINER_HOME} box-border py-4 md:py-6 pb-0 md:pb-6 `}
       >
         <div className="text-xl font-light box-border px-1 md:px-2  mb-5 flex justify-between">
-          <HelloUser firstName={firstName} />
+          <HelloUser firstName={user?.firstname} />
           <div className="flex items-center lg:justify-between w-auto  lg:w-42">
             <span className="text-gray-400 text-xs font-normal hidden lg:block">
               MODO NOCTURNO
