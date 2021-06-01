@@ -13,6 +13,7 @@ interface TypeContextUser {
   user: UserLocalStorage;
   signoutUser: () => void;
   setDataUserLocalStorage: (dataUser: UserLocalStorage) => void;
+  isLoading: boolean;
 }
 
 //Context
@@ -23,6 +24,7 @@ export const ContextAuthProvider = ({ children }) => {
   const [user, setUser] = useState<undefined | null | UserLocalStorage>(
     undefined
   );
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -39,6 +41,13 @@ export const ContextAuthProvider = ({ children }) => {
       setUser(null);
     }
   }, []);
+
+  //change isLoading
+  useEffect(() => {
+    if (user !== undefined) {
+      setIsLoading(false);
+    }
+  }, [user]);
 
   const setDataUserLocalStorage = (dataUser: UserLocalStorage) => {
     localStorage.setItem(USER_SESSION, JSON.stringify(dataUser));
@@ -57,6 +66,7 @@ export const ContextAuthProvider = ({ children }) => {
         user,
         signoutUser,
         setDataUserLocalStorage,
+        isLoading,
       }}
     >
       {children}

@@ -15,7 +15,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     <QueryClientProvider client={client}>
       <ContextThemeProvider>
         <ContextAuthProvider>
-          {Component.requireAuth ? (
+          {pageProps.requireAuth ? (
             <ProtectRouteAuth>
               <Header />
               <Component {...pageProps} />

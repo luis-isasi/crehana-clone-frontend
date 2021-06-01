@@ -19,5 +19,13 @@ const Home: React.FC = () => {
   );
 };
 
-Home.requireAuth = true;
+export const getStaticPros = () => {
+  return {
+    props: {
+      isPrivate: true,
+    },
+  };
+};
+
+// Home.requireAuth = true;
 export default Home;
