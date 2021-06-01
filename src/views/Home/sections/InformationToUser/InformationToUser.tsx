@@ -7,13 +7,13 @@ import {
   EXCLUSIVE_PREMIUM,
   MENTORS,
   YOUR_ACTIVITY,
-} from '../contants';
+} from '@Views/Home/contants';
 import Header from './components/Header';
-import Recomendations from './Recomendations';
+import Recomendations from './sections/Recomendations';
 
-const Mentors = dynamic(() => import('./Mentors'));
-const ExclusivePremium = dynamic(() => import('./ExclusivePremium'));
-const YourActivity = dynamic(() => import('./YourActivity'));
+const Mentors = dynamic(() => import('./sections/Mentors'));
+const ExclusivePremium = dynamic(() => import('./sections/ExclusivePremium'));
+const YourActivity = dynamic(() => import('./sections/YourActivity'));
 
 const SectionTwo = () => {
   const [isSelectedBtn, setIsSelectedBtn] = useState<SelectedName>(

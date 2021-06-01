@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import { MEDIAQUERY_MD, MEDIAQUERY_2X1 } from '@Constans';
-import { CONTAINER_HOME } from '../contants';
+import { CONTAINER_HOME } from '@Views/Home/contants';
 import { DataHelpUser } from './types';
 import useResponsive from '@Hooks/useResponsive';
 import { Items } from './items';

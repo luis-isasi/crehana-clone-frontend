@@ -8,7 +8,7 @@ const HelloUser: React.FC<Props> = ({ firstName }) => {
       <p>
         Hola,{' '}
         <strong className="font-semibold">{`${
-          firstName ? firstName + '.' : null
+          firstName ? firstName + '.' : ''
         }`}</strong>
       </p>
       <p className="md:ml-1">¡Te damos la bienvenida!</p>

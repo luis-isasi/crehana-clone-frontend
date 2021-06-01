@@ -6,7 +6,7 @@ import {
   EXCLUSIVE_PREMIUM,
   YOUR_ACTIVITY,
   CONTAINER_HOME,
-} from '../../contants';
+} from '@Views/Home/contants';
 import { SelectedName } from '../types';
 
 interface Props {

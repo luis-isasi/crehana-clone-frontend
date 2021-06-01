@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
-import { CONTAINER_HOME } from '../../contants';
+import { CONTAINER_HOME } from '@Views/Home/contants';
 import useResponsive from '@Hooks/useResponsive';
-import InterestCard from './components/InterestCard';
+import InterestCard from '../components/InterestCard';
 import Slider from '@Components/Slider/Slider';
 import SliderSwitchDesktop from '@Components/Slider/SwitchWithNumbers/SliderSwitchDesktop';
 import SliderSwitchMovil from '@Components/Slider/SwitchWithNumbers/SliderSwitchMovil';
