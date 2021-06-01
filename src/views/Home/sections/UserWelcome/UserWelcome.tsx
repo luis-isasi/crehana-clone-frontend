@@ -3,12 +3,10 @@ import Image from 'next/image';
 import { useContextAuth } from '@Context/contextAuth';
 import BtnDarkMode from '@Components/buttons/BtnDarkMode';
 import HelloUser from './components/HelloUser';
-import { CONTAINER_HOME } from '../contants';
+import { CONTAINER_HOME } from '@Views/Home/contants';
 
 const SectionOne: React.FC = () => {
   const { user } = useContextAuth();
-
-  console.log({ user });
 
   return (
     <section className="dark:bg-base-lighter-16 h-auto w-full">

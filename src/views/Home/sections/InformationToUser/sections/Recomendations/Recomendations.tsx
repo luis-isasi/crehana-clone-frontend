@@ -1,5 +1,5 @@
-import NewCourses from './NewCourses';
-import YourInterests from './YourInterests';
+import NewCourses from './sections/NewCourses';
+import YourInterests from './sections/YourInterests';
 
 const Recomendations = () => {
   return (

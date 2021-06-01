@@ -16,8 +16,6 @@ const CardInterest = () => {
           layout="fill"
           loader={({ src }) => `${src}`}
           src={'https://source.unsplash.com/random'}
-          // height="100"
-          // width="100"
           className="object-cover"
         />
         <div
