@@ -8,7 +8,7 @@ const LinkFooter: React.FC<Props> = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className="text-sm text-gray-600 hover:text-secondary-main font-medium mb-3"
+      className="text-sm font-bold text-gray-500 hover:text-secondary-main  mb-3"
     >
       {children}
     </Link>
