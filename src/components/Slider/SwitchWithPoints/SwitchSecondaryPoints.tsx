@@ -110,7 +110,7 @@ const SwitchSecondaryPoints: React.FC<PropsSwitchWithPoints> = ({
     <div
       className={`${
         dark && 'true'
-      }h-auto w-full mx-auto flex items-center justify-center py-5 z-20`}
+      }h-auto w-full mx-auto flex items-center justify-center z-20`}
     >
       <button
         disabled={selectedIndex === 1}

@@ -4,7 +4,7 @@ import UserWelcome from './sections/UserWelcome';
 import InformationToUser from './sections/InformationToUser';
 import HelpUser from './sections/HelpUser';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <>
       <Head>
@@ -19,13 +19,13 @@ const Home: React.FC = () => {
   );
 };
 
-export const getStaticPros = () => {
+export const getServerSideProps = () => {
   return {
     props: {
-      isPrivate: true,
+      requireAuth: true,
     },
   };
 };
 
-// Home.requireAuth = true;
+Home.requireAuth = true;
 export default Home;

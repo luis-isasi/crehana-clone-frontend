@@ -1,14 +1,12 @@
 import dynamic from 'next/dynamic';
 import { useQuery } from 'react-query';
 
-import RecommendedCourses from './sections/RecommendedCourses';
-import NewCourses from './sections/NewCourses';
-import Specializations from './sections/Specializations';
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
-import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
 import BannerToPremium from '@Components/banners/BannerToPremium';
-import { getBannersByDefault } from '@Services/coursesOnline';
+import BannerSlider from './components/BannerSlider';
+import CoursesByDefault from './sections/CoursesByDefault';
+import { getCourses } from '@Services/coursesOnline';
 
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
@@ -16,9 +14,6 @@ const OptionsFilterMovil = dynamic(
 const OptionsFilterDesktop = dynamic(
   () => import('./components/OptionsFIlterDesktop')
 );
-const CoursesSlider = dynamic(() => import('./components/CoursesSlider'), {
-  loading: () => <PHCoursesSliderDesktop />,
-});
 
 const CoursesOnline = () => {
   const isMovilUntilLaptop = useResponsive({
@@ -31,10 +26,10 @@ const CoursesOnline = () => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
-  //get banners
-  const { data, isLoading, isError } = useQuery('banners', () =>
-    getBannersByDefault()
-  );
+  //Query for filters
+  const { data, isLoading, isError } = useQuery('course', () => getCourses());
+
+  console.log({ data });
 
   return (
     <div className="h-auto w-full">
@@ -42,23 +37,17 @@ const CoursesOnline = () => {
       <div className="w-full h-auto">
         <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
           {
-            // Only desktop
+            //Only desktop
             isDesktop && (
               <div>
-                {!isLoading && !isError && (
-                  <CoursesSlider banners={data?.data} />
-                )}
+                <BannerSlider />
                 <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
               </div>
             )
           }
           <div className="w-full h-auto flex flex-row">
             {isDesktop && <OptionsFilterDesktop />}
-            <div className="flex-grow flex flex-col ">
-              <RecommendedCourses />
-              <NewCourses />
-              <Specializations />
-            </div>
+            <CoursesByDefault />
           </div>
         </div>
       </div>

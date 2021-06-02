@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { USER_SESSION } from '@Constans';
+import { USER_SESSION, USER_SETTINGS } from '@Constans';
 import { User } from '@Types';
 
 //------------types----------
@@ -56,6 +56,7 @@ export const ContextAuthProvider = ({ children }) => {
 
   const signoutUser = () => {
     localStorage.removeItem(USER_SESSION);
+    localStorage.removeItem(USER_SETTINGS);
     setUser(null);
     router.push('/');
   };
