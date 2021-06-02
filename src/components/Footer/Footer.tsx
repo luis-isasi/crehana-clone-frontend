@@ -23,34 +23,22 @@ const Footer = () => {
 
   return (
     <footer className="bg-white min-h-60 w-full text-gray-800 flex flex-col items-center">
-      <div className="w-5/6 lg:pt-3 lg:pb-8 xl:pb-12 xl:py-5">
+      <div className="w-5/6 lg:pt-3 lg:pb-8 xl:py-5">
         <div className="md:flex md:flex-row md:justify-between ">
           <Company />
           <Comunity />
           <HelpLinks />
           {isLaptop && <DowlandApp />}
         </div>
-        <div className="">
-          <div className="md:flex  md:justify-between">
-            {!isLaptop && (
-              <>
-                <DowlandApp />
-                <div className="flex flex-col items-center">
-                  <SocialNetworks />
-                  <CurrencyType />
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-        <div className="lg:flex lg:justify-between lg:items-end">
-          <CopyrightCrehana />
-          {isLaptop && (
-            <div className="flex flex-col items-center">
+        <div className="md:flex md:flex-col lg:flex-row-reverse lg:justify-between lg:items-center xl:pt-10">
+          <div className="flex flex-col md:flex-row justify-between md:items-center">
+            {!isLaptop && <DowlandApp />}
+            <div className="xl:min-w-98 xl:w-98 flex flex-col xl:flex-row items-center">
               <SocialNetworks />
               <CurrencyType />
             </div>
-          )}
+          </div>
+          <CopyrightCrehana />
         </div>
       </div>
     </footer>
