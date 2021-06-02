@@ -1,19 +1,20 @@
 import AppleIcon from '@material-ui/icons/Apple';
 
 import PlayStoreIcon from '@Components/Icons/PlayStoreIcon';
+import BtnDownload from '../components/BtnDownload';
 
-const DowlandApp = () => {
+const DownloadApp = () => {
   return (
     <div className="flex flex-col justify-start items-center">
       <span className="py-4 font-bold text-base">Descarga nuestra app</span>
-      <button className="bg-base-dark rounded-md py-3 text-lg text-white font-bold w-full mb-2 flex justify-center items-center">
+      <BtnDownload>
         <PlayStoreIcon className="mr-2" /> Google play
-      </button>
-      <button className="bg-base-dark rounded-md py-3 text-lg text-white font-bold w-full mb-2 flex justify-center">
+      </BtnDownload>
+      <BtnDownload>
         <AppleIcon className="mr-2" /> App store
-      </button>
+      </BtnDownload>
     </div>
   );
 };
 
-export default DowlandApp;
+export default DownloadApp;

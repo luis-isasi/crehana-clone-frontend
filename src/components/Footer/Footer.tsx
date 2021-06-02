@@ -4,7 +4,7 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from '@Constans';
 import Comunity from './sections/Comunity';
 import Company from './sections/Company';
-import DowlandApp from './sections/DowlandApp';
+import DownloadApp from './sections/DownloadApp';
 import HelpLinks from './sections/HelpLinks';
 import SocialNetworks from './sections/SocialNetworks';
 import CurrencyType from './components/CurrencyType';
@@ -28,11 +28,11 @@ const Footer = () => {
           <Company />
           <Comunity />
           <HelpLinks />
-          {isLaptop && <DowlandApp />}
+          {isLaptop && <DownloadApp />}
         </div>
         <div className="md:flex md:flex-col lg:flex-row-reverse lg:justify-between lg:items-center xl:pt-10">
           <div className="flex flex-col md:flex-row justify-between md:items-center">
-            {!isLaptop && <DowlandApp />}
+            {!isLaptop && <DownloadApp />}
             <div className="xl:min-w-98 xl:w-98 flex flex-col xl:flex-row items-center">
               <SocialNetworks />
               <CurrencyType />
