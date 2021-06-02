@@ -6,7 +6,9 @@ import BtnDownload from '../components/BtnDownload';
 const DownloadApp = () => {
   return (
     <div className="flex flex-col justify-start items-center">
-      <span className="py-4 font-bold text-base">Descarga nuestra app</span>
+      <span className="py-4 dark:text-base-lighter font-bold text-base">
+        Descarga nuestra app
+      </span>
       <BtnDownload>
         <PlayStoreIcon className="mr-2" /> Google play
       </BtnDownload>

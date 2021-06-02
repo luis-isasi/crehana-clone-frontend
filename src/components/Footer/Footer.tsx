@@ -22,7 +22,7 @@ const Footer = () => {
   if (isLoginOrRegister) return null;
 
   return (
-    <footer className="bg-white min-h-60 w-full text-gray-800 flex flex-col items-center">
+    <footer className="bg-white dark:bg-base-main-80 min-h-60 w-full text-gray-800 flex flex-col items-center">
       <div className="w-5/6 lg:pt-3 lg:pb-8 xl:py-5">
         <div className="md:flex md:flex-row md:justify-between ">
           <Company />

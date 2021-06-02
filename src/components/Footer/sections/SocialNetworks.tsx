@@ -6,7 +6,7 @@ import FacebookIcon from '@Components/Icons/FacebookIcon';
 
 const SocialNetworks = () => {
   return (
-    <div className="text-gray-400 w-44 xl:min-w-46 xl:w-46 xl:mx-5 flex justify-between items-center py-4 ">
+    <div className="text-gray-400 dark:text-white w-44 xl:min-w-46 xl:w-46 xl:mx-5 flex justify-between items-center py-4 ">
       <FacebookIcon />
       <TwitterIcon />
       <InstagramIcon />
