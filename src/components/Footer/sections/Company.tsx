@@ -3,7 +3,7 @@ import LinkFooter from '../components/LinkFooter';
 const Company = () => {
   return (
     <div className="flex flex-col  items-start min-w-0 w-40">
-      <span className="py-5 dark:text-base-lighter font-bold text-base">
+      <span className="py-5 dark:text-base-lighter font-extrabold text-base">
         Compañia
       </span>
       <LinkFooter href="/">Sobre crehana</LinkFooter>
