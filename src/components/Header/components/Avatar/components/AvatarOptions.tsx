@@ -32,7 +32,7 @@ const AvatarCard: React.FC<Props> = ({ isOpen, setIsOpenCard }) => {
   return (
     <div
       ref={cardRef}
-      className={`bg-white ${rootClassName} transition-all duration-100 ease-linear h-58 w-56 absolute rounded-md z-50 lg:-bottom-62 lg:-left-42 xl:-bottom-62 xl:-left-40`}
+      className={`bg-white shadow-2xl ${rootClassName} transition-all duration-100 ease-linear h-58 w-56 absolute rounded-md z-50 lg:-bottom-62 lg:-left-42 xl:-bottom-62 xl:-left-40`}
     >
       <div
         style={{
