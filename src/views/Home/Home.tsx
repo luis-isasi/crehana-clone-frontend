@@ -27,5 +27,4 @@ export const getServerSideProps = () => {
   };
 };
 
-Home.requireAuth = true;
 export default Home;

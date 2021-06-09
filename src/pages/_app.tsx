@@ -11,13 +11,11 @@ import Footer from '@Components/Footer';
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const client = new QueryClient();
 
-  console.log(Component.requireAuth);
-
   return (
     <QueryClientProvider client={client}>
       <ContextThemeProvider>
         <ContextAuthProvider>
-          {Component.requireAuth ? (
+          {pageProps.requireAuth ? (
             <ProtectRouteAuth>
               <Header />
               <Component {...pageProps} />

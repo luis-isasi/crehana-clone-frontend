@@ -28,26 +28,23 @@ export const ContextAuthProvider = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    const dataUser = JSON.parse(localStorage.getItem(USER_SESSION));
+    const dataUser: UserLocalStorage = JSON.parse(
+      localStorage.getItem(USER_SESSION)
+    );
     if (dataUser) {
       setUser({
         token: dataUser.token,
         email: dataUser.email,
         firstname: dataUser.firstname,
-        lastname: dataUser.lastaname,
+        lastname: dataUser.lastname,
         username: dataUser.username,
       });
     } else {
       setUser(null);
     }
+    //change isLoading
+    setIsLoading(false);
   }, []);
-
-  //change isLoading
-  useEffect(() => {
-    if (user !== undefined) {
-      setIsLoading(false);
-    }
-  }, [user]);
 
   const setDataUserLocalStorage = (dataUser: UserLocalStorage) => {
     localStorage.setItem(USER_SESSION, JSON.stringify(dataUser));

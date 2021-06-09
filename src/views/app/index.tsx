@@ -1,8 +1,14 @@
+import Head from 'next/head';
 import App from './App';
 
 const Index = () => {
   return (
     <>
+      <Head>
+        <title>
+          Cursos online para aprender nuevas habilidades hoy | Crehana
+        </title>
+      </Head>
       <App />
       <style global jsx>{`
         body {
