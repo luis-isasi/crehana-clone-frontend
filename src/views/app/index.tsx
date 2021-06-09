@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import App from './App';
 
 const Index = () => {
@@ -32,4 +33,5 @@ const Index = () => {
   );
 };
 
+export { getServerSideProps } from './App';
 export default Index;

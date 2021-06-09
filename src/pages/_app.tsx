@@ -5,8 +5,7 @@ import { ContextAuthProvider } from '@Context/contextAuth';
 import { ContextThemeProvider } from '@Context/contextTheme';
 import ProtectRouteAuth from '@Hoc/ProtectRouteAuth';
 
-import Header from '@Components/Header';
-import Footer from '@Components/Footer';
+import Layout from '@Hoc/Layout';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const client = new QueryClient();
@@ -17,15 +16,15 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <ContextAuthProvider>
           {pageProps.requireAuth ? (
             <ProtectRouteAuth>
-              <Header />
-              <Component {...pageProps} />
-              <Footer />
+              <Layout dark={pageProps.dark}>
+                <Component {...pageProps} />
+              </Layout>
             </ProtectRouteAuth>
           ) : (
             <>
-              <Header />
-              <Component {...pageProps} />
-              <Footer />
+              <Layout dark={pageProps.dark}>
+                <Component {...pageProps} />
+              </Layout>
             </>
           )}
         </ContextAuthProvider>
