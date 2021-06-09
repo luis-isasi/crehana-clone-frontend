@@ -43,4 +43,12 @@ const App: React.FC = () => {
   );
 };
 
+export const getServerSideProps = () => {
+  return {
+    props: {
+      dark: true,
+    },
+  };
+};
+
 export default App;
