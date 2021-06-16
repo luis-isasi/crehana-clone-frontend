@@ -135,6 +135,9 @@ module.exports = {
         red: {
           main: '#E6215D',
         },
+        gray: {
+          main: '#C3CBD6',
+        },
         base: {
           dark: '#070E27',
           main: {
