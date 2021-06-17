@@ -136,13 +136,14 @@ module.exports = {
       maxHeight: (theme) => ({
         ...theme('spacing'),
       }),
-      colors: (theme) => ({
+      colors: () => ({
         red: {
           main: '#E6215D',
         },
         gray: {
           main: '#C3CBD6',
         },
+        green: { main: '#34D69B' },
         base: {
           dark: '#070E27',
           main: {
@@ -150,6 +151,7 @@ module.exports = {
             80: 'rgba(24,27,50,0.8)',
           },
           light: {
+            DEFAULT: '#1D2559',
             'dark-mode': '#2C2F48',
           },
           lighter: {
