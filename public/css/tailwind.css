@@ -34,12 +34,32 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
     border-radius: 12px;
     border: 1px solid white;
   }
+
+  .container-login-register {
+    @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center -z-1 absolute top-0;
+  }
+
+  .btn-transition {
+    @apply transition-colors duration-150 ease-in-out;
+  }
+
+  .btn-md {
+    @apply min-w-max py-3 px-7 cursor-pointer box-border focus:outline-none font-extrabold text-base text-center rounded-md;
+  }
+
+  .btn-lg {
+    @apply min-w-max py-4 px-8 cursor-pointer box-border focus:outline-none font-extrabold text-base text-center rounded-md;
+  }
+
+  .btn-invert-gray {
+    @apply btn-transition border-2 text-base-lighter active:text-white border-base-lighter active:border-primary-light active:bg-primary-light;
+  }
+
+  .btn-primary {
+    @apply btn-transition bg-primary-main text-white hover:bg-primary-light;
+  }
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-}
-
-.container-login-register {
-  @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center -z-1 absolute top-0;
 }

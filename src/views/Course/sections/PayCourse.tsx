@@ -2,19 +2,19 @@ import Image from 'next/image';
 
 import CoursePrice from '../components/CoursePrice';
 import CourseInformation from '../components/CourseInformation';
-import BtnPrimaryBorder from '@Components/buttons/BtnPrimaryBorder';
-import BtnPrimary from '@Components/buttons/BtnPrimary';
 import CartIcon from '@Components/Icons/CartIcon';
 
 const PayCourse = () => {
   return (
     <section>
       <CoursePrice />
-      <div>
-        <BtnPrimary>Cómpralo ahora</BtnPrimary>
-        <button className="box-border border-2 border-base-lighter text-base-lighter ">
-          <CartIcon />
-          Agregar a carrito
+      <div className="my-3">
+        <button className="btn-lg btn-primary w-full mb-3">
+          Cómpralo ahora
+        </button>
+        <button className="btn-lg btn-invert-gray flex justify-center items-center w-full mb-3">
+          <CartIcon className="text-base-lighter active:text-white mr-2 h-6 w-6 " />
+          Agregar a mi carrito
         </button>
       </div>
       <article className="bg-gray-50 w-full h-auto p-3 my-5 flex items-center ">

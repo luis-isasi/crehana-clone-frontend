@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
@@ -215,5 +216,20 @@ module.exports = {
       borderColor: ['disabled', 'active', 'checked'],
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      const buttons = {
+        '.btn-indigo': {
+          backgroundColor: theme('colors.indigo.500'),
+          color: theme('colors.white'),
+          fontSize: theme('fontSize.4xl'),
+          '&:hover': {
+            backgroundColor: theme('colors.indigo.600'),
+          },
+        },
+      };
+
+      addComponents(buttons);
+    }),
+  ],
 };
