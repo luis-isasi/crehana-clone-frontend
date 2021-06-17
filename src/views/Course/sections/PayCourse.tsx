@@ -6,10 +6,10 @@ import CartIcon from '@Components/Icons/CartIcon';
 
 const PayCourse = () => {
   return (
-    <section className="py-5 border-t-1 border-gray-main">
+    <section>
       <CoursePrice />
-      <div className="my-3 flex flex-col md:flex-row items-center ">
-        <button className="btn-lg btn-primary w-full max-w-xl mb-3 md:mr-5">
+      <div className="my-3 flex flex-col md:flex-row xl:flex-col items-center ">
+        <button className="btn-lg btn-primary w-full max-w-xl mb-3 md:mr-5 xl:mr-0">
           Cómpralo ahora
         </button>
         <button className="btn-lg btn-invert-gray w-full max-w-xl flex justify-center items-center mb-3">
@@ -17,7 +17,7 @@ const PayCourse = () => {
           Agregar a mi carrito
         </button>
       </div>
-      <article className="bg-gray-50 w-full h-auto p-3 my-5 flex items-center ">
+      <article className="bg-gray-50 w-full h-24 p-3 my-5 xl:my-2 flex items-center">
         <Image
           loader={({ src }) => `${src}`}
           src={'https://i.imgur.com/urCp5aS.pnghttps://i.imgur.com/urCp5aS.png'}

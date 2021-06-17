@@ -56,7 +56,7 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
   }
 
   .btn-primary {
-    @apply btn-transition bg-primary-main border-primary-main text-white hover:bg-primary-light;
+    @apply btn-transition bg-primary-main border-primary-main hover:border-primary-light text-white hover:bg-primary-light;
   }
 }
 

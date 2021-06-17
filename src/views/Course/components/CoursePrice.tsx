@@ -10,7 +10,7 @@ const CoursePrice = () => {
           <span className="line-through">S/241.16</span>
         </p>
       </div>
-      <label className=" bg-red-main py-1 px-2 mx-3 text-sm font-bold rounded-md text-white ">
+      <label className=" bg-red-main border-2 border-red-main  px-2 mx-3 text-sm font-bold rounded-md text-white ">
         77% dto.
       </label>
     </div>
