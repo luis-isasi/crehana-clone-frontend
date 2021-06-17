@@ -2,7 +2,7 @@ import AuthorAvatar from './AuthorAvatar';
 
 const Author = () => {
   return (
-    <div className="w-46 max-w-46 h-auto flex flex-col">
+    <div className="w-46 max-w-46 h-auto mt-3 mb-6 flex flex-col">
       <span className="py-2">creado por:</span>
       <div className="flex justify-between items-center">
         <AuthorAvatar />

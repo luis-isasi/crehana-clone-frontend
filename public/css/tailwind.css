@@ -44,19 +44,19 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
   }
 
   .btn-md {
-    @apply min-w-max py-3 px-7 cursor-pointer box-border focus:outline-none font-extrabold text-base text-center rounded-md;
+    @apply min-w-max box-border border-2 py-3 px-7 cursor-pointer focus:outline-none font-extrabold text-base text-center rounded-md;
   }
 
   .btn-lg {
-    @apply min-w-max py-4 px-8 cursor-pointer box-border focus:outline-none font-extrabold text-base text-center rounded-md;
+    @apply min-w-max box-border border-2 py-4 px-8 cursor-pointer focus:outline-none font-extrabold text-base text-center rounded-md;
   }
 
   .btn-invert-gray {
-    @apply btn-transition border-2 text-base-lighter active:text-white border-base-lighter active:border-primary-light active:bg-primary-light;
+    @apply btn-transition text-base-lighter active:text-white border-base-lighter active:border-primary-light active:bg-primary-light;
   }
 
   .btn-primary {
-    @apply btn-transition bg-primary-main text-white hover:bg-primary-light;
+    @apply btn-transition bg-primary-main border-primary-main text-white hover:bg-primary-light;
   }
 }
 

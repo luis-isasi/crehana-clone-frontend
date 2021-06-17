@@ -4,7 +4,7 @@ import Popular from '@Components/Labels/Popular';
 
 const StudentsAndStarts = () => {
   return (
-    <div className="my-4 flex flex-col md:flex-row md:items-center">
+    <div className="flex flex-col md:flex-row md:items-center">
       <Popular />
       <div className="flex flex-wrap my-4 md:mx-3">
         <StudentsAmount />
