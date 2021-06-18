@@ -11,7 +11,7 @@ const NewSkills = () => {
 
   return (
     <section>
-      <h4 className="course-content-title box-border py-3 md:py-6">
+      <h4 className="course-content-title box-border py-1 md:py-4">
         ¿Qué habilidades voy a aprender en este curso de manejo de redes?
       </h4>
       <div>{renderNewSkills()}</div>
