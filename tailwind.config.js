@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
@@ -22,6 +23,7 @@ module.exports = {
         47: '11.75rem',
         49: '12.25rem',
         50: '12.5rem',
+        54: '13.5rem',
         58: '14.5rem',
         62: '15.5rem',
         76: '19rem',
@@ -29,6 +31,9 @@ module.exports = {
         84: '21rem',
         86: '21.5rem',
         88: '22rem',
+        90: '22.5rem',
+        92: '23rem',
+        94: '23.5rem',
         98: '27rem',
         100: '30rem',
         102: '32rem',
@@ -131,10 +136,15 @@ module.exports = {
       maxHeight: (theme) => ({
         ...theme('spacing'),
       }),
-      colors: (theme) => ({
+      colors: () => ({
         red: {
           main: '#E6215D',
         },
+        gray: {
+          main: '#C3CBD6',
+          lighter: '#F6F7F9',
+        },
+        green: { main: '#34D69B' },
         base: {
           dark: '#070E27',
           main: {
@@ -142,6 +152,7 @@ module.exports = {
             80: 'rgba(24,27,50,0.8)',
           },
           light: {
+            DEFAULT: '#1D2559',
             'dark-mode': '#2C2F48',
           },
           lighter: {
@@ -212,5 +223,20 @@ module.exports = {
       borderColor: ['disabled', 'active', 'checked'],
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      const buttons = {
+        '.btn-indigo': {
+          backgroundColor: theme('colors.indigo.500'),
+          color: theme('colors.white'),
+          fontSize: theme('fontSize.4xl'),
+          '&:hover': {
+            backgroundColor: theme('colors.indigo.600'),
+          },
+        },
+      };
+
+      addComponents(buttons);
+    }),
+  ],
 };
