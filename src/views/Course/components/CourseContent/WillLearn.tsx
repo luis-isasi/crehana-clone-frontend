@@ -13,8 +13,8 @@ const WillLearn = () => {
   };
 
   return (
-    <section>
-      <h2 className="font-extrabold text-2xl mb-5">
+    <section className="mb-10">
+      <h2 className="course-content-title">
         ¿Qué aprenderás en este curso de content marketing para redes sociales?
       </h2>
       <ul className="w-full h-auto xl:h-45 grid xl:grid-flow-col xl:grid-cols-2 xl:grid-rows-2">

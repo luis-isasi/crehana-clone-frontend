@@ -1,5 +1,5 @@
 const CourseDificult = () => {
-  return <article></article>;
+  return <section></section>;
 };
 
 export default CourseDificult;

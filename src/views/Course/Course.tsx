@@ -23,7 +23,7 @@ const Course = () => {
       <div className="w-full h-auto  px-5 md:px-10 md:max-w-3xl  lg:max-w-4xl xl:max-w-7xl mx-auto py-8 flex ">
         <article className="w-full h-auto">
           <MainCourseInformation />
-          <div className="w-full h-auto my-15">
+          <div className="w-full h-auto my-10">
             <WillLearn />
             <Descripcion />
             <Temary />

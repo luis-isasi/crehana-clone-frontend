@@ -39,6 +39,10 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
     @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center -z-1 absolute top-0;
   }
 
+  .course-content-title {
+    @apply font-extrabold text-xl md:text-2xl mb-5;
+  }
+
   .btn-transition {
     @apply transition-colors duration-150 ease-in-out;
   }

@@ -1,5 +1,5 @@
 const Temary = () => {
-  return <article></article>;
+  return <section></section>;
 };
 
 export default Temary;
