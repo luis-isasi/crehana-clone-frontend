@@ -142,6 +142,7 @@ module.exports = {
         },
         gray: {
           main: '#C3CBD6',
+          lighter: '#F6F7F9',
         },
         green: { main: '#34D69B' },
         base: {

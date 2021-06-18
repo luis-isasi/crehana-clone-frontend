@@ -8,7 +8,7 @@ const Temary = () => {
   };
 
   return (
-    <section className="pt-4 pb-10">
+    <section className="py-6">
       <h3 className="course-content-title my-3">Temario del curso</h3>
       <div className="my-2">{renderTemarySections()}</div>
     </section>

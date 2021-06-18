@@ -21,7 +21,7 @@ const Descripcion: React.FC = () => {
   };
 
   return (
-    <section className="font-light h-auto overflow-hidden">
+    <section className="font-light h-auto overflow-hidden py-6">
       <h2 className="course-content-title">Descripción</h2>
       <div
         className={`font-light  overflow-hidden `}

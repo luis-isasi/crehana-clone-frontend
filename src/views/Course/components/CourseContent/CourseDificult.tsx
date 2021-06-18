@@ -1,6 +1,6 @@
 const CourseDificult = () => {
   return (
-    <section>
+    <section className="py-6">
       <label className="text-xs text-gray-500">DIFICULTAD</label>
       <h3 className="course-content-title text-primary-main my-3">
         Curso de nivel completo

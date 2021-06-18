@@ -40,7 +40,7 @@ const TemarySection: React.FC<Props> = ({ section }) => {
     <div>
       <button
         onClick={handleClick}
-        className="rounded-xl bg-gray-100 w-full text-left font-extrabold box-border p-4 mb-3 focus:outline-none flex justify-between items-center"
+        className="rounded-xl bg-gray-lighter w-full text-left font-bold box-border p-4 mb-3 focus:outline-none flex justify-between items-center"
       >
         <span>{section.title}</span>
         <ExpandMoreIcon className="text-gray-400 transform rotate-90" />
