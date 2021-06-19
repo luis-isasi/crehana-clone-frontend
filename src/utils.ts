@@ -44,10 +44,10 @@ export async function fetcher<DataResponse>({
 
   //no necesitamos retornar todo el objeto de error ya que react-query solo necesita el mensaje de error
   //quizas en otro proyecto sin react-query, si, se deba retornar
-  if (!response.ok) {
-    const resError: MyResponseError = res.data;
-    throw new Error(resError.error);
-  }
+  // if (!response.ok) {
+  //   const resError: MyResponseError = res.data;
+  //   throw new Error(resError.error);
+  // }
 
   return res.data as DataResponse;
 }
