@@ -54,7 +54,7 @@ const FormUser: React.FC<PropsFormUser> = ({
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { setDataUserLocalStorage } = useContextAuth();
 
-  const { isLoading, isError, error, mutate } = useMutation(
+  const { isLoading, isError, error, mutate, data } = useMutation(
     typeForm,
     () => mutation({ email: state.email, password: state.password }),
     {
@@ -66,20 +66,22 @@ const FormUser: React.FC<PropsFormUser> = ({
         onError();
       },
       onSuccess: (data) => {
-        dispatch({
-          type: 'SET_STATE_FORM',
-          newState: 'COMPLETED',
-        });
+        if (!data.error) {
+          dispatch({
+            type: 'SET_STATE_FORM',
+            newState: 'COMPLETED',
+          });
 
-        onSuccess();
-        const userData = {
-          token: data.token,
-          email: data.user?.email,
-          firstname: data.user.firstname,
-          lastname: data.user.lastname,
-          username: data.user.username,
-        };
-        setDataUserLocalStorage(userData);
+          onSuccess();
+          const userData = {
+            token: data.token,
+            email: data.user?.email,
+            firstname: data.user.firstname,
+            lastname: data.user.lastname,
+            username: data.user.username,
+          };
+          setDataUserLocalStorage(userData);
+        }
       },
     }
   );
@@ -191,6 +193,8 @@ const FormUser: React.FC<PropsFormUser> = ({
     } else return true;
   };
 
+  console.log({ data });
+
   return (
     <form className="flex flex-col w-full mt-4" onSubmit={handleOnSubmit}>
       <FormField
@@ -207,9 +211,9 @@ const FormUser: React.FC<PropsFormUser> = ({
         onChange={handleChangeInput}
         errorMessage={state.errors.password}
       />
-      {isError ? (
+      {data?.error ? (
         <span className="text-red-500 text-center font-semibold text-xs my-3">
-          {error?.message}
+          {data.error}
         </span>
       ) : null}
       <Btn

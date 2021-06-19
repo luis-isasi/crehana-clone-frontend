@@ -13,6 +13,7 @@ export type AuthResponse = {
   statusCode: number;
   token: string;
   user: User;
+  error?: string;
 };
 
 const auth = {
