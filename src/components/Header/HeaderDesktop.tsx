@@ -3,7 +3,7 @@ import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
 import { useContextAuth } from '@Context/contextAuth';
-import Categories from './components/Categories';
+import Cursos from './components/Cursos';
 import Search from './components/SearchIcon';
 import LinkToBusiness from './components/buttons/LinkToBusiness';
 import LinkToLogin from './components/buttons/LinkToLogin';
@@ -35,7 +35,7 @@ const HeaderDesktop: React.FC = () => {
         />
         {isLoginOrRegister ? null : (
           <>
-            <Categories />
+            <Cursos />
             <div className="border-l border-gray-400  h-9 mx-3 lg:mx-1 xl:mx-3" />
           </>
         )}
