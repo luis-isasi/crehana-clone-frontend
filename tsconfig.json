@@ -25,6 +25,7 @@
       "@Placeholders/*": ["src/Placeholders/*"],
       "@Utils": ["src/utils.ts"],
       "@Services/*": ["src/services/*"],
+      "@Services": ["src/services/index.tsx"],
       "@Hoc/*": ["src/hoc/*"]
     }
   },
