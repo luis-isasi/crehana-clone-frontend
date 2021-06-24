@@ -3,12 +3,12 @@ import Link from '@Components/Links/Link';
 import { useRouter } from 'next/router';
 
 import { useContextAuth } from '@Context/contextAuth';
-import Cursos from './components/Cursos';
+import Courses from './components/Courses';
 import Search from './components/SearchIcon';
-import LinkToBusiness from './components/buttons/LinkToBusiness';
-import LinkToLogin from './components/buttons/LinkToLogin';
-import LinkToPremium from './components/buttons/LinkToPremium';
-import LinkToRegister from './components/buttons/LinkToRegister';
+import LinkToBusiness from './components/Links/LinkToBusiness';
+import LinkToLogin from './components/Links/LinkToLogin';
+import LinkToPremium from './components/Links/LinkToPremium';
+import LinkToRegister from './components/Links/LinkToRegister';
 import MyCourses from './components/MyCourses';
 import Avatar from './components/Avatar';
 import DesiredCourses from './components/DesiredCourses';
@@ -35,7 +35,7 @@ const HeaderDesktop: React.FC = () => {
         />
         {isLoginOrRegister ? null : (
           <>
-            <Cursos />
+            <Courses />
             <div className="border-l border-gray-400  h-9 mx-3 lg:mx-1 xl:mx-3" />
           </>
         )}

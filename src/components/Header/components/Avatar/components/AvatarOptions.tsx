@@ -39,7 +39,7 @@ const AvatarCard: React.FC<Props> = ({ isOpen, setIsOpenCard }) => {
           borderLeft: '12px solid transparent',
           borderRight: '12px solid transparent',
         }}
-        className="bg-transparent h-0 w-0 border-0 border-b-12 border-white  relative -top-3 left-46"
+        className="bg-transparent h-0 w-0 border-0 border-b-12 border-white relative -top-3 left-46"
       ></div>
       <div>
         <div className="flex flex-col items-start w-full box-border p-6">
