@@ -36,7 +36,7 @@ const HeaderDesktop: React.FC = () => {
         {isLoginOrRegister ? null : (
           <>
             <Courses />
-            <div className="border-l border-gray-400  h-9 mx-3 lg:mx-1 xl:mx-3" />
+            <div className="border-l border-gray-400  h-9" />
           </>
         )}
       </div>

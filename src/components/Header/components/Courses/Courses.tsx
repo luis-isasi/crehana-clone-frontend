@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import CategoriesModal from '@Modals/CategoriesModal';
+import Categories from './Categories';
+import ModalBaseBlur from '@Modals/components/ModalBaseBlur';
+
 const Courses: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,16 +15,19 @@ const Courses: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-5  min-w-max">
+    <div className="lg:mx-5 xl:mx-7 min-w-max relative">
       <button
         onClick={onClick}
-        name="afsa"
-        // px-8 lg:px-6 xl:px-8 ml-5 lg:ml-4 xl:ml-5
         className="py-1 text-sm font-semibold hover:opacity-80 leading-none outline-none focus:outline-none"
       >
         Cursos <ExpandMoreIcon />
       </button>
-      {isOpen && <CategoriesModal />}
+      {isOpen && (
+        <>
+          <Categories />
+          <ModalBaseBlur className="top-18" />
+        </>
+      )}
     </div>
   );
 };
