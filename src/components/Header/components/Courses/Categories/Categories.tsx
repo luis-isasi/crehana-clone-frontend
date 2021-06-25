@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useRef, useEffect, MouseEvent } from 'react';
 
 import { useQuery } from 'react-query';
 
@@ -9,13 +9,32 @@ import SubCategoriesList from './components/SubCategoriesList';
 import { getCategories } from '@Services';
 import { SubCategorie } from '@Types';
 
-const Categories = () => {
+interface Props {
+  isOpen: boolean;
+  closeCategories: () => void;
+}
+
+const Categories: React.FC<Props> = ({ isOpen, closeCategories }) => {
   const [selectedSubCategories, setSelectedSubCategories] = useState<
     SubCategorie[]
   >();
   const { data, isLoading } = useQuery('categories', () => getCategories());
 
-  console.log({ selectedSubCategories });
+  const refDiv = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+      if (!refDiv.current.contains(e.target)) {
+        closeCategories();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutSide);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutSide);
+    };
+  }, [isOpen]);
 
   const hoverSetSubCategories = (subCategories: SubCategorie[]) => {
     setSelectedSubCategories(subCategories);
@@ -26,7 +45,10 @@ const Categories = () => {
   }
 
   return (
-    <section className="bg-base-light-dark-mode w-auto min-h-98 z-50 rounded-md absolute top-17 flex shadow-xl">
+    <div
+      ref={refDiv}
+      className="bg-base-light-dark-mode w-auto min-h-98 z-50 rounded-md absolute top-17 flex shadow-xl"
+    >
       <div
         style={{
           borderLeft: '12px solid transparent',
@@ -45,7 +67,7 @@ const Categories = () => {
           <SpecializationList />
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

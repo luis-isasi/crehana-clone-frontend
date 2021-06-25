@@ -8,6 +8,10 @@ import ModalBaseBlur from '@Modals/components/ModalBaseBlur';
 const Courses: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeCategories = () => {
+    setIsOpen(false);
+  };
+
   const onClick = (e: React.MouseEvent) => {
     setIsOpen(!isOpen);
   };
@@ -22,7 +26,7 @@ const Courses: React.FC = () => {
       </button>
       {isOpen && (
         <>
-          <Categories />
+          <Categories isOpen={isOpen} closeCategories={closeCategories} />
           <ModalBaseBlur className="top-18" />
         </>
       )}
