@@ -8,8 +8,6 @@ import ModalBaseBlur from '@Modals/components/ModalBaseBlur';
 const Courses: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log({ isOpen });
-
   const onClick = (e: React.MouseEvent) => {
     setIsOpen(!isOpen);
   };

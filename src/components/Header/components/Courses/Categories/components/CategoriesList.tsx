@@ -1,17 +1,22 @@
-import { Categorie } from '@Types';
+import { Categorie, SubCategorie } from '@Types';
 import Link from '@Components/Links/Link';
 
 interface Props {
   categories: Categorie[];
-  hoverSetSubCategories?: () => void;
+  setSubCategories?: (subCategories: SubCategorie[]) => void;
 }
 
-const CategoriesList: React.FC<Props> = ({ categories }) => {
+const CategoriesList: React.FC<Props> = ({ categories, setSubCategories }) => {
   const renderCategories = () => {
-    return categories.map(({ name, url }) => {
+    return categories.map(({ name, url, subCategories }) => {
       return (
         <Link href={url}>
-          <div className="bg-base-lighter-dark-mode min-w-58 rounded-md py-2 px-1 border-l-4 border-transparent hover:border-secondary-light mb-2 group transition-all ease-in-out duration-500 flex">
+          <div
+            onMouseEnter={() => {
+              setSubCategories(subCategories);
+            }}
+            className="bg-base-lighter-dark-mode min-w-58 rounded-md py-2 px-1 border-l-4 border-transparent hover:border-secondary-light mb-2 group transition-all ease-in-out duration-500 flex"
+          >
             <div className="w-10 h-10 bg-base-main-80 mr-4"></div>
             <div className="flex flex-col ">
               <span className="text-sm font-medium group-hover:text-secondary-light transition-all ease-in-out duration-500">

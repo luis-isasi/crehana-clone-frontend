@@ -7,17 +7,18 @@ import SoftwareList from './components/SoftwareList';
 import SpecializationList from './components/SpecializationList';
 import SubCategoriesList from './components/SubCategoriesList';
 import { getCategories } from '@Services';
+import { SubCategorie } from '@Types';
 
 const Categories = () => {
-  const [selectedSubCategorie, setSelectedSubCategorie] = useState();
+  const [selectedSubCategories, setSelectedSubCategories] = useState<
+    SubCategorie[]
+  >();
   const { data, isLoading } = useQuery('categories', () => getCategories());
 
-  console.log({ data });
+  console.log({ selectedSubCategories });
 
-  const hoveSetSubCategories = () => {
-    console.log('HOVER EN CATEGORIA');
-
-    // setSelectedSubCategories()
+  const hoverSetSubCategories = (subCategories: SubCategorie[]) => {
+    setSelectedSubCategories(subCategories);
   };
 
   if (isLoading) {
@@ -35,7 +36,7 @@ const Categories = () => {
       />
       <CategoriesList
         categories={data}
-        hoverSetSubCategories={hoveSetSubCategories}
+        setSubCategories={hoverSetSubCategories}
       />
       <div className="flex">
         <SubCategoriesList />
