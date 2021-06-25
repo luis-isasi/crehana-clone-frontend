@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Categorie, SubCategorie } from '@Types';
 import Link from '@Components/Links/Link';
 
@@ -7,9 +9,13 @@ interface Props {
 }
 
 const CategoriesList: React.FC<Props> = ({ categories, setSubCategories }) => {
+  useEffect(() => {
+    setSubCategories(categories[0].subCategories);
+  }, []);
+
   const renderCategories = () => {
-    return categories.map(({ name, url, subCategories }) => {
-      return (
+    return categories.map(({ id, name, url, subCategories }) => (
+      <li key={`${id}-${name}`}>
         <Link href={url}>
           <div
             onMouseEnter={() => {
@@ -28,16 +34,16 @@ const CategoriesList: React.FC<Props> = ({ categories, setSubCategories }) => {
             </div>
           </div>
         </Link>
-      );
-    });
+      </li>
+    ));
   };
 
   return (
-    <div className="p-5 max-h-98 overflow-hidden ">
+    <div className="p-5 max-h-98 min-w-76 overflow-hidden ">
       <h4 className="text-2xl text-white font-extrabold mb-6">Categorías</h4>
-      <div className="h-auto max-h-84 overflow-y-auto scrool-none scroolbar pr-4">
+      <ul className="h-auto max-h-84 overflow-y-auto scrool-none scroolbar pr-4">
         {renderCategories()}
-      </div>
+      </ul>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Categories = () => {
   }
 
   return (
-    <section className="bg-base-light-dark-mode w-auto h-auto z-50 rounded-md absolute top-17 flex justify-center items-center shadow-xl">
+    <section className="bg-base-light-dark-mode w-auto min-h-98 z-50 rounded-md absolute top-17 flex shadow-xl">
       <div
         style={{
           borderLeft: '12px solid transparent',
@@ -38,11 +38,13 @@ const Categories = () => {
         categories={data}
         setSubCategories={hoverSetSubCategories}
       />
-      <div className="flex">
-        <SubCategoriesList />
-        <SoftwareList />
-        <SpecializationList />
-      </div>
+      {selectedSubCategories && (
+        <div className="flex w-auto min-h-98 h-full box-border py-5 px-6">
+          <SubCategoriesList subCategories={selectedSubCategories} />
+          <SoftwareList />
+          <SpecializationList />
+        </div>
+      )}
     </section>
   );
 };

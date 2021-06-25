@@ -35,6 +35,10 @@ los styles de tailwind base predominarán por encima de las clases de tailwind
     border: 1px solid white;
   }
 
+  .transition-hover-text {
+    @apply transition-all duration-100 ease-in-out;
+  }
+
   .container-login-register {
     @apply bg-primary-primary w-full h-full box-border px-4 flex flex-col justify-center items-center -z-1 absolute top-0;
   }
