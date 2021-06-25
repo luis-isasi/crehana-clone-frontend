@@ -20,8 +20,12 @@ const Categories = () => {
     // setSelectedSubCategories()
   };
 
+  if (isLoading) {
+    return <p className="text-white">Cargando ...</p>;
+  }
+
   return (
-    <section className="bg-base-light-dark-mode w-86 h-56 z-50 rounded-md absolute p-3 top-17 flex justify-center items-center">
+    <section className="bg-base-light-dark-mode w-auto h-auto z-50 rounded-md absolute top-17 flex justify-center items-center shadow-xl">
       <div
         style={{
           borderLeft: '12px solid transparent',
