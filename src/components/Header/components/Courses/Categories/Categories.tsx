@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect, MouseEvent } from 'react';
+import React, { useState, useRef, useEffect, MutableRefObject } from 'react';
 
 import { useQuery } from 'react-query';
 
+import Link from '@Components/Links/Link';
 import CategoriesList from './components/CategoriesList';
 import SoftwareList from './components/SoftwareList';
 import SpecializationList from './components/SpecializationList';
@@ -10,11 +11,12 @@ import { getCategories } from '@Services';
 import { SubCategorie } from '@Types';
 
 interface Props {
+  refBtn: MutableRefObject<HTMLButtonElement>;
   isOpen: boolean;
   closeCategories: () => void;
 }
 
-const Categories: React.FC<Props> = ({ isOpen, closeCategories }) => {
+const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
   const [selectedSubCategories, setSelectedSubCategories] = useState<
     SubCategorie[]
   >();
@@ -29,7 +31,9 @@ const Categories: React.FC<Props> = ({ isOpen, closeCategories }) => {
       }
     };
 
-    document.addEventListener('click', handleClickOutSide);
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutSide);
+    }
 
     return () => {
       document.removeEventListener('click', handleClickOutSide);
@@ -61,10 +65,21 @@ const Categories: React.FC<Props> = ({ isOpen, closeCategories }) => {
         setSubCategories={hoverSetSubCategories}
       />
       {selectedSubCategories && (
-        <div className="flex w-auto min-h-98 h-full box-border py-5 px-6">
-          <SubCategoriesList subCategories={selectedSubCategories} />
-          <SoftwareList />
-          <SpecializationList />
+        <div className="min-w-102 w-auto min-h-98 h-full box-border py-5 px-6 flex flex-col justify-between">
+          <div>
+            <SubCategoriesList subCategories={selectedSubCategories} />
+            <SoftwareList />
+            <SpecializationList />
+          </div>
+          <div className="w-full flex justify-center">
+            <p className="font-medium text-center">
+              Obtén acceso ilimitado a todas estas categorías con Premium
+              <Link href={'/premium'} className="text-secondary-main">
+                {' '}
+                aqui
+              </Link>
+            </p>
+          </div>
         </div>
       )}
     </div>
