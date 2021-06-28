@@ -28,7 +28,7 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
 
   return (
     <header
-      className={`w-full h-auto bg-white dark:bg-base-dark sticky top-0 z-10`}
+      className={`w-full h-auto bg-white dark:bg-base-dark sticky top-0 z-4`}
     >
       <div
         className={`${CONTAINER_HOME} h-auto flex items-center px-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-auto scrool-none`}

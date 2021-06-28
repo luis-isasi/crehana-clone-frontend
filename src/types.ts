@@ -24,6 +24,7 @@ export interface UserSettings {
   theme: Theme;
 }
 
+//User
 export interface User {
   email: string;
   firstname: string;
@@ -48,4 +49,24 @@ export interface Banner {
 export interface MyResponseError {
   error: string;
   statusCode: number;
+}
+
+export interface SubCategorie {
+  categoryId: number;
+  id: number;
+  isActive: boolean;
+  name: string;
+  order: number;
+  slug: string;
+  url: string;
+}
+
+export interface Categorie {
+  id: number;
+  isActive: boolean;
+  name: string;
+  order: number;
+  slug: string;
+  subCategories: SubCategorie[];
+  url: string;
 }
