@@ -1,9 +1,13 @@
 import { useState, useRef } from 'react';
+import dynamic from 'next/dynamic';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CategoriesLoading from './Categories/components/CategoriesLoading';
 
-import Categories from './Categories';
 import ModalBaseBlur from '@Modals/components/ModalBaseBlur';
+const Categories = dynamic(() => import('./Categories'), {
+  loading: () => <CategoriesLoading />,
+});
 
 const Courses: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
