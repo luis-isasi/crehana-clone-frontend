@@ -23,7 +23,7 @@ const App: React.FC = () => {
           loader={({ src }) => `${src}`}
           src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f"
         />
-        <section className="z-1 text-white text-center lg:text-left max-w-2xl lg:max-w-md xl:max-w-xl h-auto mt-18 md:mt-32 md:ml-10 lg:ml-13 xl:ml-26 box-border p-5">
+        <section className="z-2 text-white text-center lg:text-left max-w-2xl lg:max-w-md xl:max-w-xl h-auto mt-18 md:mt-32 md:ml-10 lg:ml-13 xl:ml-26 box-border p-5">
           <h6 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold my-4">
             ¡Última semana de Hot Days! Aprende y aplícalo hoy
           </h6>

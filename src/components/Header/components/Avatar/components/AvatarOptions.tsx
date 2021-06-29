@@ -15,7 +15,7 @@ const AvatarCard: React.FC<Props> = ({ isOpen, setIsOpenCard }) => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!cardRef.current.contains(e.target)) {
+      if (cardRef.current && !cardRef.current?.contains(e.target)) {
         setIsOpenCard(false);
       }
     };

@@ -193,8 +193,6 @@ const FormUser: React.FC<PropsFormUser> = ({
     } else return true;
   };
 
-  console.log({ data });
-
   return (
     <form className="flex flex-col w-full mt-4" onSubmit={handleOnSubmit}>
       <FormField

@@ -49,5 +49,9 @@ export async function fetcher<DataResponse>({
   //   throw new Error(resError.error);
   // }
 
-  return res.data as DataResponse;
+  type MyResponse = DataResponse & {
+    error?: string;
+  };
+
+  return res.data as MyResponse;
 }

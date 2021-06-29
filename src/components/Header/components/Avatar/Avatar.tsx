@@ -6,7 +6,7 @@ const Avatar: React.FC = () => {
   const [isOpenCard, setIsOpenCard] = useState<boolean>(false);
 
   const handleClick = () => {
-    setIsOpenCard(!isOpenCard);
+    if (!isOpenCard) setIsOpenCard(true);
   };
 
   return (
