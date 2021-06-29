@@ -7,6 +7,7 @@ import CategoriesList from './components/CategoriesList';
 import SoftwareList from './components/SoftwareList';
 import SpecializationList from './components/SpecializationList';
 import SubCategoriesList from './components/SubCategoriesList';
+import Error from './components/Error';
 import PHHeaderCategories from '@Placeholders/PHHeaderCategories';
 import { getCategories } from '@Services';
 import { SubCategorie } from '@Types';
@@ -21,7 +22,9 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
   const [selectedSubCategories, setSelectedSubCategories] = useState<
     SubCategorie[]
   >();
-  const { data, isLoading } = useQuery('categories', () => getCategories());
+  const { data, isLoading, isError } = useQuery('categories', () =>
+    getCategories()
+  );
 
   const refDiv = useRef<HTMLDivElement>();
 
@@ -48,7 +51,7 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
   return (
     <div
       ref={refDiv}
-      className="bg-base-light-dark-mode z-20 h-auto w-auto rounded-md absolute top-17 shadow-xl"
+      className="bg-base-light-dark-mode z-50 h-auto w-auto rounded-md absolute top-17 shadow-xl"
     >
       <div className="min-w-3xl w-3x1 min-h-98 h-98 flex">
         <div
@@ -58,9 +61,10 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
           }}
           className="border-0 border-b-14 border-base-light-dark-mode absolute -top-3 left-6"
         />
-        {isLoading ? (
-          <PHHeaderCategories />
-        ) : (
+
+        {isLoading && <PHHeaderCategories />}
+        {data?.error && <Error />}
+        {data && !isLoading && !isError && (
           <>
             <CategoriesList
               categories={data}

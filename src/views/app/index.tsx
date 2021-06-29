@@ -22,7 +22,7 @@ const Index = () => {
           background-color: transparent !important;
           position: absolute !important;
           top: 0px;
-          z-index: 1;
+          z-index: 10;
         }
 
         header > :global(*) {
