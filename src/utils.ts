@@ -23,7 +23,7 @@ export async function fetcher<DataResponse>({
   }
 
   let headers: { [key: string]: string } = {
-    'content-type': 'application/json',
+    'Content-Type': 'application/json',
   };
 
   //only there's a token in local storage
