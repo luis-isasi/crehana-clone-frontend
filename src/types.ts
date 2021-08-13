@@ -70,3 +70,40 @@ export interface Categorie {
   subCategories: SubCategorie[];
   url: string;
 }
+
+export interface Course {
+  categories: Categorie[];
+  coverImage: string;
+  description: string;
+  duration: number;
+  isActive: true;
+  id: number;
+  price: number;
+  prices: {
+    currency: string;
+    currencySymbol: string;
+    discount: number;
+    price: number;
+    realPrice: number;
+  };
+  sections: [
+    {
+      content: string;
+      courseId: number;
+      id: number;
+      items: [
+        {
+          content: string;
+          id: number;
+          title: string;
+        }
+      ];
+      title: string;
+      type: string;
+    }
+  ];
+  shortDescription: string;
+  subtitle: string;
+  title: string;
+  trailer: string;
+}

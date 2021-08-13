@@ -1,12 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getCategories } from '@Services';
 import { categoriesToParams } from '@Utils';
-
-const Mouse = (props) => {
-  console.log({ props });
-
-  return <div> CURSOS CON LA CATEGORIA: {`${props.params.categorie}`}</div>;
-};
+export { default } from '@Views/CoursesByCategorie';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getCategories();
@@ -23,5 +18,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: { params },
   };
 };
-
-export default Mouse;
