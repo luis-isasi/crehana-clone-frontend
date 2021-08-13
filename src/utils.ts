@@ -12,10 +12,10 @@ export async function fetcher<DataResponse>({
   body?: any;
 }) {
   //TODO: agregar un type para user session
-  const tokenFromLS = window.localStorage.getItem(USER_SESSION);
-
   let token: string | undefined = '';
+
   try {
+    const tokenFromLS = window.localStorage.getItem(USER_SESSION);
     token = JSON.parse(tokenFromLS)?.token;
   } catch (err) {
     console.error(err);
