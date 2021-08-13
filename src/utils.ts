@@ -1,5 +1,5 @@
 import { USER_SESSION } from '@Constans';
-import { MyResponseError } from '@Types';
+import { Categorie } from '@Types';
 
 //FETCHER
 export async function fetcher<DataResponse>({
@@ -55,3 +55,16 @@ export async function fetcher<DataResponse>({
 
   return res.data as MyResponse;
 }
+
+export const categoriesToParams = (categories: Categorie[]) => {
+  let paths = [];
+
+  categories.forEach(({ slug, subCategories }) => {
+    paths.push({ params: { categorie: slug } });
+    subCategories.forEach(({ slug }) => {
+      paths.push({ params: { categorie: slug } });
+    });
+  });
+
+  return paths;
+};

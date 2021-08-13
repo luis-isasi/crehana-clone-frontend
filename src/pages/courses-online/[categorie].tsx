@@ -1,34 +1,26 @@
-import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { getCategories } from '@Services';
+import { categoriesToParams } from '@Utils';
 
 const Mouse = (props) => {
   console.log({ props });
 
-  return <div>DESDE MOUSE</div>;
+  return <div> CURSOS CON LA CATEGORIA: {`${props.params.categorie}`}</div>;
 };
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const categories = await getCategories();
-//   console.log({ categories });
-
-//   return {
-//     paths: [{ params: {} }],
-//     fallback: true,
-//   };
-// };
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   return {
-//     props: {},
-//   };
-// };
-
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getCategories();
-  console.log({ categories });
+  const paths = categoriesToParams(categories);
 
   return {
-    props: { categories },
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  return {
+    props: { params },
   };
 };
 
