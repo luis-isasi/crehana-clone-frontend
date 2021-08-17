@@ -1,14 +1,14 @@
 import Head from 'next/head';
 
-import Courses from './CoursesOnline';
+import CoursesOnline from './CoursesOnline';
 
-const index = () => {
+const index = (props) => {
   return (
     <>
       <Head>
         <title>Cursos recomendados por la comunida crehana | Crehana</title>
       </Head>
-      <Courses />
+      <CoursesOnline {...props} />
     </>
   );
 };

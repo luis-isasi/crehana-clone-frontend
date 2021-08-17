@@ -11,23 +11,22 @@ export async function fetcher<DataResponse>({
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   body?: any;
 }) {
-  //TODO: agregar un type para user session
-  let token: string | undefined = '';
-
-  try {
-    const tokenFromLS = window.localStorage.getItem(USER_SESSION);
-    token = JSON.parse(tokenFromLS)?.token;
-  } catch (err) {
-    console.error(err);
-    token = '';
-  }
-
   let headers: { [key: string]: string } = {
     'Content-Type': 'application/json',
   };
 
-  //only there's a token in local storage
-  if (token) {
+  if (typeof window !== 'undefined') {
+    //TODO: agregar un type para user session
+    let token: string | undefined = '';
+
+    try {
+      //only there's a token in local storage
+      const tokenFromLS = window.localStorage.getItem(USER_SESSION);
+      token = JSON.parse(tokenFromLS)?.token;
+    } catch (err) {
+      console.error(err);
+      token = '';
+    }
     headers = { ...headers, Authorization: `Bearer ${token}` };
   }
 
@@ -55,16 +54,3 @@ export async function fetcher<DataResponse>({
 
   return res.data as MyResponse;
 }
-
-export const categoriesToParams = (categories: Categorie[]) => {
-  let paths = [];
-
-  categories.forEach(({ slug, subCategories }) => {
-    paths.push({ params: { categorie: slug } });
-    subCategories.forEach(({ slug }) => {
-      paths.push({ params: { categorie: slug } });
-    });
-  });
-
-  return paths;
-};

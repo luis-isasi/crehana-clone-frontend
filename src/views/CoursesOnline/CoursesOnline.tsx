@@ -15,7 +15,13 @@ const OptionsFilterDesktop = dynamic(
   () => import('./components/OptionsFIlterDesktop')
 );
 
-const CoursesOnline = () => {
+interface Props {
+  categorie?: string;
+}
+
+const CoursesOnline: React.FC<Props> = ({ categorie }) => {
+  console.log(categorie);
+
   const isMovilUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
@@ -29,7 +35,7 @@ const CoursesOnline = () => {
   //Query for filters
   const { data, isLoading, isError } = useQuery('course', () => getCourses());
 
-  console.log({ data });
+  // console.log({ data });
 
   return (
     <div className="h-auto w-full">
