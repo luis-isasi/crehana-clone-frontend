@@ -1,5 +1,5 @@
 import { fetcher } from '@Utils';
-import { Banner, Course, Categorie } from '@Types';
+import { Banner, Course, Category } from '@Types';
 
 export const getBannersByDefault = () => {
   return fetcher<Banner[]>({ endpoint: '/banners/' });
@@ -14,8 +14,8 @@ export const getCoursesByCategorie = (categoryId: number) => {
 };
 
 export const getCategories = () =>
-  fetcher<Categorie[]>({ endpoint: '/categories/' });
+  fetcher<Category[]>({ endpoint: '/categories/' });
 
 export const getCategoryByID = async (categoryId: string) => {
-  return fetcher<Categorie>({ endpoint: `/categories/${categoryId}` });
+  return fetcher<Category>({ endpoint: `/categories/${categoryId}` });
 };

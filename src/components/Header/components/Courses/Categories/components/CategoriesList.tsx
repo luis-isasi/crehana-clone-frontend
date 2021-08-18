@@ -5,7 +5,7 @@ import Link from '@Components/Links/Link';
 
 interface Props {
   categories: Category[];
-  setSelectedCategory?: (Categorie: Category) => void;
+  setSelectedCategory?: (Category: Category) => void;
 }
 
 const CategoriesList: React.FC<Props> = ({
