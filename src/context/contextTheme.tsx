@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 import { DARK, LIGHT, USER_SETTINGS } from '@Constans';
 import { UserSettings, Theme } from '@Types';
@@ -14,7 +13,6 @@ const ContextTheme = createContext<ContextThemeState | undefined>(undefined);
 
 //Provider of context theme
 export const ContextThemeProvider = ({ children }) => {
-  const router = useRouter();
   const [theme, setTheme] = useState<Theme>(LIGHT);
 
   const conditionalTheme = theme === DARK ? LIGHT : DARK;
@@ -37,12 +35,10 @@ export const ContextThemeProvider = ({ children }) => {
 
     localStorage.setItem(USER_SETTINGS, JSON.stringify(user_settings));
 
-    if (router.pathname === '/home') {
-      //remove the previous theme
-      root.classList.remove(conditionalTheme);
-      //add the new theme
-      root.classList.add(theme);
-    }
+    //remove the previous theme
+    root.classList.remove(conditionalTheme);
+    //add the new theme
+    root.classList.add(theme);
   }, [theme]);
 
   const changeTheme = () => {

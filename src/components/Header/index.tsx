@@ -15,8 +15,8 @@ const Index: React.FC = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <>
-      <header
+    <header className="dark:bg-base-dark">
+      <div
         className={`w-full dark:bg-base-lighter-16 text-gray-900 dark:text-white font-semibold ${
           isLoginOrRegister
             ? 'h-25'
@@ -27,8 +27,8 @@ const Index: React.FC = () => {
       >
         {isDesktop === true && <HeaderDesktop />}
         {isDesktop === false && <HeaderMovil />}
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

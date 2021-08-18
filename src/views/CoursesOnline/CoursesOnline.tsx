@@ -20,8 +20,6 @@ interface Props {
 }
 
 const CoursesOnline = (props) => {
-  console.log({ props });
-
   const isMovilUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
