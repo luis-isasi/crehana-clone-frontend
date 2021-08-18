@@ -27,14 +27,10 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
 
   useEffect(() => {
     const handleClickOutSide = (e) => {
-      if (!refDiv.current.contains(e.target)) {
-        closeCategories();
-      }
+      if (!refDiv.current.contains(e.target)) closeCategories();
     };
 
-    if (isOpen) {
-      document.addEventListener('click', handleClickOutSide);
-    }
+    if (isOpen) document.addEventListener('click', handleClickOutSide);
 
     return () => {
       document.removeEventListener('click', handleClickOutSide);
@@ -48,7 +44,7 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
   return (
     <div
       ref={refDiv}
-      className="bg-base-light-dark-mode z-50 h-auto w-auto rounded-md absolute top-17 shadow-xl"
+      className="bg-white dark:bg-base-light-dark-mode z-15 h-auto w-auto rounded-md absolute top-17 shadow-xl"
     >
       <div className="min-w-3xl w-3x1 min-h-98 h-98 flex">
         <div
@@ -56,7 +52,7 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
             borderLeft: '12px solid transparent',
             borderRight: '12px solid transparent',
           }}
-          className="border-0 border-b-14 border-base-light-dark-mode absolute -top-3 left-6"
+          className="border-0 border-b-14  border-white dark:border-base-light-dark-mode absolute -top-3 left-6"
         />
 
         {isLoading && <PHHeaderCategories />}
@@ -78,7 +74,10 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
                 <div className="w-full flex justify-center">
                   <p className="font-medium text-center">
                     Obtén acceso ilimitado a todas estas categorías con Premium
-                    <Link href={'/premium'} className="text-secondary-main">
+                    <Link
+                      href={'/premium'}
+                      className="text-primary-main dark:text-secondary-main"
+                    >
                       {' '}
                       aqui
                     </Link>

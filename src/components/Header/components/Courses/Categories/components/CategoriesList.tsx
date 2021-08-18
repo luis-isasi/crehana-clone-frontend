@@ -24,14 +24,14 @@ const CategoriesList: React.FC<Props> = ({
             onMouseEnter={() => {
               setSelectedCategory(category);
             }}
-            className="bg-base-lighter-dark-mode min-w-58 rounded-md py-2 px-1 border-l-4 border-transparent hover:border-secondary-light mb-2 group transition-all ease-in-out duration-500 flex"
+            className="bg-gray-200 dark:bg-base-lighter-dark-mode min-w-58 rounded-md py-2 px-1 border-l-4 border-transparent hover:border-primary-light dark:hover:border-secondary-light mb-2 group transition-all ease-in-out duration-500 flex"
           >
-            <div className="w-10 h-10 bg-base-main-80 mr-4"></div>
+            <div className="w-10 h-10 bg-gray-400 dark:bg-base-main-80 mr-4"></div>
             <div className="flex flex-col ">
-              <span className="text-sm font-medium group-hover:text-secondary-light transition-all ease-in-out duration-500">
+              <span className="text-sm font-medium group-hover:text-primary-main dark:group-hover:text-secondary-light transition-all ease-in-out duration-500">
                 {category.name}
               </span>
-              <span className="text-xs font-light text-secondary-lighter group-hover:text-secondary-light transition-all ease-in-out duration-500">
+              <span className="text-xs font-light text-gray-600 group-hover:text-primary-main dark:text-secondary-lighter dark:group-hover:text-secondary-light transition-all ease-in-out duration-500">
                 85 cursos
               </span>
             </div>
@@ -43,7 +43,9 @@ const CategoriesList: React.FC<Props> = ({
 
   return (
     <div className="p-5 max-h-98 min-w-76 overflow-hidden ">
-      <h4 className="text-2xl text-white font-extrabold mb-6">Categorías</h4>
+      <h4 className="text-2xl text-gray-700 dark:text-white font-extrabold mb-6">
+        Categorías
+      </h4>
       <ul className="h-auto max-h-84 overflow-y-auto scrool-none scroolbar pr-4">
         {renderCategories()}
       </ul>
