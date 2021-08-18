@@ -16,11 +16,11 @@ const OptionsFilterDesktop = dynamic(
 );
 
 interface Props {
-  categorie?: string;
+  category?: string;
 }
 
-const CoursesOnline: React.FC<Props> = ({ categorie }) => {
-  console.log(categorie);
+const CoursesOnline = (props) => {
+  console.log({ props });
 
   const isMovilUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,

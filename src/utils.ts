@@ -1,5 +1,4 @@
 import { USER_SESSION } from '@Constans';
-import { Categorie } from '@Types';
 
 //FETCHER
 export async function fetcher<DataResponse>({

@@ -1,16 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { getCategories } from '@Services';
+import { getCategories } from '@Services/coursesOnline';
 export { default } from '@Views/CoursesOnline';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getCategories();
 
-  let paths = [];
-  categories.forEach(({ slug, subCategories }) => {
-    paths.push({ params: { categorie: slug } });
-    subCategories.forEach(({ slug }) => {
-      paths.push({ params: { categorie: slug } });
-    });
+  const paths = categories.map(({ slug: categorySlug }) => {
+    return { params: { categorySlug } };
   });
 
   return {
@@ -21,6 +17,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
-    props: { categorie: params?.categorie },
+    props: { categorySlug: params?.categorySlug as string },
   };
 };
