@@ -4,13 +4,11 @@ import { useQuery } from 'react-query';
 
 import Link from '@Components/Links/Link';
 import CategoriesList from './components/CategoriesList';
-import SoftwareList from './components/SoftwareList';
-import SpecializationList from './components/SpecializationList';
 import SubCategoriesList from './components/SubCategoriesList';
 import Error from './components/Error';
 import PHHeaderCategories from '@Placeholders/PHHeaderCategories';
-import { getCategories } from '@Services';
-import { SubCategorie } from '@Types';
+import { getCategories } from '@Services/coursesOnline';
+import { Category } from '@Types';
 
 interface Props {
   refBtn: MutableRefObject<HTMLButtonElement>;
@@ -19,9 +17,8 @@ interface Props {
 }
 
 const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
-  const [selectedSubCategories, setSelectedSubCategories] = useState<
-    SubCategorie[]
-  >();
+  const [selectedCategory, setSelectedCategory] = useState<Category>();
+
   const { data, isLoading, isError } = useQuery('categories', () =>
     getCategories()
   );
@@ -44,8 +41,8 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
     };
   }, [isOpen]);
 
-  const hoverSetSubCategories = (subCategories: SubCategorie[]) => {
-    setSelectedSubCategories(subCategories);
+  const hoverSetSubCategories = (category: Category) => {
+    setSelectedCategory(category);
   };
 
   return (
@@ -68,14 +65,15 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
           <>
             <CategoriesList
               categories={data}
-              setSubCategories={hoverSetSubCategories}
+              setSelectedCategory={hoverSetSubCategories}
             />
-            {selectedSubCategories && (
+            {selectedCategory && (
               <div className="min-w-102 w-auto min-h-98 h-full box-border py-5 px-6 flex flex-col justify-between">
                 <div>
-                  <SubCategoriesList subCategories={selectedSubCategories} />
-                  <SoftwareList />
-                  <SpecializationList />
+                  <SubCategoriesList
+                    selectedCategorySlug={selectedCategory.slug}
+                    subCategories={selectedCategory.subCategories}
+                  />
                 </div>
                 <div className="w-full flex justify-center">
                   <p className="font-medium text-center">

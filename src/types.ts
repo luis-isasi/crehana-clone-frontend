@@ -51,7 +51,7 @@ export interface MyResponseError {
   statusCode: number;
 }
 
-export interface SubCategorie {
+export interface SubCategory {
   categoryId: number;
   id: number;
   isActive: boolean;
@@ -61,18 +61,18 @@ export interface SubCategorie {
   url: string;
 }
 
-export interface Categorie {
+export interface Category {
   id: number;
   isActive: boolean;
   name: string;
   order: number;
   slug: string;
-  subCategories: SubCategorie[];
+  subCategories: SubCategory[];
   url: string;
 }
 
 export interface Course {
-  categories: Categorie[];
+  categories: Category[];
   coverImage: string;
   description: string;
   duration: number;

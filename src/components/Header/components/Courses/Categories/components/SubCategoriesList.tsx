@@ -1,16 +1,20 @@
 import Link from '@Components/Links/Link';
-import { SubCategorie } from '@Types';
+import { SubCategory } from '@Types';
 
 interface Props {
-  subCategories: SubCategorie[];
+  selectedCategorySlug: string;
+  subCategories: SubCategory[];
 }
 
-const SubCategoriesList: React.FC<Props> = ({ subCategories }) => {
+const SubCategoriesList: React.FC<Props> = ({
+  selectedCategorySlug,
+  subCategories,
+}) => {
   const renderSubCategories = () => {
-    return subCategories.map(({ id, name, url }) => (
+    return subCategories.map(({ id, name, slug }) => (
       <li key={`${id}-${name}`} className="mb-2">
         <Link
-          href={`${url}`}
+          href={`/courses-online/${selectedCategorySlug}/${slug}`}
           className="text-gray-light text-sm font-normal hover:text-secondary-light transition-hover-text"
         >
           {name}

@@ -1,32 +1,35 @@
 import { useEffect } from 'react';
 
-import { Categorie, SubCategorie } from '@Types';
+import { Category } from '@Types';
 import Link from '@Components/Links/Link';
 
 interface Props {
-  categories: Categorie[];
-  setSubCategories?: (subCategories: SubCategorie[]) => void;
+  categories: Category[];
+  setSelectedCategory?: (Categorie: Category) => void;
 }
 
-const CategoriesList: React.FC<Props> = ({ categories, setSubCategories }) => {
+const CategoriesList: React.FC<Props> = ({
+  categories,
+  setSelectedCategory,
+}) => {
   useEffect(() => {
-    setSubCategories(categories[0].subCategories);
+    setSelectedCategory(categories[0]);
   }, []);
 
   const renderCategories = () => {
-    return categories.map(({ id, name, url, subCategories }) => (
-      <li key={`${id}-${name}`}>
-        <Link href={url}>
+    return categories.map((category) => (
+      <li key={`${category.id}-${category.name}`}>
+        <Link href={`/courses-online/${category.slug}`}>
           <div
             onMouseEnter={() => {
-              setSubCategories(subCategories);
+              setSelectedCategory(category);
             }}
             className="bg-base-lighter-dark-mode min-w-58 rounded-md py-2 px-1 border-l-4 border-transparent hover:border-secondary-light mb-2 group transition-all ease-in-out duration-500 flex"
           >
             <div className="w-10 h-10 bg-base-main-80 mr-4"></div>
             <div className="flex flex-col ">
               <span className="text-sm font-medium group-hover:text-secondary-light transition-all ease-in-out duration-500">
-                {name}
+                {category.name}
               </span>
               <span className="text-xs font-light text-secondary-lighter group-hover:text-secondary-light transition-all ease-in-out duration-500">
                 85 cursos
