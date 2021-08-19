@@ -1,13 +1,23 @@
 import { memo } from 'react';
+import { useQuery } from 'react-query';
 
-import FilterOption from './components/FilterOption';
+import CategoryOption from './components/CategoryOption';
+import { getCategories } from '@Services/coursesOnline';
+import { Category } from '@Types';
 
 const OptionsFilterDesktop = () => {
-  const renderCategories = () => {
-    return Categorias.map(({ category, subCategories }, index) => (
-      <FilterOption
+  const { data: categories, isLoading } = useQuery('categories', () =>
+    getCategories()
+  );
+
+  console.log({ categories });
+
+  const renderCategories = (categories: Category[]) => {
+    return categories.map(({ name, slug, subCategories }, index) => (
+      <CategoryOption
         key={`${subCategories}-${index}`}
-        category={category}
+        categorySlug={slug}
+        categoryName={name}
         subCategories={subCategories}
       />
     ));
@@ -20,80 +30,13 @@ const OptionsFilterDesktop = () => {
       </button>
       <div className="w-full h-auto">
         <p className="text-xs font-bold text-gray-600 my-3">Categorías</p>
-        <div className="bg-gray-100 w-full h-auto">{renderCategories()}</div>
+        <div className="bg-gray-100 w-full h-auto">
+          {isLoading && <p>CARGANDO...</p>}
+          {categories && !isLoading && renderCategories(categories)}
+        </div>
       </div>
     </div>
   );
 };
 
 export default memo(OptionsFilterDesktop);
-
-const Categorias = [
-  {
-    category: 'Marketing Digital',
-    subCategories: [
-      'Email Marketing',
-      'Fundamentos de Marketing',
-      'SEO y SEM',
-      'Redes sociales',
-      'Analytics',
-      'Creatividad publicitaria',
-      'Email Marketing',
-      'Fundamentos de Marketing',
-      'SEO y SEM',
-      'Redes sociales',
-      'Analytics',
-      'Creatividad publicitaria',
-    ],
-  },
-  {
-    category: 'Ilustración Digital',
-    subCategories: [
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-      'Ilustración Digital',
-    ],
-  },
-  {
-    category: 'Negocios',
-    subCategories: [
-      'Negocios',
-      'Negocios',
-      'Negocios',
-      'Negocios',
-      'Negocios',
-      'Negocios',
-    ],
-  },
-  {
-    category: 'Liderazgo',
-    subCategories: [
-      'Liderazgo',
-      'Liderazgo',
-      'Liderazgo',
-      'Liderazgo',
-      'Liderazgo',
-      'Liderazgo',
-    ],
-  },
-  {
-    category: 'Data y analítica',
-    subCategories: [
-      'Data y analítica',
-      'Data y analítica',
-      'Data y analítica',
-      'Data y analítica',
-      'Data y analítica',
-      'Data y analítica',
-    ],
-  },
-];

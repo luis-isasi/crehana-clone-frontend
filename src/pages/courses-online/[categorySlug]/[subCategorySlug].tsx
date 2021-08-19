@@ -1,12 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getCategories } from '@Services/coursesOnline';
-// export { default } from '@Views/CoursesOnline';
-
-const MyComponent = () => {
-  return <div> DESDE SUB CATEGORY</div>;
-};
-
-export default MyComponent;
+export { default } from '@Views/CoursesOnline';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getCategories();
