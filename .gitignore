@@ -4,7 +4,6 @@ node_modules
 
 .next
 
-
 tailwind.configPrueba.js
-
+public/css/tailwind-build.css
 
