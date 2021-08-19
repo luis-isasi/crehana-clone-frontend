@@ -11,15 +11,19 @@ import { getCourses } from '@Services/coursesOnline';
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
 );
+
 const OptionsFilterDesktop = dynamic(
   () => import('./components/OptionsFIlterDesktop')
 );
 
 interface Props {
-  category?: string;
+  categorySlug?: string;
+  subCategorySlug?: string;
 }
 
-const CoursesOnline = (props) => {
+const CoursesOnline: React.FC<Props> = ({ categorySlug, subCategorySlug }) => {
+  console.log({ categorySlug, subCategorySlug });
+
   const isUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
@@ -48,7 +52,12 @@ const CoursesOnline = (props) => {
             )
           }
           <div className="w-full h-auto flex flex-row">
-            {isDesktop && <OptionsFilterDesktop />}
+            {isDesktop && (
+              <OptionsFilterDesktop
+                selectedCategorySlug={categorySlug}
+                selectedSubCategorySlug={subCategorySlug}
+              />
+            )}
             <CoursesByDefault />
           </div>
         </div>

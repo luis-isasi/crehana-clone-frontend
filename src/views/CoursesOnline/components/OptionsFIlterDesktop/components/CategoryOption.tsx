@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import Link from '@Components/Links/Link';
 
@@ -9,21 +10,35 @@ interface Props {
   categorySlug: string;
   categoryName: string;
   subCategories: SubCategory[];
+  selectedCategorySlug: string | undefined;
+  selectedSubCategorySlug: string | undefined;
 }
 
 const CategoryOption: React.FC<Props> = ({
   categoryName,
   categorySlug,
   subCategories,
+  selectedCategorySlug,
+  selectedSubCategorySlug,
 }) => {
   const [isSubCategories, setIsSubCategories] = useState<boolean>(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (categorySlug === selectedCategorySlug) setIsSubCategories(true);
+    else setIsSubCategories(false);
+  }, [selectedCategorySlug]);
 
   const renderSubCategories = (subCategories: SubCategory[]) => {
     return subCategories.map(({ name, slug: subCategorySLug }, index) => (
       <Link
         key={`${name}-${index}`}
         href={`/courses-online/${categorySlug}/${subCategorySLug}`}
-        className="text-left text-sm font-normal w-full box-border px-4 py-1 mb-1 hover:bg-blue-100 hover:text-primary-light transition-all duration-200"
+        className={`${
+          subCategorySLug === selectedSubCategorySlug
+            ? 'bg-primary-main text-white'
+            : 'hover:bg-blue-100 hover:text-primary-light transition-all duration-200'
+        } text-left text-sm font-normal w-full box-border px-4 py-1 mb-1`}
       >
         {name}
       </Link>
@@ -31,15 +46,20 @@ const CategoryOption: React.FC<Props> = ({
   };
 
   const showSubCategories = () => {
-    setIsSubCategories(!isSubCategories);
+    if (isSubCategories) {
+      router.push(`/courses-online`);
+    } else {
+      router.push(`/courses-online/${categorySlug}`);
+    }
+    setIsSubCategories(false);
   };
 
   return (
-    <div
-      onClick={showSubCategories}
-      className="h-auto w-full font-bold text-gray-600 text-sm text-left box-border px-4 py-3 my-1 hover:cursor-pointer"
-    >
-      <div className="w-full flex justify-between items-center">
+    <div className="h-auto w-full font-bold text-gray-600 text-sm text-left box-border px-4 py-3 my-1 hover:cursor-pointer">
+      <div
+        onClick={showSubCategories}
+        className="w-full flex justify-between items-center"
+      >
         <h6>{categoryName}</h6>
         <ExpandMoreIcon
           className={`transform ${
@@ -51,7 +71,11 @@ const CategoryOption: React.FC<Props> = ({
         <div className="flex flex-col my-2  max-h-72 overflow-y-auto scrool-none scroolbar">
           <Link
             href={`/courses-online/${categorySlug}`}
-            className="text-left text-sm font-normal w-full box-border px-4 py-1 mb-1 hover:bg-blue-100 hover:text-primary-light transition-all duration-200"
+            className={`${
+              selectedCategorySlug === categorySlug && !selectedSubCategorySlug
+                ? 'bg-primary-main text-white'
+                : 'hover:bg-blue-100 hover:text-primary-light transition-all duration-200'
+            } text-left text-sm font-normal w-full box-border px-4 py-1 mb-1`}
           >
             Todos los cursos
           </Link>

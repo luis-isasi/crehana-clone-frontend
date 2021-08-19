@@ -5,12 +5,18 @@ import CategoryOption from './components/CategoryOption';
 import { getCategories } from '@Services/coursesOnline';
 import { Category } from '@Types';
 
-const OptionsFilterDesktop = () => {
+interface Props {
+  selectedCategorySlug: string | undefined;
+  selectedSubCategorySlug: string | undefined;
+}
+
+const OptionsFilterDesktop: React.FC<Props> = ({
+  selectedCategorySlug,
+  selectedSubCategorySlug,
+}) => {
   const { data: categories, isLoading } = useQuery('categories', () =>
     getCategories()
   );
-
-  console.log({ categories });
 
   const renderCategories = (categories: Category[]) => {
     return categories.map(({ name, slug, subCategories }, index) => (
@@ -18,6 +24,8 @@ const OptionsFilterDesktop = () => {
         key={`${subCategories}-${index}`}
         categorySlug={slug}
         categoryName={name}
+        selectedCategorySlug={selectedCategorySlug}
+        selectedSubCategorySlug={selectedSubCategorySlug}
         subCategories={subCategories}
       />
     ));
