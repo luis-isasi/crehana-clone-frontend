@@ -22,8 +22,6 @@ interface Props {
 }
 
 const CoursesOnline: React.FC<Props> = ({ categorySlug, subCategorySlug }) => {
-  console.log({ categorySlug, subCategorySlug });
-
   const isUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });

@@ -33,12 +33,13 @@ const OptionsFilterDesktop: React.FC<Props> = ({
 
   return (
     <div className="h-full w-60 mr-8">
+      {/* TODO:mostrar todos los cursos */}
       <button className="text-secondary-main text-xs font-extrabold">
         Mostrar todos los cursos online
       </button>
       <div className="w-full h-auto">
         <p className="text-xs font-bold text-gray-600 my-3">Categorías</p>
-        <div className="bg-gray-100 w-full h-auto">
+        <div className="bg-gray-100 w-full h-auto py-1">
           {isLoading && <p>CARGANDO...</p>}
           {categories && !isLoading && renderCategories(categories)}
         </div>

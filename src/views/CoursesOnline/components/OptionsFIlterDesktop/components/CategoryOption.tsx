@@ -68,7 +68,7 @@ const CategoryOption: React.FC<Props> = ({
         />
       </div>
       {isSubCategories && (
-        <div className="flex flex-col my-2  max-h-72 overflow-y-auto scrool-none scroolbar">
+        <div className="flex flex-col mt-2 max-h-72 overflow-y-auto scrool-none scroolbar">
           <Link
             href={`/courses-online/${categorySlug}`}
             className={`${
