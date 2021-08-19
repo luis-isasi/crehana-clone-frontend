@@ -25,8 +25,9 @@ const CategoryOption: React.FC<Props> = ({
   const router = useRouter();
 
   useEffect(() => {
-    if (categorySlug === selectedCategorySlug) setIsSubCategories(true);
-    else setIsSubCategories(false);
+    categorySlug === selectedCategorySlug
+      ? setIsSubCategories(true)
+      : setIsSubCategories(false);
   }, [selectedCategorySlug]);
 
   const renderSubCategories = (subCategories: SubCategory[]) => {
@@ -46,11 +47,10 @@ const CategoryOption: React.FC<Props> = ({
   };
 
   const showSubCategories = () => {
-    if (isSubCategories) {
-      router.push(`/courses-online`);
-    } else {
-      router.push(`/courses-online/${categorySlug}`);
-    }
+    isSubCategories
+      ? router.push(`/courses-online`)
+      : router.push(`/courses-online/${categorySlug}`);
+
     setIsSubCategories(false);
   };
 

@@ -15,9 +15,11 @@ const Index: React.FC = () => {
     router.pathname === '/login' || router.pathname === '/register';
 
   return (
-    <header className="dark:bg-base-dark">
+    <header className="dark:bg-base-dark w-full">
       <div
-        className={`w-full dark:bg-base-lighter-16 text-gray-900 dark:text-white font-semibold ${
+        className={`mx-auto ${
+          router.pathname !== '/' && 'dark:bg-base-lighter-16'
+        } text-gray-900 dark:text-white font-semibold ${
           isLoginOrRegister
             ? 'h-25'
             : isDesktop
