@@ -7,6 +7,7 @@ import BannerToPremium from '@Components/banners/BannerToPremium';
 import BannerSlider from './components/BannerSlider';
 import CoursesByDefault from './sections/CoursesByDefault';
 import { getCourses } from '@Services/coursesOnline';
+import { Category } from '@Types';
 
 const OptionsFilterMovil = dynamic(
   () => import('./components/OptionsFilterMovil')
@@ -19,9 +20,14 @@ const OptionsFilterDesktop = dynamic(
 interface Props {
   categorySlug?: string;
   subCategorySlug?: string;
+  categories: Category[];
 }
 
-const CoursesOnline: React.FC<Props> = ({ categorySlug, subCategorySlug }) => {
+const CoursesOnline: React.FC<Props> = ({
+  categorySlug,
+  subCategorySlug,
+  categories,
+}) => {
   const isUntilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
@@ -52,6 +58,7 @@ const CoursesOnline: React.FC<Props> = ({ categorySlug, subCategorySlug }) => {
           <div className="w-full h-auto flex flex-row">
             {isDesktop && (
               <OptionsFilterDesktop
+                categories={categories}
                 selectedCategorySlug={categorySlug}
                 selectedSubCategorySlug={subCategorySlug}
               />

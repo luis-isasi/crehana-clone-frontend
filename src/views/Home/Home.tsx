@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
 import UserWelcome from './sections/UserWelcome';
 import InformationToUser from './sections/InformationToUser';
@@ -19,7 +20,7 @@ const Home = () => {
   );
 };
 
-export const getServerSideProps = () => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       requireAuth: true,
