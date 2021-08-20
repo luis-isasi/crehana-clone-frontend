@@ -33,7 +33,7 @@ const CoursesOnline: React.FC<Props> = ({
   selectedSubCategorySlug,
   categories,
 }) => {
-  const isUntilLaptop = useResponsive({
+  const untilLaptop = useResponsive({
     maxMediaQuery: MEDIAQUERY_XL,
   });
   const isTablet = useResponsive({
@@ -48,7 +48,7 @@ const CoursesOnline: React.FC<Props> = ({
 
   return (
     <div className="h-auto w-full">
-      {isUntilLaptop && <OptionsFilterMovil />}
+      {untilLaptop && <OptionsFilterMovil categories={categories} />}
       <div className="w-full h-auto">
         <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
           {
