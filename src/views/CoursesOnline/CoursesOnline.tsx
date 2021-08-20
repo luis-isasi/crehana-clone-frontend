@@ -5,6 +5,7 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_MD, MEDIAQUERY_XL } from '@Constans';
 import BannerToPremium from '@Components/banners/BannerToPremium';
 import BannerSlider from './components/BannerSlider';
+import Routing from './components/Routing';
 import CoursesByDefault from './sections/CoursesByDefault';
 import { getCourses } from '@Services/coursesOnline';
 import { Category } from '@Types';
@@ -18,14 +19,18 @@ const OptionsFilterDesktop = dynamic(
 );
 
 interface Props {
-  categorySlug?: string;
-  subCategorySlug?: string;
+  selectedCategorySlug?: string | undefined;
+  selectedSubCategorySlug?: string | undefined;
+  selectedCategoryName?: string | undefined;
+  selectedSubCategoryName?: string | undefined;
   categories: Category[];
 }
 
 const CoursesOnline: React.FC<Props> = ({
-  categorySlug,
-  subCategorySlug,
+  selectedCategoryName,
+  selectedSubCategoryName,
+  selectedCategorySlug,
+  selectedSubCategorySlug,
   categories,
 }) => {
   const isUntilLaptop = useResponsive({
@@ -51,7 +56,14 @@ const CoursesOnline: React.FC<Props> = ({
             isDesktop && (
               <div>
                 <BannerSlider />
-                <div className="text-xs text-gray-400 my-8">{`inicio > cursos online`}</div>
+                <div className="my-8">
+                  <Routing
+                    categoryName={selectedCategoryName}
+                    subCategoryName={selectedSubCategoryName}
+                    categorySlug={selectedCategorySlug}
+                    subCategorySlug={selectedSubCategorySlug}
+                  />
+                </div>
               </div>
             )
           }
@@ -59,8 +71,8 @@ const CoursesOnline: React.FC<Props> = ({
             {isDesktop && (
               <OptionsFilterDesktop
                 categories={categories}
-                selectedCategorySlug={categorySlug}
-                selectedSubCategorySlug={subCategorySlug}
+                selectedCategorySlug={selectedCategorySlug}
+                selectedSubCategorySlug={selectedSubCategorySlug}
               />
             )}
             <CoursesByDefault />

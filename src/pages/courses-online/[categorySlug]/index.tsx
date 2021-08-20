@@ -17,8 +17,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const categories = await getCategories();
+  const { categorySlug: selectedCategorySlug } = params;
+
+  let selectedCategoryName: string;
+
+  //get the name of the selected category
+  categories.forEach(({ slug, name }) => {
+    if (slug === selectedCategorySlug) {
+      selectedCategoryName = name;
+    }
+  });
 
   return {
-    props: { categorySlug: params?.categorySlug, categories },
+    props: { selectedCategorySlug, categories, selectedCategoryName },
   };
 };
