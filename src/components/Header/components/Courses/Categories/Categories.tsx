@@ -27,7 +27,8 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
 
   useEffect(() => {
     const handleClickOutSide = (e) => {
-      if (!refDiv.current.contains(e.target)) closeCategories();
+      if (refDiv.current && !refDiv.current?.contains(e.target))
+        closeCategories();
     };
 
     if (isOpen) document.addEventListener('click', handleClickOutSide);
