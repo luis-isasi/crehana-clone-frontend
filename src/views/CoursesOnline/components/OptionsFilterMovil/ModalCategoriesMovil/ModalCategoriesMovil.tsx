@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ModalBase from '@Modals/ModalBase';
 import ArrowIcon from '@Components/Icons/ArrowIcon';
-import CategoryMovil from './components/CategoryMovil';
+import CategoryMovil from './CategoryMovil';
 import { Category } from '@Types';
 
 interface Props {

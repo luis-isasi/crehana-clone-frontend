@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import ExpandMoreIcon from '@Components/Icons/ExpandMoreIcon';
-import SubCategoriesList from './SubCategoriesList';
+import SubCategoriesList from './components/SubCategoriesList';
 
 import { SubCategory } from '@Types';
 
