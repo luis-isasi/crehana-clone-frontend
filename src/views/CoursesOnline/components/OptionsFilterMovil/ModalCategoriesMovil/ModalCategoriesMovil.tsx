@@ -25,7 +25,7 @@ const ModalCategoriesMovil: React.FC<Props> = ({ closeModal, categories }) => {
   };
 
   return (
-    <ModalBase className="bg-white">
+    <ModalBase className="bg-white animate-fade-in-fast">
       <button
         onClick={closeModal}
         className="w-full h-14 flex items-center border-b-1 border-gray-200 text-secondary-light font-bold text-base focus:outline-none"

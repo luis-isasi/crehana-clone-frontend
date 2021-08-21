@@ -3,7 +3,7 @@ import CourseCard from '@Components/CourseCard';
 
 const RecommendedCourses = () => {
   return (
-    <section>
+    <section className="mt-5 sm:mt-0">
       <h5 className="mb-7 font-extrabold sm:text-xl md:text-2xl">
         Cursos online recomendados por la comunidad
       </h5>

@@ -182,6 +182,7 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out forwards',
+        'fade-in-fast': 'fadeIn 0.1s ease-in-out forwards',
         'fade-out': 'fadeOut 0.3s ease-in-out forwards',
         'appear-upward': 'appearUpward 0.3s ease-in-out forwards',
       },

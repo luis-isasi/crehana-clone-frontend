@@ -1,12 +1,9 @@
 import * as React from 'react';
-import dynamic from 'next/dynamic';
 
 import SettingsIcon from '@Components/Icons/SettingsIcon';
 import { Category } from '@Types';
 
-const ModalCategoriesMovil = dynamic(() => import('../ModalCategoriesMovil'), {
-  loading: () => <p>Cargando...</p>,
-});
+import ModalCategoriesMovil from '../ModalCategoriesMovil';
 
 interface Props {
   categories: Category[];
