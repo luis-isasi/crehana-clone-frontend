@@ -1,25 +1,21 @@
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
 import { useQuery } from 'react-query';
 
 import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_XL, MEDIAQUERY_MD } from '@Constans';
 
-import { getCategories } from '@Services/course';
+import category from '@Services/categories';
+import { getBannersByDefault } from '@Services/banners';
 import BannerSlider from './components/BannerSlider';
-
 import BannerToPremium from '@Components/banners/BannerToPremium';
-
 import Routing from './components/Routing';
-
 import OptionsFilterMovil from './components/OptionsFilterMovil';
-
 import OptionsFilterDesktop from './components/OptionsFIlterDesktop';
 
 const Layout = ({ children }) => {
   const { query } = useRouter();
   const { data: categories, isLoading, isError } = useQuery('categories', () =>
-    getCategories()
+    category.getAll()
   );
 
   const untilLaptop = useResponsive({

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { Banner } from '@Types';
 import SwitchSecondaryPoints from '@Components/Slider/SwitchWithPoints/SwitchSecondaryPoints';
 import Link from '@Components/Links/Link';
-import { getBannersByDefault } from '@Services/course';
+import { getBannersByDefault } from '@Services/banners';
 import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
 
 interface Props {

@@ -2,11 +2,11 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
-import { getCategories } from '@Services/course';
+import category from '@Services/categories';
 export { default } from '@Views/CoursesOnline';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getCategories();
+  const categories = await category.getAll();
 
   let paths = [];
   categories.forEach(({ subCategories, slug: categorySlug }) => {
@@ -23,10 +23,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery('categories', getCategories);
+  await queryClient.prefetchQuery('categories', category.getAll);
 
   return {
     props: {

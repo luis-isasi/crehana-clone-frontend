@@ -39,7 +39,6 @@ const CoursesOnline: React.FC<Props> & {
       <Head>
         <title>Cursos recomendados por la comunida crehana | Crehana</title>
       </Head>
-
       <CoursesByDefault />
     </React.Fragment>
   );
