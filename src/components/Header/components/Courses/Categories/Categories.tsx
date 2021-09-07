@@ -7,7 +7,7 @@ import CategoriesList from './components/CategoriesList';
 import SubCategoriesList from './components/SubCategoriesList';
 import Error from './components/Error';
 import PHHeaderCategories from '@Placeholders/PHHeaderCategories';
-import { getCategories } from '@Services/coursesOnline';
+import { getCategories } from '@Services/course';
 import { Category } from '@Types';
 
 interface Props {

@@ -9,7 +9,7 @@ export const getCourses = () => {
   return fetcher({ endpoint: '/courses/' });
 };
 
-export const getCoursesByCategorie = (categoryId: number) => {
+export const getCoursesByCategory = (categoryId: number) => {
   return fetcher<Course[]>({ endpoint: `/categories/${categoryId}/courses/` });
 };
 
@@ -19,3 +19,10 @@ export const getCategories = () =>
 export const getCategoryByID = async (categoryId: string) => {
   return fetcher<Category>({ endpoint: `/categories/${categoryId}` });
 };
+
+const courseService = {
+  getAll: getCourses,
+  getByCategory: getCoursesByCategory,
+};
+
+export default courseService;

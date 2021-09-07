@@ -1,34 +1,40 @@
+import type { ReactElement, ReactNode } from 'react';
+import { useState } from 'react';
+
+import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 
 import { ContextAuthProvider } from '@Context/contextAuth';
 import { ContextThemeProvider } from '@Context/contextTheme';
-import ProtectRouteAuth from '@Hoc/ProtectRouteAuth';
 
 import Layout from '@Hoc/Layout';
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const client = new QueryClient();
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const App: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
+  const [queryClient] = useState(() => new QueryClient());
+
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <QueryClientProvider client={client}>
-      <ContextThemeProvider>
-        <ContextAuthProvider>
-          {pageProps.requireAuth ? (
-            <ProtectRouteAuth>
-              <Layout dark={pageProps.dark}>
-                <Component {...pageProps} />
-              </Layout>
-            </ProtectRouteAuth>
-          ) : (
-            <>
-              <Layout dark={pageProps.dark}>
-                <Component {...pageProps} />
-              </Layout>
-            </>
-          )}
-        </ContextAuthProvider>
-      </ContextThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <ContextThemeProvider>
+          <ContextAuthProvider>
+            <Layout dark={pageProps.dark}>
+              {getLayout(<Component {...pageProps} />)}
+            </Layout>
+          </ContextAuthProvider>
+        </ContextThemeProvider>
+      </Hydrate>
     </QueryClientProvider>
   );
 };

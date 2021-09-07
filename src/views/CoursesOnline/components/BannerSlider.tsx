@@ -1,10 +1,10 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useQuery } from 'react-query';
 
 import { Banner } from '@Types';
 import SwitchSecondaryPoints from '@Components/Slider/SwitchWithPoints/SwitchSecondaryPoints';
 import Link from '@Components/Links/Link';
-import { getBannersByDefault } from '@Services/coursesOnline';
+import { getBannersByDefault } from '@Services/course';
 import PHCoursesSliderDesktop from '@Placeholders/PHCoursesSliderDesktop';
 
 interface Props {

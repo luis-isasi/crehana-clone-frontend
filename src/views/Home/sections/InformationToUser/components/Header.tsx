@@ -7,7 +7,7 @@ import {
   YOUR_ACTIVITY,
   CONTAINER_HOME,
 } from '@Views/Home/contants';
-import { SelectedName } from '../types';
+import { SelectedName } from '@Views/Home/contants';
 
 interface Props {
   isSelectedBtn: SelectedName;
@@ -23,7 +23,7 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as any;
-    setIsSelectedBtn(name);
+    setIsSelectedBtn(name as SelectedName);
   };
 
   return (
@@ -34,25 +34,25 @@ const Header: React.FC<Props> = ({ isSelectedBtn, setIsSelectedBtn }) => {
         className={`${CONTAINER_HOME} h-auto flex items-center px-4 box-border text-gray-300 md:text-base lg:text-lg whitespace-nowrap overflow-x-auto scrool-none`}
       >
         <Button
-          name={RECOMENDATIONS}
+          name={SelectedName.YOUR_ACTIVITY}
           onClick={handleClick}
           text="Recomendaciones"
           isSelect={isSelect(RECOMENDATIONS)}
         />
         <Button
-          name={MENTORS}
+          name={SelectedName.MENTORS}
           onClick={handleClick}
           isSelect={isSelect(MENTORS)}
           text="Mentores"
         />
         <Button
-          name={EXCLUSIVE_PREMIUM}
+          name={SelectedName.EXCLUSIVE_PREMIUM}
           onClick={handleClick}
           isSelect={isSelect(EXCLUSIVE_PREMIUM)}
           text="Exclusio Premium"
         />
         <Button
-          name={YOUR_ACTIVITY}
+          name={SelectedName.YOUR_ACTIVITY}
           onClick={handleClick}
           isSelect={isSelect(YOUR_ACTIVITY)}
           text="Tu actividad"

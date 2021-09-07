@@ -1,5 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { getCategories } from '@Services/coursesOnline';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
+
+import { getCategories } from '@Services/course';
 export { default } from '@Views/CoursesOnline';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -21,34 +24,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const categories = await getCategories();
-  const {
-    categorySlug: selectedCategorySlug,
-    subCategorySlug: selectedSubCategorySlug,
-  } = params;
+  const queryClient = new QueryClient();
 
-  let selectedCategoryName: string;
-  let selectedSubCategoryName: string;
-
-  //get the name of the selected category and sub category
-  categories.forEach(({ slug, name, subCategories }) => {
-    if (slug === selectedCategorySlug) {
-      selectedCategoryName = name;
-      subCategories.forEach(({ slug, name }) => {
-        if (slug === selectedSubCategorySlug) {
-          selectedSubCategoryName = name;
-        }
-      });
-    }
-  });
+  await queryClient.prefetchQuery('categories', getCategories);
 
   return {
     props: {
-      selectedCategorySlug,
-      selectedSubCategorySlug,
-      selectedCategoryName,
-      selectedSubCategoryName,
-      categories,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 };

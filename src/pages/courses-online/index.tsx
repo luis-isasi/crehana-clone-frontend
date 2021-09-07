@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 
-import { getCategories } from '@Services/coursesOnline';
+import { getCategories } from '@Services/course';
 
 export { default } from '@Views/CoursesOnline';
 

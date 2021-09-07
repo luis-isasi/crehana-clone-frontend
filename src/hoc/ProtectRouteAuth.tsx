@@ -18,11 +18,7 @@ const ProtectRouteAuth = ({ children }) => {
     }
   }, [user, isLoading]);
 
-  if (isLoading) return <LoadingScreen />;
-
-  if (!user) {
-    return null;
-  }
+  if (isLoading || !user) return <LoadingScreen />;
 
   return <>{children}</>;
 };

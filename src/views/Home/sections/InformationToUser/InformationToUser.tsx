@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
-import { SelectedName } from './types';
-import {
-  RECOMENDATIONS,
-  EXCLUSIVE_PREMIUM,
-  MENTORS,
-  YOUR_ACTIVITY,
-} from '@Views/Home/contants';
+import { SelectedName } from '@Views/Home/contants';
 import Header from './components/Header';
 import Recomendations from './sections/Recomendations';
 
@@ -17,18 +11,18 @@ const YourActivity = dynamic(() => import('./sections/YourActivity'));
 
 const SectionTwo = () => {
   const [isSelectedBtn, setIsSelectedBtn] = useState<SelectedName>(
-    RECOMENDATIONS
+    SelectedName.RECOMENDATIONS
   );
 
   const renderIsSelect = () => {
     switch (isSelectedBtn) {
-      case RECOMENDATIONS:
+      case SelectedName.RECOMENDATIONS:
         return <Recomendations />;
-      case MENTORS:
+      case SelectedName.MENTORS:
         return <Mentors />;
-      case EXCLUSIVE_PREMIUM:
+      case SelectedName.EXCLUSIVE_PREMIUM:
         return <ExclusivePremium />;
-      case YOUR_ACTIVITY:
+      case SelectedName.YOUR_ACTIVITY:
         return <YourActivity />;
     }
   };

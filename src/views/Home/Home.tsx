@@ -1,13 +1,12 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
 
-import UserWelcome from './sections/UserWelcome';
-import InformationToUser from './sections/InformationToUser';
-import HelpUser from './sections/HelpUser';
+import ProtectRouteAuth from '@Hoc/ProtectRouteAuth';
+
+import { UserWelcome, InformationToUser, HelpUser } from './sections/';
 
 const Home = () => {
   return (
-    <>
+    <ProtectRouteAuth>
       <Head>
         <title>Home | Crehana</title>
       </Head>
@@ -16,16 +15,8 @@ const Home = () => {
         <InformationToUser />
         <HelpUser />
       </div>
-    </>
+    </ProtectRouteAuth>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      requireAuth: true,
-    },
-  };
 };
 
 export default Home;
