@@ -5,7 +5,6 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_XL, MEDIAQUERY_MD } from '@Constans';
 
 import category from '@Services/categories';
-import { getBannersByDefault } from '@Services/banners';
 import BannerSlider from './components/BannerSlider';
 import BannerToPremium from '@Components/banners/BannerToPremium';
 import Routing from './components/Routing';
@@ -26,7 +25,7 @@ const Layout = ({ children }) => {
     minMediaQuery: MEDIAQUERY_XL,
   });
 
-  const isTablet = useResponsive({
+  const fromTablet = useResponsive({
     minMediaQuery: MEDIAQUERY_MD,
   });
 
@@ -53,7 +52,7 @@ const Layout = ({ children }) => {
   });
 
   return (
-    <div className="h-auto w-full">
+    <div className="h-auto w-full bg-red-500">
       <div className="w-full h-auto">
         <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
           {
@@ -72,21 +71,20 @@ const Layout = ({ children }) => {
               </div>
             )
           }
-
           <div className="w-full h-auto flex flex-row">
             {untilLaptop && <OptionsFilterMovil categories={categories} />}
             {isDesktop && (
               <OptionsFilterDesktop
                 categories={categories}
-                selectedCategorySlug={query.categorySlug as string}
-                selectedSubCategorySlug={query.subCategorySlug as string}
+                selectedCategorySlug={categorySlug}
+                selectedSubCategorySlug={subCategorySlug}
               />
             )}
             {children}
           </div>
         </div>
       </div>
-      {isTablet && (
+      {fromTablet && (
         <div className="fixed bottom-0 w-full h-auto z-10">
           <BannerToPremium
             text="Accede a todos estos cursos por un único pago anual"

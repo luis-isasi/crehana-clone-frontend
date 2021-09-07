@@ -4,7 +4,7 @@ import Specializations from './sections/Specializations';
 
 const CoursesByDefault = () => {
   return (
-    <div className="flex-grow flex flex-col">
+    <div className="flex-grow flex flex-col bg-gray-600">
       <RecommendedCourses />
       <NewCourses />
       <Specializations />
