@@ -1,17 +1,17 @@
 import { fetcher } from '@Utils';
-import { Course } from '@Types';
+import { Course } from 'src/Types/course';
 
 export const getCourses = () => {
-  return fetcher({ endpoint: '/courses/' });
+  return fetcher<{ courses: Course[] }>({ endpoint: '/courses/' });
 };
 
 export const getCoursesByCategory = (categoryId: number) => {
   return fetcher<Course[]>({ endpoint: `/categories/${categoryId}/courses/` });
 };
 
-const courseService = {
+const courses = {
   getAll: getCourses,
   getByCategory: getCoursesByCategory,
 };
 
-export default courseService;
+export default courses;

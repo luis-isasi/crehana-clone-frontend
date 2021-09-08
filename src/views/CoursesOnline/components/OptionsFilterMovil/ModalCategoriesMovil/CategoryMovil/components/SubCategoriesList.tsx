@@ -2,7 +2,7 @@ import ArrowIcon from '@Components/Icons/ArrowIcon';
 import Link from '@Components/Links/Link';
 import ModalBase from '@Modals/ModalBase';
 
-import { SubCategory } from '@Types';
+import { SubCategory } from '@Types/course';
 
 interface Props {
   categoryName: string;

@@ -3,7 +3,7 @@ import * as React from 'react';
 import ModalBase from '@Modals/ModalBase';
 import ArrowIcon from '@Components/Icons/ArrowIcon';
 import CategoryMovil from './CategoryMovil';
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 
 interface Props {
   closeModal: () => void;

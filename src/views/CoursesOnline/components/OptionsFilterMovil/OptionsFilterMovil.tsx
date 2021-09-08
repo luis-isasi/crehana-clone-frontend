@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import CategoriesListMovil from './components/CategoriesListMovil';
 import FilterBy from './components/FilterBy';
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 
 interface Props {
   categories: Category[];

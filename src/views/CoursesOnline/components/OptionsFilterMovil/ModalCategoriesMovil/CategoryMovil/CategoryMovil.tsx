@@ -3,7 +3,7 @@ import * as React from 'react';
 import ExpandMoreIcon from '@Components/Icons/ExpandMoreIcon';
 import SubCategoriesList from './components/SubCategoriesList';
 
-import { SubCategory } from '@Types';
+import { SubCategory } from '@Types/course';
 
 interface Props {
   categorySlug: string;

@@ -13,7 +13,7 @@ import OptionsFilterDesktop from './components/OptionsFIlterDesktop';
 
 const Layout = ({ children }) => {
   const { query } = useRouter();
-  const { data: categories, isLoading, isError } = useQuery('categories', () =>
+  const { data: categories, isLoading } = useQuery('categories', () =>
     category.getAll()
   );
 

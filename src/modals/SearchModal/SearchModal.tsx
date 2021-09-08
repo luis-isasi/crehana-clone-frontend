@@ -44,29 +44,7 @@ const SearchModal: React.FC<Props> = ({ setIsOpenModal }) => {
             <p className=" box-border px-3 font-semibold text-gray-700 text-sm lg:text-lg my-4">
               Los cursos más vendidos:
             </p>
-            <div className="bg-transparent grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-10 w-full h-auto">
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-              <CardCourse inModal={true} />
-            </div>
+            <div className="bg-transparent grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-10 w-full h-auto"></div>
           </Container>
         </div>
         {isMovilAndTablet === false && <FooterModal />}

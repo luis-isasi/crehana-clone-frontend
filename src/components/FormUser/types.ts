@@ -1,6 +1,6 @@
-import { User } from '@Types';
+import { User } from 'src/Types/user';
 
-import { UserAuthData, AuthResponse } from '@Types';
+import { UserAuthData, AuthResponse } from 'src/Types/auth';
 
 export interface PropsFormUser {
   typeForm: 'login' | 'register';

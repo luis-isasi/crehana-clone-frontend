@@ -8,7 +8,7 @@ import SubCategoriesList from './components/SubCategoriesList';
 import Error from './components/Error';
 import PHHeaderCategories from '@Placeholders/PHHeaderCategories';
 import category from '@Services/categories';
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 
 interface Props {
   refBtn: MutableRefObject<HTMLButtonElement>;

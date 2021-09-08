@@ -2,13 +2,10 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { USER_SESSION, USER_SETTINGS } from '@Constans';
-import { User } from '@Types';
-
-//------------types----------
+import { User } from 'src/Types/user';
 interface UserLocalStorage extends User {
   token: string;
 }
-
 interface TypeContextUser {
   user: UserLocalStorage;
   signoutUser: () => void;

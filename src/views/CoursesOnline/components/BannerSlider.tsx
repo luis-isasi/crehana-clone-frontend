@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useQuery } from 'react-query';
 
-import { Banner } from '@Types';
+import { Banner } from 'src/Types';
 import SwitchSecondaryPoints from '@Components/Slider/SwitchWithPoints/SwitchSecondaryPoints';
 import Link from '@Components/Links/Link';
 import { getBannersByDefault } from '@Services/banners';

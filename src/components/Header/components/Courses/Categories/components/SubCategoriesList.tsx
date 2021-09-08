@@ -1,5 +1,5 @@
 import Link from '@Components/Links/Link';
-import { SubCategory } from '@Types';
+import { SubCategory } from '@Types/course';
 import ArrowIcon from '@Components/Icons/ArrowIcon';
 
 interface Props {

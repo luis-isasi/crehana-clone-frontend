@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Link from '@Components/Links/Link';
 
 import ExpandMoreIcon from '@Components/Icons/ExpandMoreIcon';
-import { SubCategory } from '@Types';
+import { SubCategory } from '@Types/course';
 
 interface Props {
   categorySlug: string;

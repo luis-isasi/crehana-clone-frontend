@@ -1,5 +1,5 @@
 import { fetcher } from '@Utils';
-import { AuthResponse, UserAuthData } from '@Types';
+import { AuthResponse, UserAuthData } from '@Types/auth';
 
 const endpoints = {
   LOGIN: '/auth/login-user/',

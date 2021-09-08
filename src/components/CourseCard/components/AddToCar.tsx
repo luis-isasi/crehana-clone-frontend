@@ -1,9 +1,9 @@
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import CartIcon from '@Components/Icons/CartIcon';
 
 const AddToCar = () => {
   return (
-    <button className="self-start ml-3 transition duration-300 ease-in-out transform hover:scale-125 outline-none focus:outline-none">
-      <FavoriteBorderIcon className="fill-current text-secondary-main" />
+    <button className="box-border p-3 mr-4 rounded-md border-2 border-primary-main focus:outline-none transform hover:-translate-y-1 transition-all duration-200 ease-out">
+      <CartIcon className="text-primary-main" />
     </button>
   );
 };

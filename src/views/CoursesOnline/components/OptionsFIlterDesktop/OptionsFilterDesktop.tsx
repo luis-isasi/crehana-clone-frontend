@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import CategoryOption from './components/CategoryOption';
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 
 interface Props {
   categories: Category[];
@@ -28,7 +28,7 @@ const OptionsFilterDesktop: React.FC<Props> = ({
   };
 
   return (
-    <div className="h-full w-60 mr-8">
+    <div className="h-full min-w-60 w-60 mr-8">
       {/* TODO:mostrar todos los cursos */}
       <button className="text-secondary-main text-xs font-extrabold">
         Mostrar todos los cursos online

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 import Link from '@Components/Links/Link';
 
 interface Props {

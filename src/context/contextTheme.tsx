@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 import { DARK, LIGHT, USER_SETTINGS } from '@Constans';
-import { UserSettings, Theme } from '@Types';
-
+import { UserSettings } from 'src/Types/user';
+import { Theme } from '@Types';
 interface ContextThemeState {
   theme: Theme;
   changeTheme: () => void;

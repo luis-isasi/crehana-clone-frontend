@@ -1,5 +1,5 @@
 import { fetcher } from '@Utils';
-import { Category } from '@Types';
+import { Category } from '@Types/course';
 
 export const getCategories = () =>
   fetcher<Category[]>({ endpoint: '/categories/' });
