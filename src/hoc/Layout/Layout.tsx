@@ -5,24 +5,25 @@ import Footer from '@Components/Footer';
 import { useContextTheme } from '@Context/contextTheme';
 import { DARK } from '@Constans';
 interface Props {
-  dark?: boolean;
+  enabledDark?: boolean;
+  darkMode?: boolean;
 }
 
-const Layout: React.FC<Props> = ({ dark, children }) => {
+const Layout: React.FC<Props> = ({ enabledDark, children, darkMode }) => {
   const { theme, changeTheme } = useContextTheme();
 
   //ejecutamos un useEffect solo para habilitar el dark mode dentro de home
   //hasta la fecha en crehana estaba asi y para evitar pensar en como serian sus demas componentes en dark mode
   //decidí solo habilitarlo en"/home", quizas mas adelante lo habilitaré para toda la aplicación
   useEffect(() => {
-    if (dark === undefined && theme === DARK) {
+    if (!enabledDark && theme === DARK) {
       //To light
       changeTheme();
     }
-  }, [dark]);
+  }, [enabledDark]);
 
   return (
-    <div className={`${dark && 'dark bg-base-main'} w-full h-auto`}>
+    <div className={`${darkMode && 'dark bg-base-main'} w-full h-auto`}>
       <Header />
       {children}
       <Footer />

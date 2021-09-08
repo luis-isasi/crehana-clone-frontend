@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 
-import { getCategories } from '@Services/course';
+import category from '@Services/categories';
 
 export { default } from '@Views/CoursesOnline';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const categories = await getCategories();
+  const categories = await category.getAll();
 
   return { props: { categories } };
 };

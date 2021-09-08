@@ -7,7 +7,7 @@ import CategoriesList from './components/CategoriesList';
 import SubCategoriesList from './components/SubCategoriesList';
 import Error from './components/Error';
 import PHHeaderCategories from '@Placeholders/PHHeaderCategories';
-import { getCategories } from '@Services/course';
+import category from '@Services/categories';
 import { Category } from '@Types';
 
 interface Props {
@@ -20,7 +20,7 @@ const Categories: React.FC<Props> = ({ refBtn, isOpen, closeCategories }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>();
 
   const { data, isLoading, isError } = useQuery('categories', () =>
-    getCategories()
+    category.getAll()
   );
 
   const refDiv = useRef<HTMLDivElement>();

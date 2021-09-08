@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -6,7 +7,7 @@ import { useContextAuth } from '@Context/contextAuth';
 import LinkPrimary from '@Components/Links/LinkPrimary';
 import LearnWithExpertLeaders from './sections/LearnWithExpertLeaders';
 
-const App: React.FC = () => {
+const App: React.FC & { darkMode?: boolean } = () => {
   const { user } = useContextAuth();
   const router = useRouter();
 
@@ -16,6 +17,11 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>
+          Cursos online para aprender nuevas habilidades hoy | Crehana
+        </title>
+      </Head>
       <div className="w-full min-h-2xl 2xl:min-h-3xl 2xl:h-3xl relative bg-base-dark flex items-start justify-center lg:justify-start">
         <Image
           objectFit="cover"
@@ -39,16 +45,28 @@ const App: React.FC = () => {
         </section>
       </div>
       <LearnWithExpertLeaders />
+      <style global jsx>{`
+        body {
+          //bg-base-dark
+          background-color: rgba(7, 14, 39, 1);
+        }
+
+        header {
+          //bg-base-main
+          background-color: transparent !important;
+          position: absolute !important;
+          top: 0px;
+          z-index: 10;
+        }
+
+        header > :global(*) {
+          color: #ffffff;
+        }
+      `}</style>
     </>
   );
 };
 
-export const getServerSideProps = () => {
-  return {
-    props: {
-      dark: true,
-    },
-  };
-};
+App.darkMode = true;
 
 export default App;

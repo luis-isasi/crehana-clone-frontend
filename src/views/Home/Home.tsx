@@ -4,7 +4,9 @@ import ProtectRouteAuth from '@Hoc/ProtectRouteAuth';
 
 import { UserWelcome, InformationToUser, HelpUser } from './sections/';
 
-const Home = () => {
+const Home: React.FC & {
+  enabledDark?: boolean;
+} = () => {
   return (
     <ProtectRouteAuth>
       <Head>
@@ -18,5 +20,7 @@ const Home = () => {
     </ProtectRouteAuth>
   );
 };
+
+Home.enabledDark = true;
 
 export default Home;

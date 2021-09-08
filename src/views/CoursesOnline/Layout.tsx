@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
   });
 
   return (
-    <div className="h-auto w-full bg-red-500">
+    <div className="h-auto w-full">
       <div className="w-full h-auto">
         <div className="w-full xl:max-w-screen-xl 2xl:max-w-9xl h-auto box-border px-5 mx-auto">
           {

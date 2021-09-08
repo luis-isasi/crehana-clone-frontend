@@ -8,11 +8,12 @@ import { Hydrate } from 'react-query/hydration';
 
 import { ContextAuthProvider } from '@Context/contextAuth';
 import { ContextThemeProvider } from '@Context/contextTheme';
-
 import Layout from '@Hoc/Layout';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
+  enabledDark?: boolean;
+  darkMode?: boolean;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -29,7 +30,10 @@ const App: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
       <Hydrate state={pageProps.dehydratedState}>
         <ContextThemeProvider>
           <ContextAuthProvider>
-            <Layout dark={pageProps.dark}>
+            <Layout
+              darkMode={Component?.darkMode}
+              enabledDark={Component?.enabledDark}
+            >
               {getLayout(<Component {...pageProps} />)}
             </Layout>
           </ContextAuthProvider>
