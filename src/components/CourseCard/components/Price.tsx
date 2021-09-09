@@ -5,7 +5,7 @@ interface Props {
 
 const Price: React.FC<Props> = ({ prices }) => {
   return (
-    <div className="flex items-center my-4 ">
+    <div className="flex items-center my-4">
       <span className="text-red-main font-extrabold text-lg">
         {`${prices.currencySymbol}${prices.realPrice}`}
       </span>

@@ -3,12 +3,14 @@ import useResponsive from '@Hooks/useResponsive';
 import { MEDIAQUERY_LG } from '@Constans';
 import IconComplete from '@Components/Icons/IconComplete';
 import MostSelling from '@Components/Labels/MostSelling';
-import BtnPrimary from '@Components/buttons/BtnPrimaryBorder';
 
 import SalesAndStars from './components/SalesAndStars';
 import Price from './components/Price';
 import CourseImg from './components/CourseImg';
 import AddToCar from './components/AddToCar';
+import BtnBuyCourse from './components/BtnBuyCourse';
+
+import { DataTrailer } from './ModalTrailer';
 interface Props {
   inModal?: boolean;
   course: Course;
@@ -23,7 +25,13 @@ const CardCourse: React.FC<Props> = ({ inModal, course }) => {
     minMediaQuery: MEDIAQUERY_LG,
   });
 
-  console.log({ course });
+  let dataTrailer: DataTrailer = {
+    url: course.trailer,
+    description: course.description,
+    duration: course.duration,
+    prices: course.prices,
+    title: course.title,
+  };
 
   return (
     <div className={`box-border ${inModal && 'p-3'} h-auto w-full `}>
@@ -32,7 +40,7 @@ const CardCourse: React.FC<Props> = ({ inModal, course }) => {
           inModal ? 'flex-row' : 'flex-col'
         } md:flex-col cursor-pointer `}
       >
-        <CourseImg inModal={inModal} />
+        <CourseImg inModal={inModal} dataTrailer={dataTrailer} />
         <div
           className={`w-full box-border ${
             inModal ? 'px-3' : 'p-3'
@@ -69,9 +77,7 @@ const CardCourse: React.FC<Props> = ({ inModal, course }) => {
             {!inModal && (
               <div className="h-auto w-full py-2 flex">
                 <AddToCar />
-                <BtnPrimary className="py-3 w-full  rounded-md transform hover:-translate-y-1 transition-all duration-200 ease-out">
-                  Comprar ahora
-                </BtnPrimary>
+                <BtnBuyCourse />
               </div>
             )}
           </div>

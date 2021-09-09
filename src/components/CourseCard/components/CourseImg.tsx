@@ -1,13 +1,23 @@
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import useResponsive from '@Hooks/useResponsive';
-import { MEDIAQUERY_SM } from '@Constans';
+import { MEDIAQUERY_SM, MEDIAQUERY_LG } from '@Constans';
 import MostSelling from '@Components/Labels/MostSelling';
-import HoverSeeTrailer from './HoverSeeTrailer';
+import { DataTrailer } from '../ModalTrailer';
 
-const CourseImg: React.FC<{ inModal: boolean }> = ({ inModal }) => {
-  const isMovile = useResponsive({
+const HoverSeeTrailer = dynamic(() => import('./HoverSeeTrailer'));
+
+const CourseImg: React.FC<{ inModal: boolean; dataTrailer: DataTrailer }> = ({
+  inModal,
+  dataTrailer,
+}) => {
+  const isMobile = useResponsive({
     maxMediaQuery: MEDIAQUERY_SM,
+  });
+
+  const fromLaptop = useResponsive({
+    minMediaQuery: MEDIAQUERY_LG,
   });
 
   if (inModal) {
@@ -17,8 +27,8 @@ const CourseImg: React.FC<{ inModal: boolean }> = ({ inModal }) => {
           layout="responsive"
           loader={({ src }) => `${src}`}
           src={'https://source.unsplash.com/random'}
-          width={isMovile ? 80 : 320}
-          height={isMovile ? 80 : 225}
+          width={isMobile ? 80 : 320}
+          height={isMobile ? 80 : 225}
         />
       </figure>
     );
@@ -26,7 +36,7 @@ const CourseImg: React.FC<{ inModal: boolean }> = ({ inModal }) => {
 
   return (
     <div className="relative">
-      <HoverSeeTrailer />
+      {fromLaptop && <HoverSeeTrailer dataTrailer={dataTrailer} />}
       {!inModal && (
         <div className="absolute z-3 top-4 left-4">
           <MostSelling />

@@ -3,7 +3,6 @@ import type { ReactElement } from 'react';
 import Head from 'next/head';
 import { useQuery } from 'react-query';
 
-import CoursesByDefault from './sections/CoursesByDefault';
 import coursesService from '@Services/course';
 import { Category } from '@Types/course';
 import CourseCard from '@Components/CourseCard';
@@ -21,7 +20,6 @@ const CoursesOnline: React.FC<Props> & {
   const { data, isLoading } = useQuery('courses', () =>
     coursesService.getAll()
   );
-  console.log(data);
 
   const renderCourses = () => {
     return data.courses.map((course, i) => {
@@ -34,7 +32,6 @@ const CoursesOnline: React.FC<Props> & {
       <Head>
         <title>Cursos recomendados por la comunida crehana | Crehana</title>
       </Head>
-      {/* <CoursesByDefault /> */}
       <div className="grid grid-flow-row gap-10 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 ">
         {!isLoading && data && renderCourses()}
       </div>
