@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Main, Head, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
   // Cosas que podemos hacer desde el server
@@ -11,9 +11,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link rel="stylesheet" href="/css/tailwind-build.css" />
-        </Head>
+        <Head />
         <body className="scrool-none scroolbar bg-scroolbar-white text-gray-800 dark:text-white bg-white">
           <Main />
           <div id="modal"></div>

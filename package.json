@@ -4,11 +4,9 @@
   "description": "a clone of crehana",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build:tailwind && next dev",
-    "start": " next start",
-    "build": "npm run build:tailwind:prod && next build",
-    "build:tailwind": "tailwindcss-cli build ./public/css/tailwind.css -o ./public/css/tailwind-build.css",
-    "build:tailwind:prod": "cross-env NODE_ENV=production npm run build:tailwind",
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Luis Isasi",
@@ -44,7 +42,7 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@material-ui/icons": "^4.11.2",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.3.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
@@ -57,8 +55,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.4",
-    "postcss": "^8.2.9",
+    "postcss": "^8.3.6",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.1.1"
+    "tailwindcss": "^2.2.14"
   }
 }

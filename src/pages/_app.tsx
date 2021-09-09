@@ -10,6 +10,8 @@ import { ContextAuthProvider } from '@Context/contextAuth';
 import { ContextThemeProvider } from '@Context/contextTheme';
 import Layout from '@Hoc/Layout';
 
+import '../styles/global.css';
+
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
   enabledDark?: boolean;
