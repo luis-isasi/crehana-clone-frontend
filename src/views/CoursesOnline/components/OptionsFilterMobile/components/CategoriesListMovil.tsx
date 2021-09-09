@@ -3,7 +3,7 @@ import * as React from 'react';
 import SettingsIcon from '@Components/Icons/SettingsIcon';
 import { Category } from '@Types/course';
 
-import ModalCategoriesMovil from '../ModalCategoriesMovil';
+import ModalCategoriesMovil from '../ModalCategoriesMobile';
 
 interface Props {
   categories: Category[];
