@@ -20,7 +20,7 @@ const ModalTrailer: React.FC<{
   dataTrailer: DataTrailer;
 }> = ({ handleIsOpenModal, dataTrailer }) => {
   return (
-    <ModalBase className="bg-base-dark bg-opacity-80 blur-sm flex justify-center items-center">
+    <ModalBase className="bg-base-dark bg-opacity-80 backdrop-blur-sm -z-3 flex justify-center items-center">
       <div className="w-xl h-auto overflow-hidden rounded-md flex flex-col">
         <div className=" self-end">
           <CloseModal handleOpenModal={handleIsOpenModal} />
